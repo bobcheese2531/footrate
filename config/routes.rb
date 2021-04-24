@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "games#index"    #ルート設定
+  root "games#index"    #ルートURLを設定
   
   devise_for :users
   resources :games
