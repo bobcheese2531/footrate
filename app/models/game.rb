@@ -13,4 +13,12 @@ class Game < ApplicationRecord
     validates :date, :presence => true
     validates :game_text, :presence => true, length: { maximum: 150 }   #最大150文字
     validates :rate_team, :presence => true, length: { is: 3 }
+    
+    #検索機能
+    def self.search(search)
+        return Game.all unless search
+        #ホームチームとアウェイチームで検索の対象に
+        Game.where('home_team LIKE ? OR away_team LIKE?', "%#{search}%", "%#{search}%") 
+    end
+    
 end
