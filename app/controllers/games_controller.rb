@@ -61,13 +61,14 @@ class GamesController < ApplicationController
     
     
     private
+    
     def set_game
         @game = Game.find(params[:id])
     end
     
     def game_params
         params.require(:game).permit(:home_team, :away_team, :home_score, :away_score, :date, :game_text, :rate_team, :youtube_url,
-        rates_attributes: [:game_id, :position, :name, :rate, :rate_text, :id, :_destroy])  #複数モデルに同時保存用
+        rates_attributes: [:game_id, :position, :player_name, :player_text, :player_rate, :id, :_destroy])  #複数モデルに同時保存用
         .merge(user_id: current_user.id)
     end
     
