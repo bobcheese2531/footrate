@@ -1,6 +1,6 @@
 class Game < ApplicationRecord
     #アソシエーション
-    belongs_to :user, optional: true
+    belongs_to :user
     has_many :rates
     
     
