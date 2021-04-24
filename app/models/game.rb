@@ -13,5 +13,4 @@ class Game < ApplicationRecord
     validates :date, :presence => true
     validates :game_text, :presence => true, length: { maximum: 150 }   #最大150文字
     validates :rate_team, :presence => true, length: { is: 3 }
-    validates :youtube_url, allow_blank: true   #空でも保存可能
 end
