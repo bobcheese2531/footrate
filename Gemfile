@@ -63,3 +63,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #認証機能用Gem
 gem 'devise'
+#プロフィール画像用Gem
+gem 'carrierwave'
