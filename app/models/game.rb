@@ -2,6 +2,7 @@ class Game < ApplicationRecord
     #アソシエーション
     belongs_to :user
     has_many :rates
+    accepts_nested_attributes_for :rates, allow_destroy: true   #複数モデルへの同時保存に必要
     
     
     #バリデーション
