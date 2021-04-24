@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_24_081403) do
+ActiveRecord::Schema.define(version: 2021_04_24_084423) do
 
   create_table "games", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2021_04_24_081403) do
     t.string "youtube_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "rate_team"
   end
 
   create_table "rates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
