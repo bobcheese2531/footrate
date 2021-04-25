@@ -67,4 +67,7 @@ gem 'devise'
 gem 'carrierwave'
 #Bootstrap導入
 gem 'bootstrap', '~> 4.1.1'
+#jQueryを使用可能にする
 gem 'jquery-rails'
+#ネストしたフォームの作成
+gem 'cocoon'
