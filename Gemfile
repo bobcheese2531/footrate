@@ -65,3 +65,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 #プロフィール画像用Gem
 gem 'carrierwave'
+#Bootstrap導入
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'
