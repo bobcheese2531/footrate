@@ -1,0 +1,11 @@
+<h1>評価一覧</h1>
+
+<h2>検索</h2>
+  <%= form_tag(root_path, method: :get) do %>
+    <%= text_field_tag :search %>
+    <%= submit_tag 'Search', name: nil %>
+  <% end %>
+  
+<% @games.each do |game| %>
+  <%= render 'game', game: game %>
+<% end %>
