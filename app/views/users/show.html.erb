@@ -1,0 +1,12 @@
+<h1><%= @user.name %>のプロフィール</h1>
+
+<% if @user.image? %>
+  <%= @user.image %>
+<% end %>
+
+<%= @user.like_team %>
+<%= @user.user_text %>
+
+<% @games.each do |game| %>
+  <%= render 'games/game', game: game %>
+<% end %>

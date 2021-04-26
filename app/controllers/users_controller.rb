@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     
     # GET /users/id
     def show
+      @games = @user.games
     end
     
     # GET /users/id/edit
