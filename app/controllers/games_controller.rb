@@ -28,7 +28,7 @@ class GamesController < ApplicationController
         @game = Game.new(game_params)
         
         #YouTubeのURL取得
-        url = params[:games][:youtube_url]
+        url = params[:game][:youtube_url]
         url = url.last(11)  #動画を識別する最後の11桁を取得
         @game.youtube_url = url
         
@@ -68,7 +68,7 @@ class GamesController < ApplicationController
     
     def game_params
         params.require(:game).permit(:home_team, :away_team, :home_score, :away_score, :date, :game_text, :rate_team, :youtube_url,
-        rates_attributes: [:game_id, :position, :player_name, :player_text, :player_rate, :id, :_destroy])  #複数モデルに同時保存用
+        rates_attributes: [:game_id, :position, :player_name, :player_rate, :player_text, :id, :_destroy])  #複数モデルに同時保存用
         .merge(user_id: current_user.id)
     end
     
