@@ -1,0 +1,19 @@
+<h1><%= @game.home_team %> vs <%= @game.away_team %></h1>
+
+  <h2>試合情報</h2>
+  
+  <%= @game.date %>
+  <%= @game.home_team %> <%= @game.home_score %> : <%= @game.away_score %> <%= @game.away_team %>
+  <%= @game.game_text %>
+  
+  <% if @game.youtube_url %>
+    <iframe class="video" src="https://www.youtube.com/embed/<%= @game.youtube_url.last(11) %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <% end %>
+  
+  <h2><%= @game.rate_team %>の選手評価</h2>
+  
+  <% @game.rates.each do |rate| %>
+    <p><%= rate.position %> - <%= rate.player_name %></p>
+    <p><%= rate.player_rate %></p>
+    <p><%= rate.player_text %></p>
+  <% end %>
