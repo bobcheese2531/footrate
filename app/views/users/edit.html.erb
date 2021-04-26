@@ -1,0 +1,28 @@
+<h1>プロフィール編集</h1>
+
+<%= form_for(@user) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  
+    <div class="field">
+    <%= f.label :image %><br />
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user_text %><br />
+    <%= f.text_field :user_text %>
+  </div>
+
+  <div class="field">
+    <%= f.label :like_team %><br />
+    <%= f.text_field :like_team %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit "登録" %>
+  </div>
+  
+<% end %>
