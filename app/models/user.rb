@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   #アソシエーション
-  has_many :games
+  has_many :games, dependent: :destroy
   
   #バリデーション
   validates :name, presence: true, uniqueness: true #記入必須、'name'は被り禁止
