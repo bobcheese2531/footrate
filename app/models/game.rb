@@ -2,9 +2,14 @@ class Game < ApplicationRecord
     
   #アソシエーション
   belongs_to :user
-  has_many :rates
-  accepts_nested_attributes_for :rates, allow_destroy: true   #複数モデルへの同時保存に必要
+    #複数モデルへの同時保存に必要
+  has_many :rates, dependent: :destroy
+  accepts_nested_attributes_for :rates, allow_destroy: true 
+    #コメント機能
   has_many :comments
+    #いいね機能
+  has_many :likes
+  has_many :liked_users, through: :likes, source: :user
     
   #バリデーション
   validates :home_team, :presence => true, length: { is: 3 }  #チーム名3文字

@@ -13,6 +13,7 @@ class GamesController < ApplicationController
     def show
         @comments = @game.comments  #表示するよう
         @comment = Comment.new  #新規投稿用
+        @like = Like.new    #いいね
     end
     
     # GET /games/new
