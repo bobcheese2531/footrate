@@ -17,3 +17,15 @@
     <p><%= rate.player_rate %></p>
     <p><%= rate.player_text %></p>
   <% end %>
+  
+  <h2>コメント一覧</h2>
+    <% @comments.each do |c| %>
+      <p><%= c.user.name %></p>
+      <p><%= c.comment %></p>
+    <% end %>
+
+  <h2>コメントする</h2>
+  <%= form_for [@game, @comment] do |f| %>
+     <%= f.text_field :comment %>
+     <%= f.submit 'コメントする' %>
+  <% end %>

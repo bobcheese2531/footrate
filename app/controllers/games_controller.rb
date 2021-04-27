@@ -11,6 +11,8 @@ class GamesController < ApplicationController
     
     # GET /games/id
     def show
+        @comments = @game.comments  #表示するよう
+        @comment = Comment.new  #新規投稿用
     end
     
     # GET /games/new

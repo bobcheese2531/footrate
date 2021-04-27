@@ -6,6 +6,7 @@ class User < ApplicationRecord
          
   #アソシエーション
   has_many :games, dependent: :destroy
+  has_many :comments
   
   #バリデーション
   validates :name, presence: true, uniqueness: true #記入必須、'name'は被り禁止
