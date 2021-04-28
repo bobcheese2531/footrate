@@ -8,9 +8,14 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]   #いいね機能
   end
   
-  resources :users
+  resources :users do
+    member do
+     get :following, :followers #フォロー、フォロワーの表示
+    end
+  end
   
-   #チャット機能
-  resources :chats, only: [:create, :show]
+  resources :chats, only: [:create, :show]  #チャット機能
+  
+  resources :relationships, only: [:create, :destroy] #フォロー機能
   
 end

@@ -11,6 +11,9 @@
   <%= link_to 'chatを始める', chat_path(@user.id)%>
 <% end %>
 
+<%= render 'relationships/follow_button', user: @user %> 
+<%= render 'relationships/stats' %>
+
 <% @games.each do |game| %>
   <%= render 'games/game', game: game %>
 <% end %>

@@ -21,6 +21,19 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
     
+    #フォローしているユーザーの表示
+    def following
+      @user  = User.find(params[:id])
+      @users = @user.followings
+      render 'show_follow'
+    end
+    
+    #フォロワーの表示
+    def followers
+      @user  = User.find(params[:id])
+      @users = @user.followers
+      render 'show_follower'
+    end
     
     private
     
