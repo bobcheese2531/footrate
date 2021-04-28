@@ -7,6 +7,10 @@
 <%= @user.like_team %>
 <%= @user.user_text %>
 
+<% if user_signed_in? && current_user != @user %>
+  <%= link_to 'chatを始める', chat_path(@user.id)%>
+<% end %>
+
 <% @games.each do |game| %>
   <%= render 'games/game', game: game %>
 <% end %>

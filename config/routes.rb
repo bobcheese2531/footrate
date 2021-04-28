@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   
   resources :users
   
+   #チャット機能
+  resources :chats, only: [:create, :show]
+  
 end

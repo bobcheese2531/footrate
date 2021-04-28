@@ -11,6 +11,10 @@ class User < ApplicationRecord
     #いいね機能
   has_many :likes, dependent: :destroy
   has_many :liked_games, through: :likes, source: :game
+    #チャット機能
+  has_many :chats
+  has_many :user_rooms
+  
   
   #バリデーション
   validates :name, presence: true, uniqueness: true #記入必須、'name'は被り禁止
