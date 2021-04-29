@@ -8,7 +8,7 @@
 <%= @user.user_text %>
 
 <% if user_signed_in? && current_user != @user %>
-  <%= link_to 'chatを始める', chat_path(@user.id)%>
+  <%= link_to 'chatを始める', chat_path(@user.id), class: "btn btn-outline-success" %>
 <% end %>
 
 <%= render 'relationships/follow_button', user: @user %> 

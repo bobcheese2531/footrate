@@ -1,6 +1,5 @@
 <%= form_for(@game) do |form| %>
   <h2>試合情報</h2>
-  
   <%= form.text_field :home_team, :placeholder => "ホームチーム名(英3文字)" %>
   <%= form.text_field :away_team, :placeholder => "アウェイチーム名(英3文字)" %>
   <%= form.number_field :home_score, :placeholder => "ホームチーム点数" %>
@@ -8,14 +7,13 @@
   <%= form.date_select :date, :placeholder => "試合日" %>
   <%= form.text_area :game_text, size: "100x15", :placeholder => "試合の感想" %>
   <%= form.text_field :rate_team, :placeholder => "評価するチーム" %>
-  <%= form.text_field :youtube_url, :placeholder => "Youtube URl" %>
+  <%= form.text_field :youtube_url, :placeholder => "Youtube URL" %>
   
   <h2>選手評価</h2>
-  
   <%= form.fields_for :rates do |r| %>
     <%= render partial: "rate_fields", locals: {f: r} %>
   <% end %>
   
-  <%= form.submit '評価する' %>
+  <%= form.submit '評価する', class: "btn btn-primary" %>
   
 <% end %>

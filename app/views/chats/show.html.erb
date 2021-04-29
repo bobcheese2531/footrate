@@ -1,7 +1,7 @@
 <%= form_with model: @chat do |f| %>
   <%= f.text_field :message %>
   <%= f.hidden_field :room_id %>
-  <%= f.submit %>
+  <%= f.submit '送信', class: "btn btn-primary" %>
 <% end %>
 
 <table>
