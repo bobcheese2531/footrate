@@ -5,8 +5,7 @@
     <%= text_field_tag :search %>
     <%= submit_tag 'Search', name: nil %>
   <% end %>
-  
-<% @games.each do |game| %>
-  <%= render 'game', game: game %>
-<% end %>
 
+  <% @games.each do |game| %>
+    <%= render 'game', game: game %>
+  <% end %>
