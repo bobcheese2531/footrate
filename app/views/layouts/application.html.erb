@@ -11,23 +11,30 @@
 
   <body>
     
-    <!--ヘッダー-->
+    <!--ナビゲーションバー-->
     <header>
-      <a href="/">FootRate</a>
-        <% if user_signed_in? %>  
-          <ul>
-            <li><%= link_to "評価する", new_game_path %></li>
-            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-            <li><%= link_to "マイページ", "/users/#{current_user.id}" %></li>
-          </ul>
-        <% else %>
-          <ul>
-            <li><%= link_to "ログイン", new_user_session_path %></li>
-            <li><%= link_to "新規作成", new_user_registration_path %></li>
-          </ul>
-        <% end %>
+      <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="/">FootRate</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <% if user_signed_in? %>    
+                <%= link_to "評価する", new_game_path, class: "nav-item nav-link "%>
+                <%= link_to "マイページ", "/users/#{current_user.id}", class: "nav-item nav-link" %>
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-item nav-link" %>
+              <% else %>
+                <%= link_to "ログイン", new_user_session_path, class: "nav-item nav-link" %>
+                <%= link_to "新規作成", new_user_registration_path, class: "nav-item nav-link" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </nav>  
     </header>
-    <!--ヘッダー終了-->
+    <!--ナビゲーションバー終了-->
     
     <%= yield %>
   </body>
