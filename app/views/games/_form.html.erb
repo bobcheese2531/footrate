@@ -1,13 +1,44 @@
 <%= form_for(@game) do |form| %>
   <h2>試合情報</h2>
-  <%= form.text_field :home_team, :placeholder => "ホームチーム名(英3文字)" %>
-  <%= form.text_field :away_team, :placeholder => "アウェイチーム名(英3文字)" %>
-  <%= form.number_field :home_score, :placeholder => "ホームチーム点数" %>
-  <%= form.number_field :away_score, :placeholder => "アウェイチーム点数" %>
-  <%= form.date_select :date, :placeholder => "試合日" %>
-  <%= form.text_area :game_text, size: "100x15", :placeholder => "試合の感想" %>
-  <%= form.text_field :rate_team, :placeholder => "評価するチーム" %>
-  <%= form.text_field :youtube_url, :placeholder => "Youtube URL" %>
+  <div class="field">
+    <%= form.label :home_team, "*ホームチーム" %><br />
+    <%= form.text_field :home_team, :placeholder => "英3文字" %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :away_team, "*アウェイチーム" %><br />
+    <%= form.text_field :away_team, :placeholder => "英3文字" %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :home_score, "*ホームチーム点数" %><br />
+    <%= form.number_field :home_score %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :away_score, "*アウェイチーム点数" %><br />
+    <%= form.number_field :away_score %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :date, "*試合日" %><br />
+    <%= form.date_select :date %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :game_text, "*試合の感想" %><br />
+    <%= form.text_area :game_text, size: "50x3", :placeholder => "最大150文字" %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :rate_team, "*評価するチーム" %><br />
+    <%= form.text_field :rate_team, :placeholder => "英3文字" %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :youtube_url, "YouTube URL" %><br />
+    <%= form.text_field :youtube_url, :placeholder => "URLを貼り付けてください" %>
+  </div>
   
   <h2>選手評価</h2>
   <%= form.fields_for :rates do |r| %>

@@ -1,13 +1,28 @@
 <div class="nested-fields">
-  <div>
-  <%= f.select :position, {'GK': 'GK', 'CB': 'CB', 'RB': 'RB', 'LB': 'LB', 'DMF': 'DMF', 'CMF': 'CMF', 'OMF': 'OMF', 'RMF': 'RMF', 'LMF': 'LMF', 'RWG': 'RWG', 'LWG': 'LWG', 'ST': 'ST', 'CF': 'CF' }, { include_blank: '選択してください' } %>
-  <%= f.text_field :player_name, :placeholder => "選手名" %>
-  <%= f.select :player_rate, {'0': '0', '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10}, { include_blank: '点数'} %>
-  <%= f.text_area :player_text, size: "50x5", :placeholder => "選手へのコメント" %>
+  <div class="field">
+    <%= f.label :position, "*ポジション" %><br />
+    <%= f.select :position, {'GK': 'GK', 'CB': 'CB', 'RB': 'RB', 'LB': 'LB', 'DMF': 'DMF', 'CMF': 'CMF', 'OMF': 'OMF', 'RMF': 'RMF', 'LMF': 'LMF', 'RWG': 'RWG', 'LWG': 'LWG', 'ST': 'ST', 'CF': 'CF' }, { include_blank: '選択してください' } %>
   </div>
   
+  <div class="field">
+    <%= f.label :player_name, "*選手名" %><br />
+    <%= f.text_field :player_name, :placeholder => "入力してください" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :player_rate, "*選手評価" %><br />
+    <%= f.select :player_rate, {'0': '0', '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10}, { include_blank: '点数'} %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :player_text, "*コメント" %><br />
+    <%= f.text_area :player_text, size: "50x2", :placeholder => "最大100文字" %>
+  </div>
+  
+  <div class="field">
   <div class="remove">  
     <%= link_to_remove_association "remove", f, class: "btn btn-outline-danger" %>
+  </div>
   </div>
   
 </div>
