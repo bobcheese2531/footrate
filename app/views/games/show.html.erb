@@ -18,17 +18,32 @@
     <p><%= rate.player_text %></p>
   <% end %>
   
+  <!--コメン機能-->
   <h2>コメント一覧</h2>
-    <% @comments.each do |c| %>
-      <p><%= c.user.name %></p>
-      <p><%= c.comment %></p>
-    <% end %>
-
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">名前</th>
+          <th scope="col">コメント</th>
+        </tr>
+      </thead>
+      <% @comments.each do |c| %>
+      <tbody>
+        <tr>
+          <td><%= c.user.name %></td>
+          <td><%= c.comment %></td>
+        </tr>
+      </tbody>
+      <% end %>
+    </table>
   <h2>コメントする</h2>
   <%= form_for [@game, @comment] do |f| %>
-     <%= f.text_field :comment %>
-     <%= f.submit 'コメントする', class: "btn btn-primary" %>
+    <%= f.text_area :comment, size: "50x2", :placeholder => "最大100文字" %>
+    <div>
+      <%= f.submit 'コメントする', class: "btn btn-primary" %>
+    </div>
   <% end %>
+  <!--コメント機能終わり-->
   
   <h3>いいね件数: <%= @game.likes.count %></h3>
   <% if current_user.already_liked?(@game) %>
