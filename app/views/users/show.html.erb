@@ -1,19 +1,31 @@
 <h1><%= @user.name %>のプロフィール</h1>
+  <h2>基本情報</h2>
+  <% if user_signed_in? && current_user != @user %>
+    <%= link_to 'chatを始める', chat_path(@user.id), class: "btn btn-outline-success" %>
+  <% end %>
+  <%= render 'relationships/follow_button', user: @user %> 
+  <%= render 'relationships/stats' %>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">名前</th>
+        <th scope="col">コメント</th>
+        <th scope="col">好きなチーム</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @user.name %></td>
+        <td><%= @user.user_text %></td>
+        <td><%= @user.like_team %></td>
+      </tr>
+    </tbody>
+  </table>
 
-<% if @user.image? %>
-  <%= @user.image %>
-<% end %>
 
-<%= @user.like_team %>
-<%= @user.user_text %>
-
-<% if user_signed_in? && current_user != @user %>
-  <%= link_to 'chatを始める', chat_path(@user.id), class: "btn btn-outline-success" %>
-<% end %>
-
-<%= render 'relationships/follow_button', user: @user %> 
-<%= render 'relationships/stats' %>
-
-<% @games.each do |game| %>
-  <%= render 'games/game', game: game %>
-<% end %>
+  <h2>投稿一覧</h2>
+  <% @games.each do |game| %>
+    <%= render 'games/game', game: game %>
+  <% end %>

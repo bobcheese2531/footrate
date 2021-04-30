@@ -1,9 +1,22 @@
- <% @user.followers.each do |user| %>
-<table>
-<tr>
-  <td>  <%= user.name %> </td>
-  <td><%= link_to '詳細', user_path(user), class: "btn btn-primary" %></td>
-</tr>
+<h1>フォロワー</h1>
 
-</table>
+<% @user.followers.each do |user| %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">名前</th>
+        <th scope="col">コメント</th>
+        <th scope="col">好きなチーム</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.user_text %></td>
+        <td><%= user.like_team %></td>
+        <td><%= link_to '詳細', user_path(user), class: "btn btn-primary" %></td>
+      </tr>
+    </tbody>
+  </table>
 <% end %>
