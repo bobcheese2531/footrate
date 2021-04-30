@@ -1,6 +1,5 @@
 <h1>フォロー</h1>
 
-<% @user.followings.each do |user| %>
   <table class="table">
     <thead>
       <tr>
@@ -10,14 +9,14 @@
         <th scope="col"></th>
       </tr>
     </thead>
+    <% @user.followings.each do |user| %>
     <tbody>
       <tr>
         <td><%= user.name %></td>
         <td><%= user.user_text %></td>
         <td><%= user.like_team %></td>
         <td><%= link_to '詳細', user_path(user), class: "btn btn-primary" %></td>
-        
       </tr>
     </tbody>
+    <% end %>
   </table>
-<% end %>
