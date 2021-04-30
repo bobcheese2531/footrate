@@ -1,22 +1,70 @@
-<h1><%= @game.home_team %> vs <%= @game.away_team %></h1>
+<div class="container">
+  <div class="row justify-content-between">
+    <h1><%= @game.home_team %> vs <%= @game.away_team %></h1>
+    <div>
+    <% if user_signed_in? && current_user.id == @game.user.id %>
+      <%= link_to '編集', edit_game_path(@game), class: "btn btn-outline-secondary" %>
+      <%= link_to '削除', "/games/#{@game.id}", method: :delete, class: "btn btn-outline-danger", data: {confirm: "削除しますか？"} %>
+    <% end %>
+    </div>
+  </div>
+</div>
 
+  <!--試合情報-->
   <h2>試合情報</h2>
+  <table class="table table-bordered">
+    <tr>
+      <th scope="row">投稿者</th>
+      <td><%= @game.user.name %></td>
+    </tr>
+    <tr>
+      <th scope="row">試合日</th>
+      <td><%= @game.date %></td>
+    </tr>
+    <tr>
+      <th scope="row">スコア</th>
+      <td><%= @game.home_team %> <%= @game.home_score %> : <%= @game.away_score %> <%= @game.away_team %></td>
+    </tr>
+    <tr>
+      <th scope="row">感想</th>
+      <td><%= @game.game_text %></td>
+    </tr>
+    <tr>
+      <th scope="row">ハイライト</th>
+      <% if @game.youtube_url %> 
+        <td>
+          <iframe class="video" src="https://www.youtube.com/embed/<%= @game.youtube_url.last(11) %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </td>
+      <% else %>
+        <td>ハイライト映像はありません</td>
+      <% end %>
+    </tr>
+  </table>
+  <!--試合情報終わり-->
   
-  <%= @game.date %>
-  <%= @game.home_team %> <%= @game.home_score %> : <%= @game.away_score %> <%= @game.away_team %>
-  <%= @game.game_text %>
-  
-  <% if @game.youtube_url %>
-    <iframe class="video" src="https://www.youtube.com/embed/<%= @game.youtube_url.last(11) %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  <% end %>
-  
+  <!--選手評価-->
   <h2><%= @game.rate_team %>の選手評価</h2>
-  
-  <% @game.rates.each do |rate| %>
-    <p><%= rate.position %> - <%= rate.player_name %></p>
-    <p><%= rate.player_rate %></p>
-    <p><%= rate.player_text %></p>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">ポジション</th>
+        <th scope="col">選手名</th>
+        <th scope="col">点数</th>
+        <th scope="col">コメント</th>
+      </tr>
+    </thead>
+    <% @game.rates.each do |rate| %>
+    <tbody>
+      <tr>
+        <td><%= rate.position %></td>
+        <td><%= rate.player_name %></td>
+        <td><%= rate.player_rate %></td>
+        <td><%= rate.player_text %></td>
+      </tr>
+    </tbody>
   <% end %>
+  </table>
+  <!--選手評価終わり-->
   
   <!--コメン機能-->
   <h2>コメント一覧</h2>
@@ -36,18 +84,27 @@
       </tbody>
       <% end %>
     </table>
+    
   <h2>コメントする</h2>
   <%= form_for [@game, @comment] do |f| %>
-    <%= f.text_area :comment, size: "50x2", :placeholder => "最大100文字" %>
-    <div>
-      <%= f.submit 'コメントする', class: "btn btn-primary" %>
+    <div class="container">
+      <div class="row justify-content-start">
+        <%= f.text_area :comment, size: "50x2", :placeholder => "最大100文字" %>
+        <%= f.submit 'コメントする', class: "btn btn-primary" %>
+      </div>
     </div>
   <% end %>
   <!--コメント機能終わり-->
   
-  <h3>いいね件数: <%= @game.likes.count %></h3>
-  <% if current_user.already_liked?(@game) %>
-    <%= button_to 'いいねを取り消す', game_like_path(@game), method: :delete, class: "btn btn-success" %>
-  <% else %>
-    <%= button_to 'いいね', game_likes_path(@game), class: "btn btn-outline-success" %>
-  <% end %>
+  <!--いいね機能-->
+  <h3>いいね数: <%= @game.likes.count %></h3>
+  <div class="container">
+    <div class="row justify-content-start">
+      <% if current_user.already_liked?(@game) %>
+        <%= button_to 'いいねを取り消す', game_like_path(@game), method: :delete, class: "btn btn-success" %>
+      <% else %>
+        <%= button_to 'いいね', game_likes_path(@game), class: "btn btn-outline-success" %>
+      <% end %>
+    </div>
+  </div>
+  <!--いいね機能終わり-->
