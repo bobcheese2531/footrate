@@ -1,27 +1,23 @@
 <h1><%= @user.name %>のプロフィール</h1>
-  <h2>基本情報</h2>
   <% if user_signed_in? && current_user != @user %>
     <%= link_to 'chatを始める', chat_path(@user.id), class: "btn btn-outline-success" %>
   <% end %>
   <%= render 'relationships/follow_button', user: @user %> 
   <%= render 'relationships/stats' %>
   
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">名前</th>
-        <th scope="col">コメント</th>
-        <th scope="col">好きなチーム</th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><%= @user.name %></td>
-        <td><%= @user.user_text %></td>
-        <td><%= @user.like_team %></td>
-      </tr>
-    </tbody>
+  <table class="table table-bordered">
+    <tr>
+      <th scope="col">名前</th>
+      <td><%= @user.name %></td>
+    </tr>
+    <tr>
+      <th scope="col">好きなチーム</th>
+      <td><%= @user.like_team %></td>
+    </tr>
+    <tr>
+      <th scope="col">コメント</th>
+      <td><%= @user.user_text %></td>
+    </tr>
   </table>
 
 
