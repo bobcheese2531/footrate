@@ -1,27 +1,34 @@
-<h1><%= @user.name %>のプロフィール</h1>
-  <% if user_signed_in? && current_user != @user %>
-    <%= link_to 'chatを始める', chat_path(@user.id), class: "btn btn-outline-success" %>
-  <% end %>
-  <%= render 'relationships/follow_button', user: @user %> 
-  <%= render 'relationships/stats' %>
+<div class="container">
+  <div class="row justify-content-between">
+    <h1><%= @user.name %>のプロフィール</h1>
+    <div>
+      <% if user_signed_in? && current_user != @user %>
+        <%= link_to 'chatを始める', chat_path(@user.id), class: "btn btn-outline-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>
   
-  <table class="table table-bordered">
-    <tr>
-      <th scope="col">名前</th>
-      <td><%= @user.name %></td>
-    </tr>
-    <tr>
-      <th scope="col">好きなチーム</th>
-      <td><%= @user.like_team %></td>
-    </tr>
-    <tr>
-      <th scope="col">コメント</th>
-      <td><%= @user.user_text %></td>
-    </tr>
-  </table>
+<%= render 'relationships/follow_button', user: @user %> 
+<%= render 'relationships/stats' %>
+  
+<table class="table table-bordered">
+  <tr>
+    <th scope="col">名前</th>
+    <td><%= @user.name %></td>
+  </tr>
+  <tr>
+    <th scope="col">好きなチーム</th>
+    <td><%= @user.like_team %></td>
+  </tr>
+  <tr>
+    <th scope="col">コメント</th>
+    <td><%= @user.user_text %></td>
+  </tr>
+</table>
 
 
-  <h2>投稿一覧</h2>
-  <% @games.each do |game| %>
-    <%= render 'games/game', game: game %>
-  <% end %>
+<h2>投稿一覧</h2>
+<% @games.each do |game| %>
+  <%= render 'games/game', game: game %>
+<% end %>
