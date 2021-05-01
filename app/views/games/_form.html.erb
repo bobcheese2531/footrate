@@ -3,8 +3,13 @@
 </div>
 
 <%= form_for(@game) do |form| %>
+
   <h2>試合情報</h2>
     <table class="table table-bordered">
+      <tr>
+        <th scope="col"><%= form.label :date, "*日付" %></th>
+        <td><%= form.date_select :date %></td>
+      </tr>
       <tr>
         <th scope="col"><%= form.label :home_team, "*ホームチーム" %></th>
         <td><%= form.text_field :home_team, :placeholder => "英3文字" %></td>
@@ -19,15 +24,15 @@
       </tr>
       <tr>
         <th scope="col"><%= form.label :away_score, "*アウェイチーム点数" %></th>
-        <td><%= form.text_field :away_score, :placeholder => "英3文字" %></td>
-      </tr>
-      <tr>
-        <th scope="col"><%= form.label :date, "*日付" %></th>
-        <td><%= form.date_select :date %></td>
+        <td><%= form.text_field :away_score %></td>
       </tr>
       <tr>
         <th scope="col"><%= form.label :rate_team, "*評価するチーム" %></th>
         <td><%= form.text_field :rate_team, :placeholder => "英3文字" %></td>
+      </tr>
+      <tr>
+        <th scope="col"><%= form.label :game_text, "*試合の感想" %></th>
+        <td><%= form.text_area :game_text, size: "50x3", :placeholder => "最大150文字" %></td>
       </tr>
       <tr>
         <th scope="col"><%= form.label :youtube_url, "YouTube URL" %></th>
@@ -39,7 +44,9 @@
     <%= form.fields_for :rates do |r| %>
       <%= render partial: "rate_fields", locals: {f: r} %>
     <% end %>
-  
-  <%= form.submit '評価する', class: "btn btn-primary" %>
+    
+  <div class="my-3">
+    <%= form.submit '評価する', class: "btn btn-primary" %>
+  </div>  
   
 <% end %>
