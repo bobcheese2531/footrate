@@ -6,16 +6,22 @@
         <th scope="col">名前</th>
         <th scope="col">コメント</th>
         <th scope="col">好きなチーム</th>
-        <th scope="col"></th>
       </tr>
     </thead>
     <% @user.followings.each do |user| %>
     <tbody>
       <tr>
-        <td><%= user.name %></td>
+        <td>
+          <a href="/users/<%= user.id %>">
+            <% if user.image? %>
+              <%= image_tag user.image.url, :size =>'50x50' %><%= user.name %>
+            <% else %>
+              <%= user.name %>
+            <% end %>
+          </a>
+        </td>
         <td><%= user.user_text %></td>
         <td><%= user.like_team %></td>
-        <td><%= link_to '詳細', user_path(user), class: "btn btn-primary" %></td>
       </tr>
     </tbody>
     <% end %>

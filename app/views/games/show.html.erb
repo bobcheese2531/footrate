@@ -1,3 +1,4 @@
+<!--見出し-->
 <div class="container">
   <div class="row justify-content-between">
     <h1><%= @game.home_team %> vs <%= @game.away_team %></h1>
@@ -9,6 +10,7 @@
     </div>
   </div>
 </div>
+<!--見出し終わり-->
 
   <!--試合情報-->
   <h2>試合情報</h2>
@@ -78,7 +80,15 @@
       <% @comments.each do |c| %>
       <tbody>
         <tr>
-          <td><%= c.user.name %></td>
+          <td>
+            <a href="/users/<%= c.user.id %>">
+              <% if c.user.image? %>
+                <%= image_tag c.user.image.url, :size =>'50x50' %><%= c.user.name %>
+              <% else %>
+                <%= c.user.name %>
+              <% end %>
+            </a>
+          </td>
           <td><%= c.comment %></td>
         </tr>
       </tbody>

@@ -1,6 +1,8 @@
+<!--見出し-->
 <div class="container">
   <div class="row justify-content-between">
     <h1><%= @user.name %>のプロフィール</h1>
+    
     <% if user_signed_in? && current_user != @user %>
     <div class="d-flex justify-content-end">
       <div class="mr-2 my-2">
@@ -11,30 +13,44 @@
       </div>
     </div>
     <% end %>
+    
   </div>
 </div>
+<!--見出し終わり-->
 
 <%= render 'relationships/stats' %>
   
 <table class="table table-bordered">
+  
+  <% if @user.image? %>
   <tr>
-    <th scope="col">名前</th>
+    <th scope="col">プロフィール画像</th>
+    <td><%= image_tag @user.image.url, :size =>'150x150' %></td>
+  </tr>
+  <% end %>
+  
+  <tr>
+    <th scope="col">ユーザーネーム</th>
     <td><%= @user.name %></td>
   </tr>
+  
   <tr>
     <th scope="col">好きなチーム</th>
     <td><%= @user.like_team %></td>
   </tr>
+  
   <tr>
     <th scope="col">コメント</th>
     <td><%= @user.user_text %></td>
   </tr>
+  
   <% if user_signed_in? && current_user.id == @user.id %>
   <tr>
     <th scope="col"></th>
     <td><%= link_to 'プロフィールを編集', edit_user_path(@user), class: "btn btn-outline-secondary" %></td>
   </tr>
   <% end %>
+  
 </table>
 
 
