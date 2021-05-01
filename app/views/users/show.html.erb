@@ -1,15 +1,19 @@
 <div class="container">
   <div class="row justify-content-between">
     <h1><%= @user.name %>のプロフィール</h1>
-    <div>
-      <% if user_signed_in? && current_user != @user %>
-        <%= link_to 'chatを始める', chat_path(@user.id), class: "btn btn-outline-success" %>
-      <% end %>
+    <% if user_signed_in? && current_user != @user %>
+    <div class="d-flex justify-content-end">
+      <div class="mr-2 my-2">
+        <%= render 'relationships/follow_button', user: @user %> 
+      </div>
+      <div class="ml-2 my-2">
+        <%= link_to 'チャットする', chat_path(@user.id), class: "btn btn-outline-success" %>
+      </div>
     </div>
+    <% end %>
   </div>
 </div>
-  
-<%= render 'relationships/follow_button', user: @user %> 
+
 <%= render 'relationships/stats' %>
   
 <table class="table table-bordered">
@@ -25,6 +29,12 @@
     <th scope="col">コメント</th>
     <td><%= @user.user_text %></td>
   </tr>
+  <% if user_signed_in? && current_user.id == @user.id %>
+  <tr>
+    <th scope="col"></th>
+    <td><%= link_to 'プロフィールを編集', edit_user_path(@user), class: "btn btn-outline-secondary" %></td>
+  </tr>
+  <% end %>
 </table>
 
 

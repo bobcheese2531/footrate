@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       if @user.id == current_user.id
         @user.update(user_params)
       end
-      redirect_to root_path
+      redirect_to user_path
     end
     
     #フォローしているユーザーの表示
