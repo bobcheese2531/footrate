@@ -3,6 +3,8 @@
 </div>
 
 <%= form_for(@game) do |form| %>
+  エラーメッセージ
+  <%= render 'layouts/error_messages', model: form.object %>
 
   <h2>試合情報</h2>
     <table class="table table-bordered">
