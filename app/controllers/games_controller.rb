@@ -6,7 +6,7 @@ class GamesController < ApplicationController
     
     # GET /games
     def index
-        @games = Game.all.search(params[:search])
+        @games = Game.page(params[:page]).per(9).order('created_at DESC').search(params[:search])
     end
     
     # GET /games/id
