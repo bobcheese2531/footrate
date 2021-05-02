@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+    attributes:
+      game:
+        home_team: ホームチーム
+        away_team: アウェイチーム
+        home_score: ホーム点数
+        away_score: アウェイ点数
+        rate_team: 評価するチーム
+        game_text:  試合の感想
+      game/rates:
+        position: ポジション
+        player_name: 選手名
+        player_rate: 点数
+        player_text: コメント

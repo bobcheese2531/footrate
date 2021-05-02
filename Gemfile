@@ -73,3 +73,5 @@ gem 'jquery-rails'
 gem 'cocoon'
 #ページネーション
 gem 'kaminari'
+#日本語表示
+gem 'rails-i18n'
