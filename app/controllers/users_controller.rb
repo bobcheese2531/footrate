@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     
     # GET /users/id
     def show
-      @games = @user.games.page(params[:page]).per(9).order('created_at DESC')
+      @games = @user.games.page(params[:page]).per(10).order('created_at DESC')
     end
     
     # GET /users/id/edit

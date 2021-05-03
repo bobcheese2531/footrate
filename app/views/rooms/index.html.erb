@@ -1,0 +1,26 @@
+<h1>チャット一覧</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">名前</th>
+      <th></th>
+    </tr>
+  </thead>
+  <% @anotherUserRooms.each do |ur| %>
+  <tbody>
+    <tr>
+      <td>
+    <%= link_to chat_path(ur) do %>
+      <% if ur.user.image? %>
+              <%= image_tag ur.user.image.url, :size =>'50x50' %><%= ur.user.name %>
+            <% else %>
+              <%= ur.user.name %>
+            <% end %>
+    <% end %>
+    </td>
+    <td><%= link_to "チャットを表示", chat_path(@user.user_rooms), class: "btn btn-outline-success" %></td>
+    </tr>
+  </tbody>
+<% end %>
+</table>

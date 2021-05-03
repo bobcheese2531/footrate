@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   
   resources :chats, only: [:create, :show]  #チャット機能
   
+  resources :rooms, only: [:index]  #チャット一覧表示
   
   resources :relationships, only: [:create, :destroy] #フォロー機能
   

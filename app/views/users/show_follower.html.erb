@@ -6,6 +6,7 @@
         <th scope="col">名前</th>
         <th scope="col">コメント</th>
         <th scope="col">好きなチーム</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <% @user.followers.each do |user| %>
@@ -16,12 +17,15 @@
             <% if user.image? %>
               <%= image_tag user.image.url, :size =>'50x50' %><%= user.name %>
             <% else %>
-              <%= user.name %>
+              <%= image_tag 'default.png', :size =>'50x50' %><%= user.name %>
             <% end %>
           </a>
         </td>
         <td><%= user.user_text %></td>
         <td><%= user.like_team %></td>
+        <% if current_user.id != user.id %>
+          <td><%= link_to 'チャットする', chat_path(user.id), class: "btn btn-outline-success" %></td>
+        <% end %>
       </tr>
     </tbody>
     <% end %>
