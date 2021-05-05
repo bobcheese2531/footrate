@@ -92,7 +92,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.action_mailer.delivery_method = :smtp
   
-  host = "#{ENV['HEROKU_APPNAME']}.herokuapp.com"
+  host = "footrate.herokuapp.com"
   
   config.action_mailer.default_url_options = { host: host, protocol: 'https' }
   
