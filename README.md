@@ -11,6 +11,17 @@
 # URL
  https://footrate.herokuapp.com/
 
+# 実装した機能
+ 投稿機能  
+ 試合検索機能  
+ コメント機能  
+ いいね機能  
+ フォロー・フォロワー機能  
+ チャット機能
+# 実装予定の機能
+ ユーザー認証機能  
+ ライブチャット機能  
+ その他
 # テスト用アカウント
  Eメール: footratetest1@gmail.com  
  パスワード: testtest
