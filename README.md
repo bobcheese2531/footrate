@@ -10,13 +10,18 @@
 
 # URL
  https://footrate.herokuapp.com/
- 
 
+# テスト用アカウント
+ Eメール: footratetest1@gmail.com  
+ パスワード: testtest
 # 開発環境
 ## バックエンド
- Ruby 2.5.1, Ruby on Rails 5.2.5
+ Ruby 2.5.1  
+ Ruby on Rails 5.2.5
 ## フロントエンド
- HTML, CSS, JavaSCript
+ HTML  
+ CSS  
+ JavaSCript
 ## データベース
  MySQL
 ## ソースコード管理
