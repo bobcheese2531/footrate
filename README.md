@@ -1,24 +1,41 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリケーション名:「Footrate」
+ サッカー「football」の試合を観て出場した選手を評価「rate」して、他の人と意見を交換するアプリケーション。  
+ 
+# アプリケーション概要
+ 世の中にいる全欧州サッカーファンを対象にしたアプリケーションです。  
+ 欧州サッカーは基本的に深夜にやっていて、見終わった後に誰とも感想を共有することができませんでした。  
+ そこでこのアプリを通して意見を交換する場を提供したいです。  
 
-Things you may want to cover:
+# URL
+ https://footrate.herokuapp.com/
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 実装した機能
+ 投稿機能  
+ 試合検索機能  
+ コメント機能  
+ いいね機能  
+ フォロー・フォロワー機能  
+ チャット機能
+# 実装予定の機能
+ ユーザー認証機能  
+ ライブチャット機能  
+ その他
+# テスト用アカウント
+ Eメール: footratetest1@gmail.com  
+ パスワード: testtest
+# 開発環境
+## バックエンド
+ Ruby 2.5.1  
+ Ruby on Rails 5.2.5
+## フロントエンド
+ HTML  
+ CSS  
+ JavaSCript
+## データベース
+ MySQL
+## ソースコード管理
+ GitHub
+## エディタ
+ AWS Cloud9
