@@ -18,6 +18,10 @@
  いいね機能  
  フォロー・フォロワー機能  
  チャット機能
+ 
+# デモ画像
+## ログイン画面
+![footrate_login](https://user-images.githubusercontent.com/78723740/119221774-d9620680-bb2b-11eb-9b7b-c376d29c8135.gif)
 # 実装予定の機能
  ユーザー認証機能  
  ライブチャット機能  
