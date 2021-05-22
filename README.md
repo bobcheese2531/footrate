@@ -1,6 +1,6 @@
 # README
 
-# アプリケーション名:「Footrate」
+# アプリケーション名:「FootRate」
  サッカー「football」の試合を観て出場した選手を評価「rate」して、他の人と意見を交換するアプリケーション。  
  
 # アプリケーション概要
@@ -35,7 +35,3 @@
  JavaSCript
 ## データベース
  MySQL
-## ソースコード管理
- GitHub
-## エディタ
- AWS Cloud9
