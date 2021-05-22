@@ -30,6 +30,8 @@
 ![footrate_post](https://user-images.githubusercontent.com/78723740/119221838-44abd880-bb2c-11eb-85ad-a2d67080cb30.gif)
 ## コメント機能
 ![footrate_comment](https://user-images.githubusercontent.com/78723740/119221848-4d041380-bb2c-11eb-9848-b8a2b58b0070.gif)
+## いいね機能
+![footrate_like](https://user-images.githubusercontent.com/78723740/119221931-c1d74d80-bb2c-11eb-8ff1-ed8f4eba723a.gif)
 ## フォロー機能
 ![footrate_follow](https://user-images.githubusercontent.com/78723740/119221851-57bea880-bb2c-11eb-8ff8-02da59c64095.gif)
 ## チャット機能
