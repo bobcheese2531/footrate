@@ -34,11 +34,27 @@ RSpec.describe Game, type: :model do
   end
     
   
-  # context "チーム名が3 文字出でない場合無効" do
-  #   it "ホームチームが2文字の場合"
-  #   it "アウェイチームが4文字の場合"
-  #   it "評価するチームが6文字の場合"
-  # end
+  context "チーム名が3 文字出でない場合無効" do
+    
+    it "ホームチームが2文字の場合" do 
+      game = build(:game, home_team: "MC")
+      game.valid?
+      expect(game.errors[:home_team]).to include("は3文字で入力してください")
+    end
+    
+    it "アウェイチームが4文字の場合" do
+      game = build(:game, away_team: "ManC")
+      game.valid?
+      expect(game.errors[:away_team]).to include("は3文字で入力してください")
+    end
+    
+    it "評価するチームが7文字の場合" do
+      game = build(:game, rate_team: "ManCity")
+      game.valid?
+      expect(game.errors[:rate_team]).to include("は3文字で入力してください")
+    end
+    
+  end
   
   context "点数がない場合無効" do
     
@@ -56,10 +72,21 @@ RSpec.describe Game, type: :model do
     
   end
   
-  # context "点数が数字出ない場合無効" do
-  #   it "ホームチームの点数が数字出ない場合"
-  #   it "アウェイチームの点数が数字出ない場合"
-  # end
+  context "点数が数字出ない場合無効" do
+    
+    it "ホームチームの点数が数字出ない場合" do
+      game = build(:game, user_id: @user_id, home_score: "one")
+      game.valid?
+      expect(game.errors[:home_score]).to include("は数値で入力してください")
+    end
+    
+    it "アウェイチームの点数が数字出ない場合" do
+      game = build(:game, user_id: @user_id, away_score: "一")
+      game.valid?
+      expect(game.errors[:away_score]).to include("は数値で入力してください")
+    end
+    
+  end
   
   it "日付がない場合無効" do
     game = build(:game, user_id: @user.id, date: "")
