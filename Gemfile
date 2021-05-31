@@ -79,6 +79,9 @@ gem 'kaminari'
 #日本語表示
 gem 'rails-i18n'
 
+gem 'rubocop'
+gem 'rubocop-rails'
+
 group :production do
   gem 'rails_12factor'
 end
