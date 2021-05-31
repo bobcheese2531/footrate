@@ -34,9 +34,7 @@ class User < ApplicationRecord
     end
     #フォローする
     def follow(other_user)
-      unless self == other_user
-        self.relationships.find_or_create_by(follow_id: other_user.id)
-      end
+      self.relationships.find_or_create_by(follow_id: other_user.id) unless self == other_user
     end
     #フォローを外す
     def unfollow(other_user)

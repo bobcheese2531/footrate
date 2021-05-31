@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
     
   #before_action
-    before_action :set_user, only: %i[ show edit update ]
+    before_action :set_user, only: %i[ show edit update following followers ]
     before_action :authenticate_user!, except: [:show]
     
     # GET /users/id
     def show
-      @games = @user.games.page(params[:page]).per(10).order('created_at DESC')
+      @games = @user.games.get_games(params[:page], params[:search])
     end
     
     # GET /users/id/edit
@@ -15,22 +15,18 @@ class UsersController < ApplicationController
     
     # PATCH/PUT /users/id
     def update
-      if @user.id == current_user.id
-        @user.update(user_params)
-      end
+      @user.update(user_params) if @user.id == current_user.id
       redirect_to user_path
     end
     
     #フォローしているユーザーの表示
     def following
-      @user  = User.find(params[:id])
       @users = @user.followings
       render 'show_follow'
     end
     
     #フォロワーの表示
     def followers
-      @user  = User.find(params[:id])
       @users = @user.followers
       render 'show_follower'
     end
