@@ -1,0 +1,27 @@
+<table class="table table-bordered">
+  
+  <thead class="thead">
+    <tr>
+      <th scope="col">名前</th>
+      <th scope="col">メッセージ</th>
+    </tr>
+  </thead>
+  
+  <% @chats.each do |c| %>
+  <tbody>
+    <tr>
+      <td>
+        <a href="/users/<%= c.user.id %>">
+          <% if c.user.image? %>
+            <%= image_tag c.user.image.url, :size =>'40x40' %><%= c.user.name %>
+          <% else %>
+            <%= image_tag 'default.png', :size =>'50x50' %><%= c.user.name %>
+          <% end %>
+        </a>
+      </td>
+      <td><%= c.message %></td>
+    </tr>
+  </tbody>
+  <% end %>
+  
+</table>
