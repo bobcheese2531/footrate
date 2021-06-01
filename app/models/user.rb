@@ -12,8 +12,8 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_games, through: :likes, source: :game
     #チャット機能
-  has_many :chats
-  has_many :user_rooms
+  has_many :chats, dependent: :destroy
+  has_many :user_rooms, dependent: :destroy
     #フォロー機能
   has_many :relationships, dependent: :destroy
   has_many :followings, through: :relationships, source: :follow

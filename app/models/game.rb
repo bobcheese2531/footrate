@@ -6,9 +6,9 @@ class Game < ApplicationRecord
   has_many :rates, dependent: :destroy
   accepts_nested_attributes_for :rates, allow_destroy: true 
     #コメント機能
-  has_many :comments
+  has_many :comments, dependent: :destroy
     #いいね機能
-  has_many :likes
+  has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
     
   #バリデーション
