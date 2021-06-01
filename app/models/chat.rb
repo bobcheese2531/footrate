@@ -7,4 +7,5 @@ class Chat < ApplicationRecord
   #バリデーション
   validates :message, :presence => true, length: { maximum: 100 }   #最大100文字
   
+  
 end
