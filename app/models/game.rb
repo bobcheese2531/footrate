@@ -12,14 +12,23 @@ class Game < ApplicationRecord
   has_many :liked_users, through: :likes, source: :user
     
   #バリデーション
-  validates :home_team, :presence => true, length: { is: 3 }  #チーム名3文字
-  validates :away_team, :presence => true, length: { is: 3 }
-  validates :home_score, :presence => true, numericality: { only_integer: true }  #数字のみ許可
-  validates :away_score, :presence => true, numericality: { only_integer: true }
-  validates :date, :presence => true
-  validates :game_text, length: { maximum: 150 }   #最大150文字
-  validates :rate_team, :presence => true, length: { is: 3 }
+  with_options presence: true do
+    validates :date
     
+    with_options numericality: { only_integer: true } do  #数字のみ許可
+      validates :home_score
+      validates :away_score
+    end
+    
+    with_options length: { is: 3 } do #3文字のみ保存可能
+      validates :rate_team
+      validates :home_team
+      validates :away_team
+    end
+    
+  end
+  validates :game_text, length: { maximum: 150 }
+  
   #検索機能
   def self.search(search)
     return Game.all unless search

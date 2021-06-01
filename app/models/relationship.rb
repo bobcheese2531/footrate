@@ -4,6 +4,9 @@ class Relationship < ApplicationRecord
   belongs_to :follow, class_name: 'User'
   
   #バリデーション
-  validates :user_id, presence: true
-  validates :follow_id, presence: true
+  with_options presence: true do
+    validates :user_id
+    validates :follow_id
+  end
+  
 end
