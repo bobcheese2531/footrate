@@ -1,0 +1,30 @@
+<tr>
+  <th scope="col">プロフィール画像</th>
+  <% if @user.image? %>
+    <td><%= image_tag @user.image.url, :size =>'150x150' %></td>
+  <% else %>
+    <td><%= image_tag 'default.png', :size =>'150x150' %></td>
+  <% end %>  
+</tr>
+
+<tr>
+  <th scope="col">ユーザーネーム</th>
+  <td><%= @user.name %></td>
+</tr>
+  
+<tr>
+  <th scope="col">好きなチーム</th>
+  <td><%= @user.like_team %></td>
+</tr>
+  
+<tr>
+  <th scope="col">コメント</th>
+  <td><%= @user.user_text %></td>
+</tr>
+  
+<% if user_signed_in? && current_user.id == @user.id %>
+<tr>
+  <th scope="col"></th>
+  <td><%= link_to 'プロフィールを編集', edit_user_path(@user), class: "btn btn-outline-secondary" %></td>
+</tr>
+<% end %>

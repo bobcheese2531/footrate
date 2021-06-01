@@ -1,0 +1,21 @@
+<tbody>
+  <tr>
+    <td>
+      <a href="/users/<%= user.id %>">
+        <% if user.image? %>
+          <%= image_tag user.image.url, :size =>'50x50' %><%= user.name %>
+        <% else %>
+          <%= image_tag 'default.png', :size =>'50x50' %><%= user.name %>
+        <% end %>
+      </a>
+    </td>
+    
+    <td><%= user.user_text %></td>
+    
+    <td><%= user.like_team %></td>
+    
+    <% if current_user.id != user.id %>
+      <td><%= link_to 'チャットする', chat_path(user.id), class: "btn btn-outline-success" %></td>
+    <% end %>
+  </tr>
+</tbody>
