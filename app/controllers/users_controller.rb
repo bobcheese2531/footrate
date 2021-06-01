@@ -11,11 +11,12 @@ class UsersController < ApplicationController
     
     # GET /users/id/edit
     def edit
+      redirect_to action: :show unless same_user?
     end
     
     # PATCH/PUT /users/id
     def update
-      @user.update(user_params) if @user.id == current_user.id
+      @user.update(user_params) if same_user?
       redirect_to user_path
     end
     
@@ -39,6 +40,10 @@ class UsersController < ApplicationController
     
     def user_params
       params.require(:user).permit(:name, :image, :user_text, :like_team)
+    end
+    
+    def same_user?
+      @user.id == current_user.id
     end
     
 end
