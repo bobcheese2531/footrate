@@ -1,0 +1,25 @@
+<h2><%= @game.rate_team %>の選手評価</h2>
+
+<table class="table table-bordered">
+  
+  <thead>
+    <tr>
+      <th scope="col">ポジション</th>
+      <th scope="col">選手名</th>
+      <th scope="col">点数</th>
+      <th scope="col">コメント</th>
+    </tr>
+  </thead>
+  
+  <% @game.rates.each do |rate| %>
+  <tbody>
+    <tr>
+      <td><%= rate.position %></td>
+      <td><%= rate.player_name %></td>
+      <td><%= rate.player_rate %></td>
+      <td><%= rate.player_text %></td>
+    </tr>
+  </tbody>
+  <% end %>
+  
+</table>

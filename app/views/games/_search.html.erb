@@ -1,0 +1,12 @@
+<div class="mt-2">
+  <%= form_tag(root_path, method: :get) do %>
+    <div class="row justify-content-end">
+      <div class="my-2 mr-2">
+        <%= text_field_tag :search, '', {class: "form-control form-inline my-2 my-lg-0", placeholder: "チーム名(英3文字)"} %>
+      </div>
+      <div class="my-2 ml-2">
+        <%= submit_tag '検索する', name: nil, class: "btn btn-primary" %>
+      </div>
+      </div>
+  <% end %>
+</div>

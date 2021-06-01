@@ -1,10 +1,14 @@
 <div class="card text-center m-3" style="width: 18rem;">
   <div class="card-body">
+    
     <h5 class="card-title"><%= game.home_team %> <%= game.home_score %>:<%= game.away_score %> <%= game.away_team %></h5>
+    
     <p class="card-text">試合日：<%= game.date %></p>
     <p class="card-text">投稿者：<a href="/users/<%= game.user.id %>" class="btn btn-link"><%= game.user.name %></a></p>
     <p class="card-text">評価チーム：<%= game.rate_team %></p>
     <p class="card-text">投稿日：<%= game.created_at.strftime('%Y-%m-%d') %></p>
+    
     <a href="/games/<%= game.id %>" class="btn btn-outline-info">詳細</a>
+    
   </div>
 </div>

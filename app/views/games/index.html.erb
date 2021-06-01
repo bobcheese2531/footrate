@@ -2,38 +2,14 @@
 <div class="container">
   <div class="row justify-content-between">
     <h1>評価一覧</h1>
-    
-    <!--検索バー-->
-    <div class="mt-2">
-      <%= form_tag(root_path, method: :get) do %>
-        <div class="row justify-content-end">
-          <div class="my-2 mr-2">
-            <%= text_field_tag :search, '', {class: "form-control form-inline my-2 my-lg-0", placeholder: "チーム名(英3文字)"} %>
-          </div>
-          <div class="my-2 ml-2">
-            <%= submit_tag '検索する', name: nil, class: "btn btn-primary" %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-    <!--検索バー終わり-->
-    
+    <%= render 'search' %>
   </div>
 </div>
-<!--見出し終わり-->
 
 <!--投稿一覧表示-->
-<div class="container">
-  <div class="d-flex justify-content-around">
-    <div class="row">
-      <% @games.each do |game| %>
-        <%= render 'game', game: game %>
-      <% end %>
-    </div>
- </div>
-</div>
-<!--表示終わり-->
+<%= render 'show_all' %>
 
+<!--ページネーション-->
 <div class="container">
-<%= paginate @games %>
+  <%= paginate @games %>
 </div>

@@ -7,10 +7,12 @@ class GamesController < ApplicationController
     # GET /games
     def index
       @games = Game.get_games(params[:page], params[:search])
+
     end
     
     # GET /games/id
     def show
+      @title = "#{@game.home_team} vs #{@game.away_team}"
       set_comment_like
     end
     
@@ -18,11 +20,13 @@ class GamesController < ApplicationController
     def new
       @game = Game.new
       16.times{ @game.rates.build }   #選手用のフォームを16（人数分）用意
+      @submit = "投稿する"
     end
     
     # GET /games/id/edit
     def edit
       redirect_to action: :index unless same_user?
+      @submit = "編集する"
     end
     
     # POST /games

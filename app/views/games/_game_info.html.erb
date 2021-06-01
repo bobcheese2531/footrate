@@ -1,0 +1,36 @@
+ <h2>試合情報</h2>
+ 
+ <table class="table table-bordered">
+   
+  <tr>
+    <th scope="row">投稿者</th>
+    <td><%= @game.user.name %></td>
+  </tr>
+  
+  <tr>
+    <th scope="row">試合日</th>
+    <td><%= @game.date %></td>
+  </tr>
+  
+  <tr>
+    <th scope="row">スコア</th>
+    <td><%= @game.home_team %> <%= @game.home_score %> : <%= @game.away_score %> <%= @game.away_team %></td>
+  </tr>
+  
+  <tr>
+    <th scope="row">感想</th>
+    <td><%= @game.game_text %></td>
+  </tr>
+  
+  <tr>
+    <th scope="row">ハイライト</th>
+    <% if @game.youtube_url %> 
+      <td>
+        <iframe class="video" src="https://www.youtube.com/embed/<%= @game.youtube_url.last(11) %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </td>
+    <% else %>
+      <td>ハイライト映像はありません</td>
+    <% end %>
+  </tr>
+  
+  </table>

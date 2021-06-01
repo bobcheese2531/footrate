@@ -1,133 +1,23 @@
 <!--見出し-->
 <div class="container">
   <div class="row justify-content-between">
-    <h1><%= @game.home_team %> vs <%= @game.away_team %></h1>
+    <h1><%= @title %></h1>
     <div class="mt-2">
-    <% if user_signed_in? && current_user.id == @game.user.id %>
-      <%= link_to '編集', edit_game_path(@game), class: "btn btn-outline-secondary" %>
-      <%= link_to '削除', "/games/#{@game.id}", method: :delete, class: "btn btn-outline-danger", data: {confirm: "削除しますか？"} %>
-    <% end %>
+      <%= render 'option' %>
     </div>
   </div>
 </div>
-<!--見出し終わり-->
 
-  <!--試合情報-->
-  <h2>試合情報</h2>
-  <table class="table table-bordered">
-    <tr>
-      <th scope="row">投稿者</th>
-      <td><%= @game.user.name %></td>
-    </tr>
-    <tr>
-      <th scope="row">試合日</th>
-      <td><%= @game.date %></td>
-    </tr>
-    <tr>
-      <th scope="row">スコア</th>
-      <td><%= @game.home_team %> <%= @game.home_score %> : <%= @game.away_score %> <%= @game.away_team %></td>
-    </tr>
-    <tr>
-      <th scope="row">感想</th>
-      <td><%= @game.game_text %></td>
-    </tr>
-    <tr>
-      <th scope="row">ハイライト</th>
-      <% if @game.youtube_url %> 
-        <td>
-          <iframe class="video" src="https://www.youtube.com/embed/<%= @game.youtube_url.last(11) %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </td>
-      <% else %>
-        <td>ハイライト映像はありません</td>
-      <% end %>
-    </tr>
-  </table>
-  <!--試合情報終わり-->
+<!--試合情報-->
+<%= render 'game_info' %>
   
-  <!--選手評価-->
-  <h2><%= @game.rate_team %>の選手評価</h2>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th scope="col">ポジション</th>
-        <th scope="col">選手名</th>
-        <th scope="col">点数</th>
-        <th scope="col">コメント</th>
-      </tr>
-    </thead>
-    <% @game.rates.each do |rate| %>
-    <tbody>
-      <tr>
-        <td><%= rate.position %></td>
-        <td><%= rate.player_name %></td>
-        <td><%= rate.player_rate %></td>
-        <td><%= rate.player_text %></td>
-      </tr>
-    </tbody>
-  <% end %>
-  </table>
-  <!--選手評価終わり-->
-  
-  <!--コメント表示-->
-  <h2>コメント一覧</h2>
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">名前</th>
-          <th scope="col">コメント</th>
-        </tr>
-      </thead>
-      <% @comments.each do |c| %>
-      <tbody>
-        <tr>
-          <td>
-            <a href="/users/<%= c.user.id %>">
-              <% if c.user.image? %>
-                <%= image_tag c.user.image.url, :size =>'50x50' %><%= c.user.name %>
-              <% else %>
-                <%= image_tag 'default.png', :size =>'50x50' %><%= c.user.name %>
-              <% end %>
-            </a>
-          </td>
-          <td><%= c.comment %></td>
-        </tr>
-      </tbody>
-      <% end %>
-    </table>
-  <!--コメント表示終了-->
-  
-  <% if user_signed_in? %>
-  
-    <!--コメント送信フォーム-->
-    <%= form_for [@game, @comment] do |f| %>
-      <div class="my-3">
-        <div class="container">
-          <div class="row justify-content-start">
-            <%= f.text_area :comment, size: "50x2", :placeholder => "コメントを入力してください" %>
-            <div class="ml-3">
-              <%= f.submit 'コメントする', class: "btn btn-primary" %>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
-    <!--コメント送信フォーム終わり-->
-  
-    <!--いいね機能-->
-    <div class="my-3">
-    <div class="container">
-      <div class="row justify-content-start">
-        <h3>いいね数: <%= @game.likes.count %></h3>
-        <div class="ml-3">
-          <% if current_user.already_liked?(@game) %>
-            <%= button_to 'いいねを取り消す', game_like_path(@game), method: :delete, class: "btn btn-success" %>
-          <% else %>
-            <%= button_to 'いいね', game_likes_path(@game), class: "btn btn-outline-success" %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-    </div>
-    <!--いいね機能終わり-->
-    
-  <% end %>
+<!--選手評価-->
+<%= render 'player_rate' %>
+
+<!--コメント表示-->
+<%= render 'show_comments' %>
+
+<% if user_signed_in? %>
+  <%= render 'comment_form' %>
+  <%= render 'like' %>
+<% end %>
