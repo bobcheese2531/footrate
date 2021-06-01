@@ -3,7 +3,8 @@ class CommentsController < ApplicationController
      # POST /game/id/comment
     def create
       @comment = Comment.new(comment_params)
-      redirect_back(fallback_location: root_path) if @comment.save
+      @comment.save
+      redirect_back(fallback_location: root_path)
     end
     
     private

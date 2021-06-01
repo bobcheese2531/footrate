@@ -22,6 +22,7 @@ class GamesController < ApplicationController
     
     # GET /games/id/edit
     def edit
+      redirect_to action: :index unless same_user?
     end
     
     # POST /games
