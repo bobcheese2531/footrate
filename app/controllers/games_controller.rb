@@ -27,11 +27,7 @@ class GamesController < ApplicationController
     # POST /games
     def create
       @game = Game.new(game_params)
-      if @game.save
-        redirect_to action: :index 
-      else
-        render "new"  
-      end
+      @game.save ? (redirect_to action: :index) : (render "new")
     end
     
     # PATCH/PUT /games/id
