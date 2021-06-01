@@ -6,4 +6,5 @@ class Comment < ApplicationRecord
   
   #バリデーション
   validates :comment, :presence => true, length: { maximum: 100 }
+  
 end

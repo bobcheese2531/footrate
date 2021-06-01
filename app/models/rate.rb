@@ -1,4 +1,5 @@
 class Rate < ApplicationRecord
+  
   #アソシエーション
   belongs_to :game
     
