@@ -7,7 +7,6 @@ class GamesController < ApplicationController
     # GET /games
     def index
       @games = Game.get_games(params[:page], params[:search])
-
     end
     
     # GET /games/id
@@ -43,7 +42,7 @@ class GamesController < ApplicationController
     
     # DELETE /games/id
     def destroy
-      @game.destroy if same_user?
+      @game.destroy if @game.same_user?
       redirect_to action: :index
     end
     

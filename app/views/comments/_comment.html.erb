@@ -1,0 +1,18 @@
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">名前</th>
+      <th scope="col">コメント</th>
+    </tr>
+  </thead>
+  <% @comments.each do |c| %>
+  <tbody>
+    <tr>
+      <td>
+        <%= render 'layouts/profile_image', c: c %>
+      </td>
+      <td><%= c.comment %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>

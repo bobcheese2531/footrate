@@ -35,8 +35,7 @@ class ChatsController < ApplicationController
   end
   
   def create_room
-    @room = Room.new
-    @room.save
+    @room = Room.create
     UserRoom.create(user_id: current_user.id, room_id: @room.id)
     UserRoom.create(user_id: @user.id, room_id: @room.id)
   end

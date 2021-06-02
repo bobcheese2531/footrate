@@ -12,13 +12,17 @@
 </div>
 
 <!--試合情報-->
-<%= render 'game_info' %>
+<%= render 'game_info', g: @game %>
   
 <!--選手評価-->
-<%= render 'player_rate' %>
+<%= render 'player_rate', g: @game %>
 
 <!--コメント表示-->
-<%= render 'comment' %>
+<%= render 'comments/comment' %>
 
-<!--いいね機能-->
-<%= render 'like' %>
+<% if user_signed_in? %>
+  <!--コメントフォーム-->
+  <%= render 'comments/comment_form' %>
+  <!--いいね機能-->
+  <%= render 'likes/like' %>
+<% end %>

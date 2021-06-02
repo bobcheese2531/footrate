@@ -2,7 +2,7 @@
 
   <table class="table">
     
-    <%= render 'follow_header' %>
+    <%= render 'show_users_header' %>
     
     <% @user.followings.each do |user| %>
       <%= render 'show_users', user: user %>

@@ -2,20 +2,20 @@
   *がついたものは入力必須
 </div>
 
-<%= form_for(@game) do |form| %>
+<%= form_for(@game) do |f| %>
   <!--エラーメッセージ-->
-  <%= render 'layouts/error_messages', model: form.object %>
+  <%= render 'layouts/error_messages', model: f.object %>
 
   <h2>試合情報</h2>
-  <%= render 'game_form', form: form %>
+  <%= render 'game_form', form: f %>
 
   <h2>選手評価</h2>
-  <%= form.fields_for :rates do |r| %>
+  <%= f.fields_for :rates do |r| %>
     <%= render "rate_fields", f: r %>
   <% end %>
     
   <div class="my-3">
-    <%= form.submit @submit, class: "btn btn-primary" %>
+    <%= f.submit @submit, class: "btn btn-primary" %>
   </div>  
   
 <% end %>

@@ -1,4 +1,4 @@
-<h2><%= @game.rate_team %>の選手評価</h2>
+<h2><%= g.rate_team %>の選手評価</h2>
 
 <table class="table table-bordered">
   
@@ -11,7 +11,7 @@
     </tr>
   </thead>
   
-  <% @game.rates.each do |rate| %>
+  <% g.rates.each do |rate| %>
   <tbody>
     <tr>
       <td><%= rate.position %></td>
