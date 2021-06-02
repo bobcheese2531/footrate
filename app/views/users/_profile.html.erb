@@ -1,10 +1,6 @@
 <tr>
   <th scope="col">プロフィール画像</th>
-  <% if @user.image? %>
-    <td><%= image_tag @user.image.url, :size =>'150x150' %></td>
-  <% else %>
-    <td><%= image_tag 'default.png', :size =>'150x150' %></td>
-  <% end %>  
+  <%= profile_image(@user) %>
 </tr>
 
 <tr>
