@@ -11,13 +11,7 @@
   <tbody>
     <tr>
       <td>
-        <a href="/users/<%= c.user.id %>">
-          <% if c.user.image? %>
-            <%= image_tag c.user.image.url, :size =>'40x40' %><%= c.user.name %>
-          <% else %>
-            <%= image_tag 'default.png', :size =>'50x50' %><%= c.user.name %>
-          <% end %>
-        </a>
+        <%= render 'layouts/profile_image', c: c %>
       </td>
       <td><%= c.message %></td>
     </tr>

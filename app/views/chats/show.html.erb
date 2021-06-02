@@ -1,4 +1,4 @@
 <h1><%= @user.name %>とのチャット</h1>
 
-<%= render 'messages' %>
+<%= render 'messages', c: @chats %>
 <%= render 'message_form' %>

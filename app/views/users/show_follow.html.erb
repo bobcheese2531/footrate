@@ -2,14 +2,7 @@
 
   <table class="table">
     
-    <thead>
-      <tr>
-        <th scope="col">名前</th>
-        <th scope="col">コメント</th>
-        <th scope="col">好きなチーム</th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
+    <%= render 'follow_header' %>
     
     <% @user.followings.each do |user| %>
       <%= render 'show_users', user: user %>

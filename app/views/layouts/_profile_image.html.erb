@@ -1,0 +1,7 @@
+<a href="/users/<%= c.user.id %>">
+  <% if c.user.image? %>
+    <%= image_tag c.user.image.url, :size =>'50x50' %><%= c.user.name %>
+  <% else %>
+    <%= image_tag 'default.png', :size =>'50x50' %><%= c.user.name %>
+  <% end %>
+</a>

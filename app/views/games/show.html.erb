@@ -3,7 +3,10 @@
   <div class="row justify-content-between">
     <h1><%= @title %></h1>
     <div class="mt-2">
-      <%= render 'option' %>
+      <% if same_user?(@game) %>
+        <%= link_to '編集', edit_game_path(@game), class: "btn btn-outline-secondary" %>
+        <%= link_to '削除', "/games/#{@game.id}", method: :delete, class: "btn btn-outline-danger", data: {confirm: "削除しますか？"} %>
+      <% end %>
     </div>
   </div>
 </div>
@@ -15,9 +18,7 @@
 <%= render 'player_rate' %>
 
 <!--コメント表示-->
-<%= render 'show_comments' %>
+<%= render 'comment' %>
 
-<% if user_signed_in? %>
-  <%= render 'comment_form' %>
-  <%= render 'like' %>
-<% end %>
+<!--いいね機能-->
+<%= render 'like' %>

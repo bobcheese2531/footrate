@@ -1,4 +1,0 @@
-<% if same_user?(@game) %>
-  <%= link_to '編集', edit_game_path(@game), class: "btn btn-outline-secondary" %>
-  <%= link_to '削除', "/games/#{@game.id}", method: :delete, class: "btn btn-outline-danger", data: {confirm: "削除しますか？"} %>
-<% end %>
