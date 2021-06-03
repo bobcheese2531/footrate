@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-end">
   
-  <% if user_signed_in? && current_user != @user %>
+  <% if other_user?(@user) %>
   
     <div class="mr-2 my-2">
       <%= render 'relationships/follow_button', user: @user %> 
@@ -10,6 +10,12 @@
       <%= link_to 'チャットする', chat_path(@user.id), class: "btn btn-outline-success" %>
     </div>
     
+  <% elsif user_signed_in? && current_user == @user %>
+    
+    <div>
+      <%= link_to 'プロフィールを編集', edit_user_path(@user), class: "btn btn-outline-secondary" %>
+    </div>
+    
   <% end %>
-   
+
 </div>

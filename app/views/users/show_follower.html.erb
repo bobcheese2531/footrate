@@ -2,7 +2,12 @@
 
   <table class="table">
     
-    <%= render 'show_users_header' %>
+    <thead>
+      <tr>
+        <th scope="col">名前</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
     
     <% @user.followers.each do |user| %>
       <%= render 'show_users', user: user %>

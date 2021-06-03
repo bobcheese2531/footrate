@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row justify-content-between">
     
-    <h1><%= @user.name %>のプロフィール</h1>
+    <h1><%= profile_image(@user) %></h1>
     
     <%= render 'user_options' %>
     
@@ -12,7 +12,15 @@
 <%= render 'relationships/stats' %>
   
 <table class="table table-bordered">
-  <%= render 'profile' %>
+  <tr>
+    <th scope="col">好きなチーム</th>
+    <td><%= @user.like_team %></td>
+  </tr>
+  
+  <tr>
+    <th scope="col">コメント</th>
+    <td><%= @user.user_text %></td>
+  </tr>
 </table>
 
 

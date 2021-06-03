@@ -2,16 +2,10 @@
   <tr>
     
     <td>
-      <a href="/users/<%= user.id %>">
-        <% if user.image? %>
-          <%= image_tag user.image.url, :size =>'50x50' %><%= user.name %>
-        <% else %>
-          <%= image_tag 'default.png', :size =>'50x50' %><%= user.name %>
-        <% end %>
-      </a>
+      <%= profile_image(user) %>
     </td>
     
-    <% if current_user.id != user.id %>
+    <% if other_user?(user) %>
       <td><%= link_to 'チャットする', chat_path(user.id), class: "btn btn-outline-success" %></td>
     <% end %>
     
