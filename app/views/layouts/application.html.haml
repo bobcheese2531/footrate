@@ -16,8 +16,6 @@
           %ul.nav.justify-content-end
             - if user_signed_in?
               %li.nav-item
-                = link_to "評価する", new_game_path, class: "nav-link "
-              %li.nav-item
                 = link_to "マイページ", "/users/#{current_user.id}", class: "nav-link"
               %li.nav-item
                 = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link"

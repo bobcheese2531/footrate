@@ -12,9 +12,8 @@ Rails.application.routes.draw do
   resources :rates
   
   resources :players
-
   
- resources :users do
+  resources :users do
     member do
      get :following, :followers
     end

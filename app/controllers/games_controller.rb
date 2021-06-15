@@ -15,24 +15,24 @@ class GamesController < ApplicationController
     @game = Game.find_or_create_by(id: id)
   end
   
-  def cl
-    result= Api::FootballData::Request.get_games("CL")
-    @match = result["matches"]
-  end
-  
   def pl
-    result= Api::FootballData::Request.get_games("PL")
-    @match = result["matches"]
+    result = Api::FootballData::Request.get_games("PL")
+    @matches = result["matches"]
   end
   
+  def cl
+    result = Api::FootballData::Request.get_games("CL")
+    @matches = result["matches"]
+  end
+
   def liga
-    result= Api::FootballData::Request.get_games("PD")
-    @match = result["matches"]
+    result = Api::FootballData::Request.get_games("PD")
+    @matches = result["matches"]
   end
   
   def euro
-    result= Api::FootballData::Request.get_games("EC")
-    @match = result["matches"]
+    result = Api::FootballData::Request.get_games("EC")
+    @matches = result["matches"]
   end
   
 end

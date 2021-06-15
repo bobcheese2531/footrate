@@ -1,13 +1,9 @@
-%h2 ホームチーム
-- @home.each do |home|
-  %p
-    = home["shirtNumber"]
-    = home["position"]
-    = home["name"]
-%h2 アウェイチーム
-- @away.each do |away|
-  %p
-    = away["shirtNumber"]
-    = away["position"]
-    = away["name"]
+%table.table
+  %thead.thead-dark
+    %tr
+      %th
+        ホームチームメンバー
+      %th
+        アウェイチームメンバー
+
 = link_to '投稿をみる', rates_path(game_id: params[:id])

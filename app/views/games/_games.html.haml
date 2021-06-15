@@ -1,0 +1,25 @@
+%table.table
+  %thead.thead-dark
+    %tr
+      %th
+        ホームチーム
+      %th
+        ホーム点数
+      %th
+        アウェイ点数
+      %th
+        アウェイチーム
+      %th
+      
+  - matches.each do |m|
+    %tr
+      %td
+        = m['homeTeam']['name']
+      %td
+        = m['score']['fullTime']['homeTeam']
+      %td
+        = m['score']['fullTime']['awayTeam']
+      %td
+        = m['awayTeam']['name']
+        
+      %td= link_to "詳細", game_path(m["id"])
