@@ -1,9 +1,28 @@
+%h1
+  = @match["homeTeam"]["name"]
+  = @match['score']['fullTime']['homeTeam']
+  = @match['score']['fullTime']['awayTeam']
+  = @match["awayTeam"]["name"]
+
 %table.table
   %thead.thead-dark
-    %tr
-      %th
-        ホームチームメンバー
-      %th
-        アウェイチームメンバー
+    %th
+      = @match["homeTeam"]["name"] 
+      のスタメン
+    %th
+      = @match["awayTeam"]["name"]
+      のスタメン
 
+  %tbody
+    - @match["homeTeam"]["lineup"].zip(@match["awayTeam"]["lineup"]).each do |h, a|
+      %tr
+        %td
+          = h["shirtNumber"] 
+          = h["position"]
+          = h["name"]
+        %td
+          = a["shirtNumber"] 
+          = a["position"]
+          = a["name"]
+          
 = link_to '投稿をみる', rates_path(game_id: params[:id])
