@@ -1,0 +1,37 @@
+%h1 新規登録
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = render "devise/shared/error_messages", resource: resource
+  .field.my-1
+    = f.label :name, "名前"
+    %br/
+    = f.text_field :name
+  .field.my-1
+    = f.label :email, "メールアドレス"
+    %br/
+    = f.email_field :email, autofocus: true, autocomplete: "email"
+  .field.my-1
+    = f.label :password, "パスワード"
+    - if @minimum_password_length
+      %em
+        (最低#{@minimum_password_length}文字)
+    %br/
+    = f.password_field :password, autocomplete: "new-password"
+  .field.my-1
+    = f.label :password_confirmation, "確認用パスワード"
+    %br/
+    = f.password_field :password_confirmation, autocomplete: "new-password"
+  .field.my-1
+    = f.label :image, "プロフィール画像"
+    %br/
+    = f.file_field :image
+  .field.my-1
+    = f.label :user_text, "一言コメント"
+    %br/
+    = f.text_field :user_text
+  .field.my-1
+    = f.label :like_team, "好きなチーム"
+    %br/
+    = f.text_field :like_team
+  .actions.my-1
+    = f.submit "登録", class: "btn btn-primary"
+= render "devise/shared/links"

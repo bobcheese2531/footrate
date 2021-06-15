@@ -1,0 +1,17 @@
+%h1 プロフィール編集
+= form_for(@user) do |f|
+  %table.table.table-bordered
+    %tr
+      %th{:scope => "col"}= f.label :name, "名前"
+      %td= f.text_field :name
+    %tr
+      %th{:scope => "col"}= f.label :image, "プロフィール画像"
+      %td= f.file_field :image
+    %tr
+      %th{:scope => "col"}= f.label :user_text, "一言コメント"
+      %td= f.text_field :user_text
+    %tr
+      %th{:scope => "col"}= f.label :like_team, "好きなチーム"
+      %td= f.text_field :like_team
+  .my-3
+    = f.submit "編集する", class: "btn btn-primary"

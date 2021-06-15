@@ -1,0 +1,38 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title FootRate
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    / ナビゲーションバー
+    %header
+      %nav.navbar.navbar-light.bg-light
+        .container
+          %a.navbar-brand{:href => "/"} FootRate
+          %ul.nav.justify-content-end
+            - if user_signed_in?
+              %li.nav-item
+                = link_to "評価する", new_game_path, class: "nav-link "
+              %li.nav-item
+                = link_to "マイページ", "/users/#{current_user.id}", class: "nav-link"
+              %li.nav-item
+                = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link"
+            - else
+              %li.nav-item
+                = link_to "ログイン", new_user_session_path, class: "nav-link"
+              %li.nav-item
+                = link_to "新規作成", new_user_registration_path, class: "nav-link"
+    / ナビゲーションバー終了
+    / メインコンテンツ
+    .container
+      = yield
+    / メインコンテンツ終わり
+    / フッター
+    %footer.footer
+      .container
+        %p.text-muted ©2021 Ryota Nakamura
+    / フッター終わり

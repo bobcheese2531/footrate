@@ -82,6 +82,11 @@ gem 'rails-i18n'
 gem 'rubocop'
 gem 'rubocop-rails'
 
+gem 'httpclient'
+gem 'haml-rails'
+gem 'erb2haml'
+gem 'dotenv-rails'
+
 group :production do
   gem 'rails_12factor'
 end

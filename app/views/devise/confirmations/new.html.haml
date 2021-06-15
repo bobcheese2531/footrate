@@ -1,0 +1,10 @@
+%h1 認証メールが届かない場合
+= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
+  = render "devise/shared/error_messages", resource: resource
+  .field
+    = f.label :email, "メールアドレス"
+    %br/
+    = f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
+  .actions.my-1
+    = f.submit "認証メールを再送信", class: "btn btn-primary"
+= render "devise/shared/links"

@@ -1,0 +1,8 @@
+%h1 フォロワー
+%table.table
+  %thead
+    %tr
+      %th{:scope => "col"} 名前
+      %th{:scope => "col"}
+  - @user.followers.each do |user|
+    = render 'show_users', user: user
