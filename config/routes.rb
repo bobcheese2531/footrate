@@ -1,21 +1,28 @@
 Rails.application.routes.draw do
-  root "games#index"    #ルートURLをindexに設定
+  devise_for :users, controllers: {
+    registrations: "devise/registrations"
+  }
   
-  devise_for :users
-  
-  resources :games do
-    resources :comments, only: [:create]  #コメント機能
-    resources :likes, only: [:create, :destroy]   #いいね機能
-  end
-  
-  resources :users do
-    member do
-     get :following, :followers #フォロー、フォロワーの表示
+  resources :games, only: [:index, :show] do
+    collection do
+      get :pl, :cl, :liga, :euro
     end
   end
   
-  resources :chats, only: [:create, :show]  #チャット機能
+  resources :rates
   
-  resources :relationships, only: [:create, :destroy] #フォロー機能
+  resources :players
+
   
+ resources :users do
+    member do
+     get :following, :followers
+    end
+  end
+  resources :relationships, only: [:create, :destroy]
+  
+  get 'chat/:id' => 'chats#show', as: 'chat'
+  resources :chats, only: [:create]
+
+  root "games#index"
 end
