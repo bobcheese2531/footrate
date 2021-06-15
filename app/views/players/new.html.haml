@@ -1,7 +1,7 @@
 = form_with model: @player, url: players_path, method: :post, local: true do |form|
 
   %h2
-    = @result["match"]["homeTeam"]["name"]
+    = @match["homeTeam"]["name"]
   %table
     %thread
       %tr
@@ -12,24 +12,11 @@
         %th 感想
     
     %tbody
-      - @home.each do |home|
+      - @match["homeTeam"]["lineup"].each do |home|
         = form.fields_for :players do |f|
-          %tr
-            %td
-              = f.number_field :shirtnumber, value: home["shirtNumber"]
-            %td
-              = f.text_field :position, value: home["position"]
-            %td
-              = f.text_field :name, value: home["name"]
-            %td
-              = f.number_field :player_rate
-            %td
-              = f.text_field :rate_text
-        
-              = f.hidden_field :rate_id  
-              
+          = render 'field_form', {f: f, player: home}
   %h2 
-    = @result["match"]["awayTeam"]["name"]            
+    = @match["awayTeam"]["name"]            
   %table
     %thread
       %tr
@@ -40,20 +27,8 @@
         %th 感想
         
     %tbody
-      - @away.each do |away|
+      - @match["awayTeam"]["lineup"].each do |away|
         = form.fields_for :players do |f|
-          %tr
-            %td
-              = f.number_field :shirtnumber, value: away["shirtNumber"]
-            %td
-              = f.text_field :position, value: away["position"]
-            %td
-              = f.text_field :name, value: away["name"]
-            %td
-              = f.number_field :player_rate
-            %td
-              = f.text_field :rate_text
-        
-              = f.hidden_field :rate_id  
+          = render 'field_form', {f: f, player: away}
             
   = form.submit "登録"

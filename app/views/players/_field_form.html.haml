@@ -1,0 +1,13 @@
+%tr
+  %td
+    = f.number_field :shirtnumber, value: player["shirtNumber"]
+  %td
+    = f.text_field :position, value: player["position"]
+  %td
+    = f.text_field :name, value: player["name"]
+  %td
+    = f.number_field :player_rate
+  %td
+    = f.text_field :rate_text
+        
+    = f.hidden_field :rate_id  

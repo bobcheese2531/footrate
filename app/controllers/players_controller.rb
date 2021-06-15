@@ -5,9 +5,8 @@ class PlayersController < ApplicationController
   
   def new
     id = params[:game_id]
-    @result= Api::FootballData::Request.show_game(id)
-    @home = @result["match"]["homeTeam"]["lineup"]
-    @away = @result["match"]["awayTeam"]["lineup"]
+    result= Api::FootballData::Request.show_game(id)
+    @match = result["match"]
     rate = Rate.create(game_id: params[:game_id], user_id: current_user.id)
     @player = Form::PlayerCollection.new(rate_id: rate.id)
   end
