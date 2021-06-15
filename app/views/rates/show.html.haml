@@ -1,11 +1,27 @@
-- @players.each do |p|
-  %p
-    = p.shirtnumber
-  %p
-    = p.position
-  %p  
-    = p.name
-  %p
-    = p.player_rate
-  %p  
-    = p.rate_text
+%h1
+  = @rate.user.name
+  の投稿
+  
+%table.table
+  %thead
+    %tr
+      %th 背番号
+      %th ポジション
+      %th 名前
+      %th 点数
+      %th 感想
+        
+  %tbody
+    - @players.each do |p|
+      %tr
+        %td
+          = p.shirtnumber
+        %td
+          = p.position
+        %td
+          = p.name
+        %td
+          = p.player_rate
+        %td
+          = p.rate_text
+        
