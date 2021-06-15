@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_28_082018) do
+ActiveRecord::Schema.define(version: 2021_06_15_062256) do
 
   create_table "chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -53,6 +53,17 @@ ActiveRecord::Schema.define(version: 2021_04_28_082018) do
     t.datetime "updated_at", null: false
     t.index ["game_id"], name: "index_likes_on_game_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "players", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "shirtnumber"
+    t.string "position"
+    t.string "name"
+    t.integer "player_rate"
+    t.string "rate_text"
+    t.integer "rate_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "rates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
