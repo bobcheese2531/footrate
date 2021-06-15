@@ -1,0 +1,12 @@
+%h1 20－21 CL 決勝トーナメント
+%table
+  - @match.each do |m|
+    %tr
+      %td= m['matchday']
+      %td
+        = m['homeTeam']['name']
+        \: #{m['awayTeam']['name']}
+      %td
+        = m['score']['fullTime']['homeTeam']
+        \: #{m['score']['fullTime']['awayTeam']}
+      %td= link_to "詳細", game_path(m["id"])
