@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_15_062256) do
+ActiveRecord::Schema.define(version: 2021_06_15_064830) do
 
   create_table "chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -33,17 +33,8 @@ ActiveRecord::Schema.define(version: 2021_06_15_062256) do
   end
 
   create_table "games", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "home_team"
-    t.string "away_team"
-    t.integer "home_score"
-    t.integer "away_score"
-    t.date "date"
-    t.string "game_text"
-    t.string "youtube_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "rate_team"
   end
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -68,12 +59,9 @@ ActiveRecord::Schema.define(version: 2021_06_15_062256) do
 
   create_table "rates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "game_id"
-    t.string "position"
-    t.string "player_name"
-    t.string "player_text"
-    t.integer "player_rate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
