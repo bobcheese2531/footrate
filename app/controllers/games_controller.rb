@@ -17,14 +17,26 @@ class GamesController < ApplicationController
   def pl
     set_matches("PL")
   end
-  
-  def cl
-    set_matches("CL")
-  end
 
   def liga
     set_matches("PD")
   end
+  
+  def bundes
+    set_matches("BL1")
+  end
+  
+  def seriea
+    set_matches("SA")
+  end
+  
+  def ligue
+    set_matches("FL1")
+  end
+  
+  def cl
+    set_matches("CL")
+  end  
   
   def euro
     set_matches("EC")
