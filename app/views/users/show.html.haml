@@ -1,0 +1,10 @@
+%table.table
+  %tr
+    %th プロフィール画像
+    %td= profile_image(@user)
+  %tr
+    %th コメント
+    %td= @user.user_text
+  %tr
+    %th 好きなチーム
+    %td= @user.like_team

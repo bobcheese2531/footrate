@@ -6,7 +6,6 @@ class UsersController < ApplicationController
     
     # GET /users/id
     def show
-      @games = @user.games.get_games(params[:page], params[:search])
     end
     
     # GET /users/id/edit
