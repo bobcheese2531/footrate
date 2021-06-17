@@ -1,12 +1,9 @@
 class PlayersController < ApplicationController
 
-  def show
-  end
+  before_action :authenticate_user! 
   
   def new
-    id = params[:game_id]
-    result= Api::FootballData::Request.show_game(id)
-    @match = result["match"]
+    set_match(params[:game_id])
     rate = Rate.create(game_id: params[:game_id], user_id: current_user.id)
     @player = Form::PlayerCollection.new(rate_id: rate.id)
   end
@@ -14,11 +11,10 @@ class PlayersController < ApplicationController
   def create
     @player = Form::PlayerCollection.new(player_collection_params)
     if @player.save
-      redirect_to games_path
+      redirect_to root_path
     else
       render :new
     end
-
   end
 
   private

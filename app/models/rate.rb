@@ -5,4 +5,5 @@ class Rate < ApplicationRecord
     
   has_many :players
   
+  validates_uniqueness_of :game_id, scope: :user_id
 end

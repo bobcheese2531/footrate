@@ -8,4 +8,7 @@ class Player < ApplicationRecord
     validates :rate_text
     validates :shirtnumber
   end
+  
+  
+  
 end
