@@ -6,7 +6,7 @@
   %td
     = f.text_field :name, value: player["name"]
   %td
-    = f.number_field :player_rate
+    = f.number_field :player_rate, {min: 1, max: 10}
   %td
     = f.text_field :rate_text
         

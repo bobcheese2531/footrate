@@ -4,9 +4,10 @@ class Player < ApplicationRecord
   with_options presence: true do
     validates :name
     validates :position
-    validates :player_rate
-    validates :rate_text
+    validates :player_rate, numericality: {only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 10}
+    validates :rate_text, length: { maximum: 100 }
     validates :shirtnumber
+    validates :rate_id
   end
   
   
