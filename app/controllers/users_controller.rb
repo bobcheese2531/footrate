@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
     
   #before_action
-    before_action :set_user, only: %i[ show edit update following followers ]
+    before_action :set_user, only: %i[ show edit update ]
     before_action :authenticate_user!, except: [:show]
     
     # GET /users/id
@@ -17,18 +17,6 @@ class UsersController < ApplicationController
     def update
       @user.update(user_params) if same_user?
       redirect_to user_path
-    end
-    
-    #フォローしているユーザーの表示
-    def following
-      @users = @user.followings
-      render 'show_follow'
-    end
-    
-    #フォロワーの表示
-    def followers
-      @users = @user.followers
-      render 'show_follower'
     end
     
     private
