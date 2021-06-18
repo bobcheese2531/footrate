@@ -6,7 +6,29 @@
   = @match['score']['fullTime']['awayTeam']
   = @match["awayTeam"]["name"]
   = image_tag "https://crests.football-data.org/#{@match["awayTeam"]["id"]}.svg", size: "60x60"
-
+  
+%h2.text-center 得点者
+%table.table
+  %thead.thead-dark
+    %th.text-center 時間
+    %th.text-center チーム
+    %th.text-center 得点者
+    %th.text-center　アシスト
+  
+  %tbody
+    - @match["goals"].each do |g|
+      %tr
+        %td.text-center
+          = g["minute"] 
+          = "分"
+        %td.text-center
+          = image_tag "https://crests.football-data.org/#{g["team"]["id"]}.svg", size: "30x30"
+        %td.text-center
+          = g["scorer"]["name"]
+        %td.text-center
+          = g["assist"].present? ? g["assist"]["name"] : "なし"
+   
+%h2.text-center スタメン   
 %table.table
   %thead.thead-dark
     %th.text-center
@@ -27,5 +49,27 @@
           = a["shirtNumber"] 
           = a["position"]
           = a["name"]
-          
+
+%h2.text-center 交代
+%table.table
+  %thead.thead-dark
+    %th.text-center 時間
+    %th.text-center チーム
+    %th.text-center イン
+    %th.text-center　アウト
+  
+  %tbody
+    - @match["substitutions"].each do |s|
+      %tr
+        %td.text-center
+          = s["minute"] 
+          = "分"
+        %td.text-center
+          = image_tag "https://crests.football-data.org/#{s["team"]["id"]}.svg", size: "30x30"
+        %td.text-center
+          = s["playerIn"]["name"]
+        %td.text-center
+          = s["playerOut"]["name"]
+
+
 = link_to '投稿をみる', rates_path(game_id: params[:id])

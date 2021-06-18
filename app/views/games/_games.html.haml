@@ -21,4 +21,4 @@
         = image_tag "https://crests.football-data.org/#{m["awayTeam"]["id"]}.svg", size: "30x30"
         = m['awayTeam']['name']
         
-      %td= link_to "詳細", game_path(m["id"]) if m["status"] == "FINISHED"
+      %td.text-center= link_to "詳細", game_path(m["id"]) if m["status"] == "FINISHED"
