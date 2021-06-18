@@ -10,7 +10,11 @@ class PlayersController < ApplicationController
   
   def create
     @player = Form::PlayerCollection.new(player_collection_params)
-    redirect_to games_path if @player.save
+    if @player.save
+      redirect_to games_path
+    else
+      redirect_to new_player_path
+    end
   end
 
   private

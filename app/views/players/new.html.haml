@@ -1,7 +1,7 @@
 = form_with model: @player, url: players_path, method: :post, local: true do |form|
-
-  %h2
-    = @match["homeTeam"]["name"]
+  = render 'layouts/error_messages', model: form.object
+  
+  %h2 home
   %table
     %thread
       %tr
@@ -15,8 +15,7 @@
       - @match["homeTeam"]["lineup"].each do |home|
         = form.fields_for :players do |f|
           = render 'field_form', {f: f, player: home}
-  %h2 
-    = @match["awayTeam"]["name"]            
+  %h2 away            
   %table
     %thread
       %tr

@@ -1,7 +1,0 @@
-= form_with model: @chat do |f|
-  .container.mb-3
-    .row.justify-content-start
-      = f.text_area :message, size: "50x2", :placeholder => "メッセージを入力してください"
-      = f.hidden_field :room_id
-      .m-3
-        = f.submit '送信', class: "btn btn-primary"

@@ -1,7 +1,0 @@
-= form_for [@game, @comment] do |f|
-  .my-3
-    .container
-      .row.justify-content-start
-        = f.text_area :comment, size: "50x2", :placeholder => "コメントを入力してください"
-        .ml-3
-          = f.submit 'コメントする', class: "btn btn-primary"

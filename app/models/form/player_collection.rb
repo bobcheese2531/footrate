@@ -1,6 +1,16 @@
 class Form::PlayerCollection < Form::Base
+	
   PLAYER_COUNT = 1
-  attr_accessor :players, :rate_id
+  attr_accessor :players, :rate_id, :name, :position, :player_rate, :rate_text, :shirtnumber
+  
+  with_options presence: true do
+  	validates :name
+  	validates :position
+  	validates :player_rate, numericality: {only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 10}
+  	validates :rate_text, length: { maximum: 100 }
+  	validates :shirtnumber
+  	validates :rate_id
+	end
   
   def initialize(attributes = {})
     super attributes
@@ -12,12 +22,12 @@ class Form::PlayerCollection < Form::Base
   end
   
   def save
+  	
     Player.transaction do
       self.players.map do |player|
         player.save
       end
     end
-    return true
   end
-  
+   
 end

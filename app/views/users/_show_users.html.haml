@@ -1,6 +1,0 @@
-%tbody
-  %tr
-    %td
-      = profile_image(user)
-    - if other_user?(user)
-      %td= link_to 'チャットする', chat_path(user.id), class: "btn btn-outline-success"

@@ -1,9 +1,0 @@
-.d-flex.justify-content-end
-  - if other_user?(@user)
-    .mr-2.my-2
-      = render 'relationships/follow_button', user: @user
-    .ml-2.my-2
-      = link_to 'チャットする', chat_path(@user.id), class: "btn btn-outline-success"
-  - elsif user_signed_in? && current_user == @user
-    %div
-      = link_to 'プロフィールを編集', edit_user_path(@user), class: "btn btn-outline-secondary"
