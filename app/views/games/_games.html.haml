@@ -1,17 +1,24 @@
 %table.table
   %thead.thead-dark
     %tr
-      %th ホームチーム
-      %th ホーム点数
-      %th アウェイ点数
-      %th アウェイチーム
+      %th.text-center 日付
+      %th.text-center ホームチーム
+      %th.text-center スコア
+      %th.text-center アウェイチーム
       %th
       
   - matches.each do |m|
     %tr
-      %td= m['homeTeam']['name']
-      %td= m['score']['fullTime']['homeTeam']
-      %td= m['score']['fullTime']['awayTeam']
-      %td= m['awayTeam']['name']
+      %td.text-center= m["utcDate"].first(10)
+      %td.text-center
+        = image_tag "https://crests.football-data.org/#{m["homeTeam"]["id"]}.svg", size: "30x30"
+        = m['homeTeam']['name']
+      %td.text-center
+        = m['score']['fullTime']['homeTeam']
+        = ":"
+        = m['score']['fullTime']['awayTeam']
+      %td.text-center
+        = image_tag "https://crests.football-data.org/#{m["awayTeam"]["id"]}.svg", size: "30x30"
+        = m['awayTeam']['name']
         
-      %td= link_to "詳細", game_path(m["id"])
+      %td= link_to "詳細", game_path(m["id"]) if m["status"] == "FINISHED"

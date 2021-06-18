@@ -1,27 +1,29 @@
-%h1
+%h1.text-center
+  = image_tag "https://crests.football-data.org/#{@match["homeTeam"]["id"]}.svg", size: "60x60"
   = @match["homeTeam"]["name"]
   = @match['score']['fullTime']['homeTeam']
   = ":"
   = @match['score']['fullTime']['awayTeam']
   = @match["awayTeam"]["name"]
+  = image_tag "https://crests.football-data.org/#{@match["awayTeam"]["id"]}.svg", size: "60x60"
 
 %table.table
   %thead.thead-dark
-    %th
+    %th.text-center
       = @match["homeTeam"]["name"] 
       のスタメン
-    %th
+    %th.text-center
       = @match["awayTeam"]["name"]
       のスタメン
 
   %tbody
     - @match["homeTeam"]["lineup"].zip(@match["awayTeam"]["lineup"]).each do |h, a|
       %tr
-        %td
+        %td.text-center
           = h["shirtNumber"] 
           = h["position"]
           = h["name"]
-        %td
+        %td.text-center
           = a["shirtNumber"] 
           = a["position"]
           = a["name"]

@@ -1,17 +1,8 @@
 class Form::PlayerCollection < Form::Base
 	
   PLAYER_COUNT = 1
-  attr_accessor :players, :rate_id, :name, :position, :player_rate, :rate_text, :shirtnumber
-  
-  with_options presence: true do
-  	validates :name
-  	validates :position
-  	validates :player_rate, numericality: {only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 10}
-  	validates :rate_text, length: { maximum: 100 }
-  	validates :shirtnumber
-  	validates :rate_id
-	end
-  
+  attr_accessor :players, :rate_id
+
   def initialize(attributes = {})
     super attributes
     self.players = PLAYER_COUNT.times.map { Player.new(rate_id: rate_id) } unless self.players.present?
@@ -22,12 +13,11 @@ class Form::PlayerCollection < Form::Base
   end
   
   def save
-  	
     Player.transaction do
-      self.players.map do |player|
-        player.save
-      end
-    end
-  end
-   
+    	self.players.map(&:save!)
+  	end
+  		return true
+  	rescue
+  		return false
+  end 
 end

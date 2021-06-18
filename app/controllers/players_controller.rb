@@ -4,17 +4,13 @@ class PlayersController < ApplicationController
   
   def new
     set_match(params[:game_id])
-    rate = Rate.create(game_id: params[:game_id], user_id: current_user.id)
+    rate = Rate.find_or_create_by(game_id: params[:game_id], user_id: current_user.id)
     @player = Form::PlayerCollection.new(rate_id: rate.id)
   end
   
   def create
     @player = Form::PlayerCollection.new(player_collection_params)
-    if @player.save
-      redirect_to games_path
-    else
-      redirect_to new_player_path
-    end
+    @player.save ? (redirect_to games_path) : (redirect_back(fallback_location: root_path))
   end
 
   private
