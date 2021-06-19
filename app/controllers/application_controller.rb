@@ -9,7 +9,8 @@ class ApplicationController < ActionController::Base
   
   def set_matches(code, year)
     result = Api::FootballData::Request.get_games(code, year)
-    @matches = result["matches"]
+    matches = result["matches"].sort_by { |hash| hash['matchday'].to_i }
+    @matches = Kaminari.paginate_array(matches).page(params[:page]).per(10)
   end
   
   def set_match(id)

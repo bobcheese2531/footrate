@@ -23,3 +23,5 @@
         
       %td.text-center= link_to "詳細", game_path(m["id"]) if m["status"] == "FINISHED"
       
+%div.container
+  = paginate matches
