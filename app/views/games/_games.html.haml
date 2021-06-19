@@ -1,6 +1,9 @@
+= render 'years'
+
 %table.table
   %thead.thead-dark
     %tr
+      %th.text-center 節
       %th.text-center 日付
       %th.text-center ホームチーム
       %th.text-center スコア
@@ -9,6 +12,7 @@
       
   - matches.each do |m|
     %tr
+      %td.text-center= m["matchday"]
       %td.text-center= m["utcDate"].first(10)
       %td.text-center
         = image_tag "https://crests.football-data.org/#{m["homeTeam"]["id"]}.svg", size: "30x30"

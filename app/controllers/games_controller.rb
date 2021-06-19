@@ -6,31 +6,31 @@ class GamesController < ApplicationController
   end
 
   def pl
-    set_matches("PL", "")
+    set_matches("PL", params[:year])
   end
 
   def liga
-    set_matches("PD", "")
+    set_matches("PD", params[:year])
   end
   
   def bundes
-    set_matches("BL1", "")
+    set_matches("BL1", params[:year])
   end
   
   def seriea
-    set_matches("SA", "")
+    set_matches("SA", params[:year])
   end
   
   def ligue
-    set_matches("FL1", "")
+    set_matches("FL1", params[:year])
   end
   
   def cl
-    set_matches("CL", "")
+    set_matches("CL", params[:year])
   end  
   
   def euro
-    set_matches("EC", "")
+    set_matches("EC", params[:year])
   end
   
   def show
