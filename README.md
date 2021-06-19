@@ -8,56 +8,21 @@
  欧州サッカーは基本的に深夜にやっていて、見終わった後に誰とも感想を共有することができませんでした。  
  そこでこのアプリを通して意見を交換する場を提供したいです。  
 
-# 工夫した点
- 同じページから異なるテーブルへ保存できるように「accepts_nested_attributes_for」を使用しました。  
- また、選手の評価のフォームの数は交代した人数によってかわってくるため、調整できるように  
- Gemの「cocoon」を使用しました。
- 
-# URL
- https://footrate.herokuapp.com/
-
-# 実装した機能
- 投稿機能  
- 試合検索機能  
- コメント機能  
- いいね機能  
- フォロー・フォロワー機能  
- チャット機能
- 
 # デモ画像
-## ログイン画面
-![footrate_login](https://user-images.githubusercontent.com/78723740/119221774-d9620680-bb2b-11eb-9b7b-c376d29c8135.gif)
-## 詳細画面
-![footrate_show](https://user-images.githubusercontent.com/78723740/119221828-39f14380-bb2c-11eb-9436-24ffb31ddb62.gif)
-## 検索機能
-![footrate_search](https://user-images.githubusercontent.com/78723740/119221835-3eb5f780-bb2c-11eb-88dc-8ba3bdaf6527.gif)
-## 投稿画面
-![footrate_post](https://user-images.githubusercontent.com/78723740/119221838-44abd880-bb2c-11eb-85ad-a2d67080cb30.gif)
-## コメント機能
-![footrate_comment](https://user-images.githubusercontent.com/78723740/119221848-4d041380-bb2c-11eb-9848-b8a2b58b0070.gif)
-## いいね機能
-![footrate_like](https://user-images.githubusercontent.com/78723740/119221931-c1d74d80-bb2c-11eb-8ff1-ed8f4eba723a.gif)
-## フォロー機能
-![footrate_follow](https://user-images.githubusercontent.com/78723740/119221851-57bea880-bb2c-11eb-8ff8-02da59c64095.gif)
-## チャット機能
-![footrate_chat](https://user-images.githubusercontent.com/78723740/119221854-58efd580-bb2c-11eb-94dc-9adc13a28f8a.gif)
+## トップ画面
+<img width="960" alt="2021-06-19" src="https://user-images.githubusercontent.com/78723740/122645219-4fba4e80-d154-11eb-94e8-4c8e1f4ced23.png">
 
-# 実装予定の機能
- ユーザー認証機能  
- ライブチャット機能  
- RSpecでのテストコード
- 試合のタイムテーブルを表示させる機能
- その他
-# テスト用アカウント
- Eメール: footratetest1@gmail.com  
- パスワード: testtest
-# 開発環境
-## バックエンド
- Ruby 2.5.1  
- Ruby on Rails 5.2.5
-## フロントエンド
- HTML  
- CSS  
- JavaSCript
-## データベース
- MySQL
+## コンペティション詳細
+<img width="960" alt="2021-06-19 (1)" src="https://user-images.githubusercontent.com/78723740/122645239-6fea0d80-d154-11eb-9932-e16cd3eca390.png">
+
+## 試合詳細
+<img width="960" alt="2021-06-19 (2)" src="https://user-images.githubusercontent.com/78723740/122645241-78dadf00-d154-11eb-859b-0e3bad91f24d.png">
+<img width="960" alt="2021-06-19 (3)" src="https://user-images.githubusercontent.com/78723740/122645245-7b3d3900-d154-11eb-99e4-c980caeeb83a.png">
+<img width="960" alt="2021-06-19 (4)" src="https://user-images.githubusercontent.com/78723740/122645246-7d9f9300-d154-11eb-8c89-4a287884528a.png">
+
+## 投稿フォーム
+<img width="960" alt="2021-06-19 (5)" src="https://user-images.githubusercontent.com/78723740/122645248-81331a00-d154-11eb-829e-5a69f6cc071e.png">
+<img width="960" alt="2021-06-19 (6)" src="https://user-images.githubusercontent.com/78723740/122645253-82fcdd80-d154-11eb-8905-d13fa9186368.png">
+
+## 投稿表示
+<img width="960" alt="2021-06-19 (7)" src="https://user-images.githubusercontent.com/78723740/122645258-84c6a100-d154-11eb-80bf-0a552d716e8e.png">
