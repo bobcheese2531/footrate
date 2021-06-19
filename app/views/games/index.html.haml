@@ -1,29 +1,32 @@
 %h1 リーグ一覧
 
-%div
-  = image_tag 'PL_logo.png', size: "200x200"
-  %p= link_to "プレミアリーグ", league_games_path(code: "PL", year: "")
+%div.container
+  %div.row.mx-auto
+    %div.col-md-4.text-center
+      = image_tag 'PL_logo.png', size: "150x150"
+      %p= link_to "プレミアリーグ", league_games_path(code: "PL", year: ""), class: "text-center" 
 
-%div
-  = image_tag 'LL_logo.png', size: "200x200"
-  %p= link_to "ラ・リーガ", league_games_path(code: "PD", year: "")
+    %div.col-md-4.text-center
+      = image_tag 'LL_logo.png', size: "150x150"
+      %p= link_to "ラ・リーガ", league_games_path(code: "PD", year: ""), class: "text-center"
 
-%div
-  = image_tag 'BL_logo.png', size: "200x200"
-  %p= link_to "ブンデスリーガ", league_games_path(code: "BL1", year: "")
+    %div.col-md-4.text-center
+      = image_tag 'BL_logo.png', size: "150x150"
+      %p= link_to "ブンデスリーガ", league_games_path(code: "BL1", year: ""), class: "text-center"
+  
+    %div.col-md-4.text-center
+      = image_tag 'SA_logo.png', size: "150x150"
+      %p= link_to "セリエＡ", league_games_path(code: "SA", year: ""), class: "text-center"
 
-%div
-  = image_tag 'SA_logo.png', size: "200x200"
-  %p= link_to "セリエＡ", league_games_path(code: "SA", year: "")
+    %div.col-md-4.text-center
+      = image_tag 'L1_logo.png', size: "150x150"
+      %p= link_to "リーグ・アン", league_games_path(code: "FL1", year: ""), class: "text-center"
 
-%div
-  = image_tag 'L1_logo.png', size: "200x200"
-  %p= link_to "リーグ・アン", league_games_path(code: "FL1", year: "")
+    %div.col-md-4.text-center
+      = image_tag 'CL_logo.png', size: "150x150"
+      %p= link_to "チャンピオンズリーグ", cl_games_path, class: "text-center"
 
-%div
-  = image_tag 'CL_logo.png', size: "200x200"
-  %p= link_to "チャンピオンズリーグ", cl_games_path
-
-%div
-  = image_tag 'EC_logo.png', size: "200x200"
-  %p= link_to "ユーロ", euro_games_path
+    %div.col-md-4.text-center
+      = image_tag 'EC_logo.png', size: "150x150"
+      %p= link_to "ユーロ", euro_games_path, class: "text-center"
+      
