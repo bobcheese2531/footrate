@@ -7,8 +7,8 @@ module Api
         id = id
       end
   
-      def self.get_games(code)
-        url = "https://api.football-data.org/v2/competitions/#{code}/matches"
+      def self.get_games(code, year)
+        url = "https://api.football-data.org/v2/competitions/#{code}/matches?season=#{year}"
         header = { 'X-Auth-Token': ENV['FOOTBALL_DATA_API_KEY'] }
         client = HTTPClient.new
         response = client.get(url, header: header)

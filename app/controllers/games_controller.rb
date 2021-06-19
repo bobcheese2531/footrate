@@ -6,31 +6,31 @@ class GamesController < ApplicationController
   end
 
   def pl
-    set_matches("PL")
+    set_matches("PL", "")
   end
 
   def liga
-    set_matches("PD")
+    set_matches("PD", "")
   end
   
   def bundes
-    set_matches("BL1")
+    set_matches("BL1", "")
   end
   
   def seriea
-    set_matches("SA")
+    set_matches("SA", "")
   end
   
   def ligue
-    set_matches("FL1")
+    set_matches("FL1", "")
   end
   
   def cl
-    set_matches("CL")
+    set_matches("CL", "")
   end  
   
   def euro
-    set_matches("EC")
+    set_matches("EC", "")
   end
   
   def show

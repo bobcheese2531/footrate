@@ -7,8 +7,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :image, :user_text, :like_team])
   end
   
-  def set_matches(code)
-    result = Api::FootballData::Request.get_games(code)
+  def set_matches(code, year)
+    result = Api::FootballData::Request.get_games(code, year)
     @matches = result["matches"]
   end
   
