@@ -5,24 +5,8 @@ class GamesController < ApplicationController
   def index
   end
 
-  def pl
-    set_matches("PL", params[:year])
-  end
-
-  def liga
-    set_matches("PD", params[:year])
-  end
-  
-  def bundes
-    set_matches("BL1", params[:year])
-  end
-  
-  def seriea
-    set_matches("SA", params[:year])
-  end
-  
-  def ligue
-    set_matches("FL1", params[:year])
+  def league
+    set_matches(params[:code], params[:year])
   end
   
   def cl
