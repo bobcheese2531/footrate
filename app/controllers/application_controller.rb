@@ -23,4 +23,10 @@ class ApplicationController < ActionController::Base
     @standings = result["standings"][0]["table"]
   end
   
+  def set_scorers(code)
+    result = Api::FootballData::Request.get_scorers(code)
+    @scorers = result["scorers"]
+  end
+  
+  
 end

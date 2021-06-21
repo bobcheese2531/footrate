@@ -6,5 +6,6 @@
 = link_to "18-19シーズン",  league_games_path(code: params[:code], year: 2018, title: params[:title])
 
 = link_to "順位表",  standings_games_path(code: params[:code])
+= link_to "得点ランキング",  scorers_games_path(code: params[:code])
 
 = render 'games', matches: @matches

@@ -22,6 +22,10 @@ class GamesController < ApplicationController
     set_standings(params[:code])
   end
   
+  def scorers
+    set_scorers(params[:code])
+  end
+  
   def show
     set_match(params[:id])
     @game = Game.find_or_create_by(id: params[:id])

@@ -1,0 +1,17 @@
+%h1 得点ランキング
+
+%table.table
+  %thead
+    %tr
+      %th クラブ
+      %th.text-center 選手
+      %th.text-center ゴール数
+      
+  %tbody
+    - @scorers.each_with_index do |s|
+      %tr
+        %td
+          = image_tag "https://crests.football-data.org/#{s["team"]["id"]}.svg", size: "30x30"
+          = s["team"]["name"]
+        %td.text-center= s["player"]["name"]
+        %td.text-center= s["numberOfGoals"]
