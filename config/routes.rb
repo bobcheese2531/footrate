@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
   resources :games, only: %i(index show) do
     collection do
-      get :league, :cl, :euro, :standings, :scorers
+      get :league, :tournament, :standings, :scorers
     end
   end
   
