@@ -23,7 +23,7 @@ class GamesController < ApplicationController
   end
   
   def scorers
-    set_scorers(params[:code])
+    set_scorers(params[:code], params[:year])
   end
   
   def show

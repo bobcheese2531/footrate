@@ -3,13 +3,15 @@
 %table.table
   %thead
     %tr
+      %th 順位
       %th クラブ
       %th.text-center 選手
       %th.text-center ゴール数
       
   %tbody
-    - @scorers.each_with_index do |s|
+    - @scorers.each_with_index do |s, i|
       %tr
+        %td= i + 1
         %td
           = image_tag "https://crests.football-data.org/#{s["team"]["id"]}.svg", size: "30x30"
           = s["team"]["name"]
