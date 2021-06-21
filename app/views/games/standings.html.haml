@@ -1,0 +1,25 @@
+%h1 順位表
+
+%table.table
+  %thead
+    %tr.text-center
+      %th 順位
+      %th クラブ
+      %th 試合
+      %th 勝
+      %th 分
+      %th 負
+      %th Pts
+      
+  %tbody
+    - @standings.each do |s|
+      %tr.text-center
+        %td= s["position"]
+        %td
+          = image_tag "https://crests.football-data.org/#{s["team"]["id"]}.svg", size: "30x30"
+          = s["team"]["name"]
+        %td= s["playedGames"]
+        %td= s["won"]
+        %td= s["draw"]
+        %td= s["lost"]
+        %td= s["points"]

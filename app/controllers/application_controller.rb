@@ -14,8 +14,13 @@ class ApplicationController < ActionController::Base
   end
   
   def set_match(id)
-    result= Api::FootballData::Request.show_game(id)
+    result = Api::FootballData::Request.show_game(id)
     @match = result["match"]
+  end
+  
+  def set_standings(code)
+    result = Api::FootballData::Request.get_standings(code)
+    @standings = result["standings"][0]["table"]
   end
   
 end

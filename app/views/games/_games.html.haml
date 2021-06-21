@@ -1,29 +1,29 @@
 %table.table
   %thead.thead-dark
-    %tr
-      %th.text-center 節
-      %th.text-center 日付
-      %th.text-center ホームチーム
-      %th.text-center スコア
-      %th.text-center アウェイチーム
+    %tr.text-center
+      %th 節
+      %th 日付
+      %th ホームチーム
+      %th スコア
+      %th アウェイチーム
       %th
       
   - matches.each do |m|
-    %tr
-      %td.text-center= m["matchday"]
-      %td.text-center= m["utcDate"].first(10)
-      %td.text-center
+    %tr.text-center
+      %td= m["matchday"]
+      %td= m["utcDate"].first(10)
+      %td
         = image_tag "https://crests.football-data.org/#{m["homeTeam"]["id"]}.svg", size: "30x30"
         = m['homeTeam']['name']
-      %td.text-center
+      %td
         = m['score']['fullTime']['homeTeam']
         = ":"
         = m['score']['fullTime']['awayTeam']
-      %td.text-center
+      %td
         = image_tag "https://crests.football-data.org/#{m["awayTeam"]["id"]}.svg", size: "30x30"
         = m['awayTeam']['name']
         
-      %td.text-center= link_to "詳細", game_path(m["id"]) if m["status"] == "FINISHED"
+      %td= link_to "詳細", game_path(m["id"]) if m["status"] == "FINISHED"
       
 %div.container
   = paginate matches
