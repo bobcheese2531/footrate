@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     # GET /users/id/edit
     def edit
       result = Api::FootballData::Request.get_teams
-      @teams = result["teams"]
+      @teams = result["teams"].sort_by { |team| team["name"] }
     end
     
     # PATCH/PUT /users/id

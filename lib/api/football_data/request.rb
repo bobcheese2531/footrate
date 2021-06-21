@@ -40,11 +40,11 @@ module Api
       end
       
       def self.get_teams
-        url = "https://api.football-data.org/v2/competitions/PL/teams"
-        header = { 'X-Auth-Token': ENV['FOOTBALL_DATA_API_KEY'] } 
-        client = HTTPClient.new
-        response = client.get(url, header: header)
-        JSON.parse(response.body)
+          url = "https://api.football-data.org/v2/teams?areas=2114,2088,2081,2224,2072"
+          header = { 'X-Auth-Token': ENV['FOOTBALL_DATA_API_KEY'] } 
+          client = HTTPClient.new
+          response = client.get(url, header: header)
+          JSON.parse(response.body)
       end
       
       def self.get_team(id)
