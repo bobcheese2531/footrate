@@ -1,4 +1,5 @@
 %h1 プロフィール編集
+
 = form_for(@user) do |f|
   %table.table.table-bordered
     %tr
@@ -12,6 +13,7 @@
       %td= f.text_field :user_text
     %tr
       %th{:scope => "col"}= f.label :like_team, "好きなチーム"
-      %td= f.text_field :like_team
+      %td= f.select :like_team, options_for_select(@teams.map{|t|[t["name"], t["id"]]})
   .my-3
     = f.submit "編集する", class: "btn btn-primary"
+    

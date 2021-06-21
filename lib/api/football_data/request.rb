@@ -38,6 +38,32 @@ module Api
         response = client.get(url, header: header)
         JSON.parse(response.body)
       end
+      
+      def self.get_teams
+        url = "https://api.football-data.org/v2/competitions/PL/teams"
+        header = { 'X-Auth-Token': ENV['FOOTBALL_DATA_API_KEY'] } 
+        client = HTTPClient.new
+        response = client.get(url, header: header)
+        JSON.parse(response.body)
+      end
+      
+      def self.get_team(id)
+        url = "https://api.football-data.org/v2/teams/#{id}"
+        header = { 'X-Auth-Token': ENV['FOOTBALL_DATA_API_KEY'] } 
+        client = HTTPClient.new
+        response = client.get(url, header: header)
+        JSON.parse(response.body)
+      end
+      
+      def self.get_team_matches(id)
+        url = "https://api.football-data.org/v2/teams/#{id}/matches/"
+        header = { 'X-Auth-Token': ENV['FOOTBALL_DATA_API_KEY'] } 
+        client = HTTPClient.new
+        response = client.get(url, header: header)
+        JSON.parse(response.body)
+      end
+      
+      
 
     end
   end

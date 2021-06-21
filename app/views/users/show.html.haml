@@ -7,7 +7,12 @@
     %td= @user.user_text
   %tr
     %th 好きなチーム
-    %td= @user.like_team
+    %td
+      = image_tag "https://crests.football-data.org/#{@team["id"]}.svg", size: "50x50"
+      = @team["name"]
   %tr
     %th 
-    %td= link_to edit_user_path(@user)
+    %td= link_to "編集", edit_user_path(@user)
+
+%h2 試合一覧
+= render 'games/games', matches: @matches
