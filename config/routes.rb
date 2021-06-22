@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :rates, only: %i(index show)
+  resources :rates, only: %i(index show destroy)
   
   resources :players, only: %i(new create)
   

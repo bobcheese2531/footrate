@@ -1,7 +1,8 @@
 %h1
   = @rate.user.name
   の投稿
-  
+= link_to "削除", "/rates/#{@rate.id}", method: :delete
+
 %table.table
   %thead
     %tr
@@ -24,4 +25,4 @@
           = p.player_rate
         %td
           = p.rate_text
-        
+  
