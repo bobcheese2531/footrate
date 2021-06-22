@@ -1,7 +1,5 @@
-%h1 順位表
-
 %table.table
-  %thead
+  %thead.thead-light
     %tr.text-center
       %th 順位
       %th クラブ
@@ -12,12 +10,11 @@
       %th Pts
       
   %tbody
-    - @standings.each do |s|
+    - standings.each do |s|
       %tr.text-center
         %td= s["position"]
         %td
           = image_tag "https://crests.football-data.org/#{s["team"]["id"]}.svg", size: "30x30"
-          = s["team"]["name"]
         %td= s["playedGames"]
         %td= s["won"]
         %td= s["draw"]

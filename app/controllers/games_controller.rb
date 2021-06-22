@@ -13,16 +13,13 @@ class GamesController < ApplicationController
   def league
     @title = params[:title]
     set_matches(params[:code], params[:year])
+    set_standings(params[:code])
   end
   
   def tournament
     @title = params[:title]
     set_matches(params[:code], params[:year])
   end  
-  
-  def standings
-    set_standings(params[:code])
-  end
   
   def scorers
     set_scorers(params[:code], params[:year])
