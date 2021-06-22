@@ -12,7 +12,7 @@ class GamesController < ApplicationController
   
   def league
     @title = params[:title]
-    set_matches(params[:code], params[:year])
+    set_matches(params[:code], params[:year], params[:day])
     set_standings(params[:code])
   end
   

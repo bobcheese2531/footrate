@@ -1,6 +1,5 @@
 = form_with model: @player, url: players_path, method: :post, local: true do |form|
-  = render 'layouts/error_messages', model: form.object
-  
+
   %h2
     = image_tag "https://crests.football-data.org/#{@match["homeTeam"]["id"]}.svg", size: "30x30"
     = @match["homeTeam"]["name"]
@@ -11,7 +10,7 @@
         %th ポジション
         %th 名前
         %th 点数
-        %th 感想
+        %th コメント
     
     %tbody
       - @match["homeTeam"]["lineup"].each do |home|
@@ -28,7 +27,7 @@
         %th ポジション
         %th 名前
         %th 点数
-        %th 感想
+        %th コメント
         
     %tbody
       - @match["awayTeam"]["lineup"].each do |away|
