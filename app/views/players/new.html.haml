@@ -16,7 +16,7 @@
     %tbody
       - @match["homeTeam"]["lineup"].each do |home|
         = form.fields_for :players do |f|
-          = render 'field_form', {f: f, player: home}
+          = render 'field_form', {f: f, player: home, team_id: @match["homeTeam"]["id"]}
           
   %h2
     = image_tag "https://crests.football-data.org/#{@match["awayTeam"]["id"]}.svg", size: "30x30"
@@ -33,6 +33,6 @@
     %tbody
       - @match["awayTeam"]["lineup"].each do |away|
         = form.fields_for :players do |f|
-          = render 'field_form', {f: f, player: away}
+          = render 'field_form', {f: f, player: away, team_id: @match["awayTeam"]["id"]}
           
   = form.submit "登録"

@@ -16,7 +16,7 @@ class PlayersController < ApplicationController
   private
   def player_collection_params
     params.require(:form_player_collection)
-    .permit(players_attributes: [:name, :player_rate, :rate_text, :position, :shirtnumber, :rate_id])
+    .permit(players_attributes: [:name, :player_rate, :rate_text, :position, :shirtnumber, :rate_id, :team_id])
   end
   
 end

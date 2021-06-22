@@ -6,6 +6,7 @@
 %table.table
   %thead
     %tr
+      %th チーム
       %th 背番号
       %th ポジション
       %th 名前
@@ -15,6 +16,8 @@
   %tbody
     - @players.each do |p|
       %tr
+        %td
+          = image_tag "https://crests.football-data.org/#{p.team_id}.svg", size: "30x30"
         %td
           = p.shirtnumber
         %td

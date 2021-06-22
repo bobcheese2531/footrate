@@ -8,6 +8,7 @@ class Player < ApplicationRecord
   	validates :rate_text, length: { maximum: 100 }
   	validates :shirtnumber
   	validates :rate_id
+  	validates :team_id
 	end
 	
 end
