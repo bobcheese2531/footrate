@@ -1,6 +1,0 @@
-%h1 
-  = link_to @title, league_games_path(code: params[:code], year: "")
-
-= link_to "得点ランキング",  scorers_games_path(code: params[:code], year: params[:year])
-
-= render 'games', matches: @matches

@@ -24,11 +24,11 @@
 
     %div.col-md-4.text-center
       = image_tag 'CL_logo.png', size: "150x150"
-      %p= link_to "チャンピオンズリーグ", tournament_games_path(code: "CL", year: "", title: "チャンピオンズリーグ")
+      %p= link_to "チャンピオンズリーグ", cl_games_path(code: "CL", year: "", title: "チャンピオンズリーグ", stage: "GROUP_STAGE", day: 1)
 
     %div.col-md-4.text-center
       = image_tag 'EC_logo.png', size: "150x150"
-      %p= link_to "ユーロ", tournament_games_path(code: "EC", year: "", title: "ユーロ2020")
+      %p= link_to "ユーロ", euro_games_path(code: "EC", year: "", title: "ユーロ2020", stage: "GROUP_STAGE", day: 1)
 
       
 %div.container.mt-3

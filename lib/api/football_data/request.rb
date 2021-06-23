@@ -15,8 +15,16 @@ module Api
         JSON.parse(response.body)
       end
   
-      def self.get_games(code, year, day)
+      def self.get_league_games(code, year, day)
         url = "https://api.football-data.org/v2/competitions/#{code}/matches?season=#{year}&matchday=#{day}"
+        header = { 'X-Auth-Token': ENV['FOOTBALL_DATA_API_KEY'] }
+        client = HTTPClient.new
+        response = client.get(url, header: header)
+        JSON.parse(response.body)
+      end
+      
+      def self.get_tournament_games(code, year, stage, day)
+        url = "https://api.football-data.org/v2/competitions/#{code}/matches?season=#{year}&stage=#{stage}&matchday=#{day}"
         header = { 'X-Auth-Token': ENV['FOOTBALL_DATA_API_KEY'] }
         client = HTTPClient.new
         response = client.get(url, header: header)

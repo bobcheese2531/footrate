@@ -14,14 +14,22 @@ class GamesController < ApplicationController
   
   def league
     @title = params[:title]
-    set_matches(params[:code], params[:year], params[:day])
+    set_league_matches(params[:code], params[:year], params[:day])
     set_standings(params[:code])
   end
   
-  def tournament
+  def cl
     @title = params[:title]
-    set_matches(params[:code], params[:year])
-  end  
+    result = Api::FootballData::Request.get_tournament_games(params[:code], params[:year], params[:stage], params[:day])
+    @matches = result['matches']
+  end
+  
+  def euro
+    @title = params[:title]
+    result = Api::FootballData::Request.get_tournament_games(params[:code], params[:year], params[:stage], params[:day])
+    @matches = result['matches']
+  end
+    
   
   def scorers
     set_scorers(params[:code], params[:year])
