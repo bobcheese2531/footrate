@@ -6,6 +6,14 @@ module Api
         code = code
         id = id
       end
+      
+      def self.get_scheduled_games
+        url = "https://api.football-data.org/v2/matches?status=SCHEDULED&limit=4"
+        header = { 'X-Auth-Token': ENV['FOOTBALL_DATA_API_KEY'] }
+        client = HTTPClient.new
+        response = client.get(url, header: header)
+        JSON.parse(response.body)
+      end
   
       def self.get_games(code, year, day)
         url = "https://api.football-data.org/v2/competitions/#{code}/matches?season=#{year}&matchday=#{day}"

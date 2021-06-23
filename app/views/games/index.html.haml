@@ -1,6 +1,6 @@
-%h1.display-4.text-center リーグ 一覧
-
 %div.container.mt-3
+  %h2.text-center リーグ 一覧
+  
   %div.row.mx-auto
     %div.col-md-4.text-center
       = image_tag 'PL_logo.png', size: "150x150"
@@ -29,4 +29,8 @@
     %div.col-md-4.text-center
       = image_tag 'EC_logo.png', size: "150x150"
       %p= link_to "ユーロ", tournament_games_path(code: "EC", year: "", title: "ユーロ2020")
+
       
+%div.container.mt-3
+  %h2.text-center 今後のピックアップマッチ 
+  = render 'cards', matches: @matches
