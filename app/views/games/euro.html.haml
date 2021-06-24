@@ -15,3 +15,5 @@
 = link_to "得点ランキング",  scorers_games_path(code: params[:code], year: params[:year])
 
 = render 'games', matches: @matches
+
+= render 'tournament_standings', standings: @standings
