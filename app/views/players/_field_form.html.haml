@@ -1,14 +1,18 @@
-%tr
-  %td
-    = f.number_field :shirtnumber, value: player["shirtNumber"]
-  %td
-    = f.text_field :position, value: player["position"]
-  %td
-    = f.text_field :name, value: player["name"]
-  %td
-    = f.number_field :player_rate, value: 6, min: 1, max: 10
-  %td
-    = f.text_field :rate_text
+%div.col-1.mb-1
+  %div.form_group
+    = f.number_field :shirtnumber, value: player["shirtNumber"], class: "form-control"
+%div.col-2
+  %div.form_group
+    = f.text_field :position, value: player["position"], class: "form-control"
+%div.col-2
+  %div.form_group
+    = f.text_field :name, value: player["name"], class: "form-control"
+%div.col-1
+  %div.form_group
+    = f.number_field :player_rate, value: 6, min: 1, max: 10, class: "form-control"
+%div.col-6
+  %div.form_group
+    = f.text_field :rate_text, class: "form-control"
         
     = f.hidden_field :rate_id  
     
