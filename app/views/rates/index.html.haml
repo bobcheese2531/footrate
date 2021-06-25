@@ -1,4 +1,3 @@
-- @rates.each do |r|
-  %div= link_to "#{r.user.name}の投稿", rate_path(r.id)
-    
-= link_to '投稿する', new_player_path(game_id: params[:game_id])
+%div.container.mt-3
+  %h2.text-center 投稿一覧
+  = render 'rate_card', rates: @rates

@@ -1,7 +1,7 @@
 class RatesController < ApplicationController
     
   def index
-    @rates = Rate.where(game_id: params[:game_id])
+    @rates = Rate.all
   end
   
   def show
@@ -12,7 +12,7 @@ class RatesController < ApplicationController
   def destroy
     rate = Rate.find(params[:id])
     rate.destroy if rate.user_id == current_user.id
-    redirect_to root_path
+    redirect_to controller: :rates, action: :index
   end
 
 end

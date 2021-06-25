@@ -1,0 +1,5 @@
+%div.row.d-flex.align-items-center.justify-content-center
+  - rates.each do |r|
+    %div.card.border-dark.mb-2.mr-2.col-md-5
+      %p= link_to "#{r.user.name}の投稿", rate_path(r.id)      
+      %p= "#{r.home_team} vs #{r.away_team}"

@@ -3,9 +3,9 @@ class PlayersController < ApplicationController
   before_action :authenticate_user! 
   
   def new
-    rate = Rate.find_or_create_by(game_id: params[:game_id], user_id: current_user.id)
-    @player = Form::PlayerCollection.new(rate_id: rate.id)
     set_match(params[:game_id])
+    rate = Rate.find_or_create_by(game_id: params[:game_id], user_id: current_user.id, home_team: @match["homeTeam"]["name"],away_team: @match["awayTeam"]["name"])
+    @player = Form::PlayerCollection.new(rate_id: rate.id)
   end
   
   def create

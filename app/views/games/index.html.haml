@@ -33,4 +33,8 @@
       
 %div.container.mt-3
   %h2.text-center ピックアップマッチ 
-  = render 'cards', { matches: @matches, result: @result}
+  = render 'game_card', { matches: @matches, result: @result}
+
+%div.container.mt-3
+  %h2.text-center 最新の投稿
+  = render 'rates/rate_card', rates: @rates
