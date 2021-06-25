@@ -1,6 +1,6 @@
 %div.row.d-flex.align-items-center.justify-content-center
   - matches.each do |m|
-    %div.card.border-dark.mb-2.mr-2.col-md-5
+    %div.card.border-dark.col-md-6.my-1.mr-1
       %h8
         = link_to result['competition']['name'], euro_games_path(code: result['competition']['code'], year: "", title: "ユーロ2020", stage: m['stage'] , day: "")
       %h8= game_time(m['utcDate'])
