@@ -28,51 +28,11 @@
           = g["scorer"]["name"]
         %td
           = g["assist"].present? ? g["assist"]["name"] : "なし"
-   
-%h2.text-center スタメン   
-%table.table
-  %thead.thead-dark
-    %tr.text-center
-      %th
-        = @match["homeTeam"]["name"] 
-        のスタメン
-      %th
-        = @match["awayTeam"]["name"]
-        のスタメン
 
-  %tbody
-    - @match["homeTeam"]["lineup"].zip(@match["awayTeam"]["lineup"]).each do |h, a|
-      %tr.text-center
-        %td
-          = h["shirtNumber"] 
-          = h["position"]
-          = h["name"]
-        %td
-          = a["shirtNumber"] 
-          = a["position"]
-          = a["name"]
 
-%h2.text-center 交代
-%table.table
-  %thead.thead-dark
-    %tr.text-center
-    %th 時間
-    %th チーム
-    %th イン
-    %th アウト
+%div.container
+  %div.row.d-flex.justify-content-center
+    = render 'member_card', match: @match['homeTeam']
+    = render 'member_card', match: @match['awayTeam']
   
-  %tbody
-    - @match["substitutions"].each do |s|
-      %tr.text-center
-        %td
-          = s["minute"] 
-          = "分"
-        %td
-          = image_tag "https://crests.football-data.org/#{s["team"]["id"]}.svg", size: "30x30"
-        %td
-          = s["playerIn"]["name"]
-        %td
-          = s["playerOut"]["name"]
-
-
 = link_to '投稿する', new_player_path(game_id: params[:id])
