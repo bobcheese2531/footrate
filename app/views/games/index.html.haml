@@ -32,5 +32,5 @@
 
       
 %div.container.mt-3
-  %h2.text-center 今後のピックアップマッチ 
-  = render 'cards', matches: @matches
+  %h2.text-center ピックアップマッチ 
+  = render 'cards', { matches: @matches, result: @result}

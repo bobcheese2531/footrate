@@ -1,22 +1,23 @@
 %div.row.d-flex.align-items-center.justify-content-center
   - matches.each do |m|
     %div.card.border-dark.mb-2.mr-2.col-md-5
-      %div.card-header.text-center 
-        = m['homeTeam']['name']
-        = image_tag "https://crests.football-data.org/#{m["homeTeam"]["id"]}.svg", size: "30x30"
-        = ":"
-        = image_tag "https://crests.football-data.org/#{m["awayTeam"]["id"]}.svg", size: "30x30"
-        = m['awayTeam']['name']
-      %div.card-body.text-center
-        %h8
-          %strong 大会
-        %p.card-text
-          = m['competition']["name"]
-        %h8
-          %strong KO日時
-        %p.card-text
-          = m['utcDate'].first(16)
-        %h8
-          %strong スタジアム
-        %p.card-text
-          = m['venue']
+      %h8
+        = link_to result['competition']['name'], euro_games_path(code: result['competition']['code'], year: "", title: "ユーロ2020", stage: m['stage'] , day: "")
+      %h8= game_time(m['utcDate'])
+      
+      %div.card-body
+        %div.row.d-flex.align-items-center.justify-content-center
+          %div.col-md-5.text-left
+            = image_tag "https://crests.football-data.org/#{m["homeTeam"]["id"]}.svg", size: "70x70"
+            &emsp;
+            = m['score']['fullTime']['homeTeam']
+            %br
+            = m['homeTeam']['name']
+          %div.col-md-5.text-right
+            = m['score']['fullTime']['awayTeam']
+            &emsp;
+            = image_tag "https://crests.football-data.org/#{m["awayTeam"]["id"]}.svg", size: "70x70"
+            %br
+            = m['awayTeam']['name']
+            
+  

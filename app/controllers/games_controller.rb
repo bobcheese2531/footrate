@@ -3,8 +3,8 @@ class GamesController < ApplicationController
   require 'httpclient'
   
   def index
-    result = Api::FootballData::Request.get_scheduled_games
-    @matches = result["matches"]
+    @result = Api::FootballData::Request.get_scheduled_games
+    @matches = @result["matches"]
   end
   
   def show

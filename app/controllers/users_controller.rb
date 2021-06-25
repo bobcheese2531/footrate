@@ -7,8 +7,8 @@ class UsersController < ApplicationController
     # GET /users/id
     def show
       @team = Api::FootballData::Request.get_team(@user.like_team)
-      result = Api::FootballData::Request.get_team_matches(@user.like_team)
-      matches = result["matches"]
+      @result = Api::FootballData::Request.get_team_matches(@user.like_team)
+      matches = @result["matches"]
       @matches = Kaminari.paginate_array(matches).page(params[:page]).per(10)
     end
     
