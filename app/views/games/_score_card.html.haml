@@ -1,0 +1,6 @@
+%h1
+  = image_tag "https://crests.football-data.org/#{team["id"]}.svg", size: "60x60"
+  = team["name"]
+  = match['score']['fullTime']['homeTeam']
+- match["goals"].each do |g|
+  %p= "#{g["minute"]}分 #{g["scorer"]["name"]}" if g["team"]["name"] == team["name"]

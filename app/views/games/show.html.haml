@@ -1,38 +1,28 @@
-%h1.text-center
-  = image_tag "https://crests.football-data.org/#{@match["homeTeam"]["id"]}.svg", size: "60x60"
-  = @match["homeTeam"]["name"]
-  = @match['score']['fullTime']['homeTeam']
-  = ":"
-  = @match['score']['fullTime']['awayTeam']
-  = @match["awayTeam"]["name"]
-  = image_tag "https://crests.football-data.org/#{@match["awayTeam"]["id"]}.svg", size: "60x60"
-  
-%h2.text-center 得点者
-%table.table
-  %thead.thead-dark
-    %tr.text-center
-    %th 時間
-    %th チーム
-    %th 得点者
-    %th　アシスト
-  
-  %tbody
-    - @match["goals"].each do |g|
-      %tr.text-center
-        %td
-          = g["minute"] 
-          = "分"
-        %td
-          = image_tag "https://crests.football-data.org/#{g["team"]["id"]}.svg", size: "30x30"
-        %td
-          = g["scorer"]["name"]
-        %td
-          = g["assist"].present? ? g["assist"]["name"] : "なし"
+%div.mt-2.text-right
+  = link_to '評価する', new_player_path(game_id: params[:id]), class: "btn btn-outline-primary btn-lg" 
 
+%div.card.border-dark.container.my-3
+  %div.row.d-flex.justify-content-center
+    %div.col-md-5.text-center
+      %h1
+        = image_tag "https://crests.football-data.org/#{@match["homeTeam"]["id"]}.svg", size: "60x60"
+        = @match["homeTeam"]["name"]
+        = @match['score']['fullTime']['homeTeam']
+      - @match["goals"].each do |g|
+        %p= "#{g["minute"]}分 #{g["scorer"]["name"]}" if g["team"]["name"] == @match["homeTeam"]["name"]
+    %div.col-md-2.text-center 
+      %h1 :
+      %p.text-muted 得点者
+    %div.col-md-5.text-center 
+      %h1
+        = @match['score']['fullTime']['awayTeam']
+        = @match["awayTeam"]["name"]
+        = image_tag "https://crests.football-data.org/#{@match["awayTeam"]["id"]}.svg", size: "60x60"
+      - @match["goals"].each do |g|
+        %p= "#{g["minute"]}分 #{g["scorer"]["name"]}"  if g["team"]["name"] == @match["awayTeam"]["name"]
+    
 
-%div.container
+%div.container.mt-2
   %div.row.d-flex.justify-content-center
     = render 'member_card', match: @match['homeTeam']
     = render 'member_card', match: @match['awayTeam']
-  
-= link_to '投稿する', new_player_path(game_id: params[:id])
