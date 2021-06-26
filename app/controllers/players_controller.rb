@@ -12,7 +12,7 @@ class PlayersController < ApplicationController
   
   def create
     @player = Form::PlayerCollection.new(player_collection_params)
-    @player.save ? (redirect_to games_path) : (redirect_back(fallback_location: root_path))
+    @player.save ? (redirect_to rates_path) : (redirect_back(fallback_location: root_path))
   end
 
   private
