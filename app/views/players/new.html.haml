@@ -1,7 +1,8 @@
 %h1 新規投稿
 
 = form_with model: @player, url: players_path, method: :post, local: true do |form|
-  = render 'form', {form: form, team: @match['homeTeam']}
-  = render 'form', {form: form, team: @match['awayTeam']}      
+  = render 'form', {form: form, team: @match['homeTeam'], side: @home}
+  = render 'form', {form: form, team: @match['awayTeam'], side: @away}      
  
   = form.submit "投稿する", class: "btn btn-primary"
+

@@ -13,6 +13,6 @@
       評価
     %div.col-6  
       感想
-    - team["lineup"].each do |home|
+    - side.each do |home|
       = form.fields_for :players do |f|
         = render 'field_form', {f: f, player: home, team_id: team["id"]}
