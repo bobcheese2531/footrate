@@ -15,7 +15,7 @@
           = s["name"]
           &nbsp;
           - @match["substitutions"].each do |sub|
-            %strong.text-danger= "#{sub["minute"]}分 OUT" if s["name"] == sub["playerOut"]["name"]
+            %strong.text-danger= "#{sub["minute"]}分 ↓" if s["name"] == sub["playerOut"]["name"]
           
   %div.card.border-dark.mb-3
     %div.card-header
@@ -28,4 +28,4 @@
           = b["name"]
           &nbsp;
           - @match["substitutions"].each do |sub|
-            %strong.text-success= "#{sub["minute"]}分 IN" if b["name"] == sub["playerIn"]["name"]
+            %strong.text-success= "#{sub["minute"]}分 ↑" if b["name"] == sub["playerIn"]["name"]

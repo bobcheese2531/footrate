@@ -1,26 +1,32 @@
-%h1 
-  = link_to @title, cl_games_path(code: params[:code], year: "", title: params[:title], day: 1)
-  
-  %div.dropdown
-    %button#dropdownMenuButton.btn.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
-      シーズン一覧
-    %div.dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
-      = link_to "現在のシーズン", cl_games_path(code: params[:code], year: "", title: params[:title], day: 1), class: "dropdown-item" 
-      = link_to "20-21シーズン",  cl_games_path(code: params[:code], year: 2020, title: params[:title], day: 1), class: "dropdown-item" 
-      = link_to "19-20シーズン",  cl_games_path(code: params[:code], year: 2019, title: params[:title], day: 1), class: "dropdown-item" 
-      = link_to "18-19シーズン",  cl_games_path(code: params[:code], year: 2018, title: params[:title], day: 1), class: "dropdown-item" 
+%div.container
+  %div.row
+    %div.col-md-8.my-2
+      %h1 
+        = link_to @title, cl_games_path(code: params[:code], year: "", title: params[:title], day: 1)
+        
+    %div.container.col-md-4.my-2
+      %div.row
+        %div.dropdown.mx-1
+          %button#dropdownMenuButton.btn.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+            シーズン一覧
+          %div.dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
+            = link_to "現在のシーズン", cl_games_path(code: params[:code], year: "", title: params[:title], day: 1), class: "dropdown-item" 
+            = link_to "20-21シーズン",  cl_games_path(code: params[:code], year: 2020, title: params[:title], day: 1), class: "dropdown-item" 
+            = link_to "19-20シーズン",  cl_games_path(code: params[:code], year: 2019, title: params[:title], day: 1), class: "dropdown-item" 
+            = link_to "18-19シーズン",  cl_games_path(code: params[:code], year: 2018, title: params[:title], day: 1), class: "dropdown-item" 
       
-  %div.dropdown.my-2
-    %button#dropdownMenuButton.btn.btn-outline-primary.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
-      節
-    %div.dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
-      - 6.times do |i|
-        = link_to "#{i + 1}節",  cl_games_path(code: params[:code], year: params[:year], title: params[:title], day: (i + 1)), class: "dropdown-item" 
-      = link_to "ラウンド・オブ・16", cl_games_path(code: params[:code], year: params[:year], title: params[:title], stage: "ROUND_OF_16"), class: "dropdown-item"
-      = link_to "準々決勝", cl_games_path(code: params[:code], year: params[:year], title: params[:title], stage: "QUARTER_FINALS"), class: "dropdown-item"
-      = link_to "準決勝", cl_games_path(code: params[:code], year: params[:year], title: params[:title], stage: "SEMI_FINALS"), class: "dropdown-item"
-      = link_to "決勝", cl_games_path(code: params[:code], year: params[:year], title: params[:title], stage: "FINAL"), class: "dropdown-item"
-
-= link_to "得点ランキング",  scorers_games_path(code: params[:code], year: params[:year])
+        %div.dropdown.mx-1
+          %button#dropdownMenuButton.btn.btn-outline-primary.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+            節
+          %div.dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
+            - 6.times do |i|
+              = link_to "#{i + 1}節",  cl_games_path(code: params[:code], year: params[:year], title: params[:title], day: (i + 1)), class: "dropdown-item" 
+            = link_to "ラウンド・オブ・16", cl_games_path(code: params[:code], year: params[:year], title: params[:title], stage: "ROUND_OF_16"), class: "dropdown-item"
+            = link_to "準々決勝", cl_games_path(code: params[:code], year: params[:year], title: params[:title], stage: "QUARTER_FINALS"), class: "dropdown-item"
+            = link_to "準決勝", cl_games_path(code: params[:code], year: params[:year], title: params[:title], stage: "SEMI_FINALS"), class: "dropdown-item"
+            = link_to "決勝", cl_games_path(code: params[:code], year: params[:year], title: params[:title], stage: "FINAL"), class: "dropdown-item"
+        
+        %div.mx-1
+          = link_to "得点ランキング",  scorers_games_path(code: params[:code], year: params[:year]), class: "btn btn-outline-success"
 
 = render 'games', matches: @matches
