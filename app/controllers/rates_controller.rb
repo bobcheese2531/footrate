@@ -1,7 +1,7 @@
 class RatesController < ApplicationController
     
   def index
-    @rates = Rate.all
+    @rates = Rate.page(params[:page]).per(9)
   end
   
   def show
