@@ -2,9 +2,8 @@
   - matches.each do |m|
     %div.card.border-dark.col-md-6.my-1.mr-1
       %h8
-        = link_to result['competition']['name'], euro_games_path(code: result['competition']['code'], year: "", title: "ユーロ2020", stage: m['stage'] , day: "")
-      %h8= game_time(m['utcDate'])
-      
+        = game_time(m['utcDate'])
+        = link_to "詳細", game_path(m["id"]) if m["status"] == "FINISHED"
       %div.card-body
         %div.row.d-flex.align-items-center.justify-content-center
           %div.col-md-5.text-left
@@ -19,5 +18,5 @@
             = image_tag "https://crests.football-data.org/#{m["awayTeam"]["id"]}.svg", size: "70x70"
             %br
             = m['awayTeam']['name']
-            
+        
   

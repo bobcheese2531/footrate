@@ -72,7 +72,7 @@ module Api
       end
       
       def self.get_team_matches(id)
-        url = "https://api.football-data.org/v2/teams/#{id}/matches/"
+        url = "https://api.football-data.org/v2/teams/#{id}/matches?limit=5"
         header = { 'X-Auth-Token': ENV['FOOTBALL_DATA_API_KEY'] } 
         client = HTTPClient.new
         response = client.get(url, header: header)
