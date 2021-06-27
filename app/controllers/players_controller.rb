@@ -15,11 +15,7 @@ class PlayersController < ApplicationController
     @player.save ? (redirect_to rates_path) : (redirect_back(fallback_location: root_path))
   end
   
-  def edit
-    rate = Rate.find(params[:rate_id])
-    @players = Player.where(rate_id: rate.id)
-  end
-
+  
   private
   def player_collection_params
     params.require(:form_player_collection)
@@ -33,7 +29,7 @@ class PlayersController < ApplicationController
   def set_members(team)
     sub = @match['substitutions'].select {|s| s['team']['name'] == team['name'] } 
     sub.each do |s|
-      team['lineup'] << { "name" => s["playerIn"]["name"], "position" => "SUB" }
+      team['lineup'] << { "name" => s["playerIn"]["name"], "position" => "SUB", "shirtNumber" => 0 }
     end
     team['lineup']
   end

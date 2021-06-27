@@ -2,7 +2,7 @@
   = @rate.user.name
   の投稿
 = link_to "削除", "/rates/#{@rate.id}", method: :delete if user_signed_in? && @rate.user.id == current_user.id
-= link_to "編集", edit_player_path(rate_id: params[:id])
+
 
 %table.table
   %thead
@@ -12,7 +12,7 @@
       %th ポジション
       %th 名前
       %th 点数
-      %th 感想
+      %th コメント
         
   %tbody
     - @players.each do |p|
@@ -28,5 +28,5 @@
         %td
           = p.player_rate
         %td
-          = p.rate_text
+          = p.rate_text.present? ? (p.rate_text) : ("なし")
   
