@@ -9,12 +9,12 @@
   %div.row
     %div.col-md-9
       %h2.text-center
-        = image_tag "https://crests.football-data.org/#{@team["id"]}.svg", size: "50x50"
+        = image_tag "https://crests.football-data.org/#{@user.like_team}.svg", size: "50x50"
         の試合
       = render 'games/game_card', { matches: @matches, result: @result}
     %div.col-md-3
       %h2.text-center
         = link_to "投稿一覧", rates_path
       = render 'rates/rate_card', rates: @rates
-      %div.mt-2
+      %div.d-flex.justify-content-center.mt-2
         = paginate @rates

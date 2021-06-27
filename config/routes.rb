@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    registrations: "devise/registrations"
+    :registrations => 'users/registrations'
   }
   
   resources :games, only: %i(index show) do

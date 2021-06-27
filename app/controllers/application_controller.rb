@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :image, :user_text, :like_team])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :image, :like_team])
   end
   
   def set_league_matches(code, year, day)

@@ -3,17 +3,17 @@
 = form_for(@user) do |f|
   %div.container
     %div
-      %div.form_group.my-3
-        = f.label :name, "名前", class: "form-label"
+      %div.form-inline.my-3
+        = f.label :name, "名前", class: "form-label mr-2"
         = f.text_field :name, class: "form-control"
         
-      %div.form_group.my-3
-        = f.label :image, "プロフィール画像", class: "form-label"
-        = f.file_field :image
+      %div.form-group.my-3
+        = f.label :image, "プロフィール画像", class: "form-label mr-2"
+        = f.file_field :image, class: "form-control-file"
         
-      %div.form_group.my-3
-        = f.label :like_team, "好きなチーム", class: "form-label"
-        = f.select :like_team, options_for_select(@teams.map{|t|[t["name"], t["id"]]}), class: "form-select"
+      %div.form-inline.my-3
+        = f.label :like_team, "好きなチーム", class: "form-label mr-2"
+        = f.select :like_team, options_for_select(@teams.map{|t|[t["name"], t["id"]]}),class: "form-control"
   
   = f.submit "編集する", class: "btn btn-primary"
     
