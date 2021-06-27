@@ -14,11 +14,20 @@ class PlayersController < ApplicationController
     @player = Form::PlayerCollection.new(player_collection_params)
     @player.save ? (redirect_to rates_path) : (redirect_back(fallback_location: root_path))
   end
+  
+  def edit
+    rate = Rate.find(params[:rate_id])
+    @players = Player.where(rate_id: rate.id)
+  end
 
   private
   def player_collection_params
     params.require(:form_player_collection)
     .permit(players_attributes: [:name, :player_rate, :rate_text, :position, :shirtnumber, :rate_id, :team_id])
+  end
+  
+  def player_params
+    params.require(:player).permit(:name, :player_rate, :rate_text, :position, :shirtnumber, :rate_id, :team_id)
   end
   
   def set_members(team)

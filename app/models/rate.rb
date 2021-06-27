@@ -6,4 +6,6 @@ class Rate < ApplicationRecord
   has_many :players, dependent: :destroy
   
   validates_uniqueness_of :game_id, scope: :user_id
+  
+  scope :get_rates, -> { includes(:user).includes(:players) } 
 end

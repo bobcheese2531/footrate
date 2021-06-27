@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   
   resources :rates, only: %i(index show destroy)
   
-  resources :players, only: %i(new create)
+  resources :players, only: %i(new create edit update)
   
   resources :users, only: %i(show edit update)
   

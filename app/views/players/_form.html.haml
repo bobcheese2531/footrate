@@ -3,7 +3,7 @@
   = team["name"]
 %div.container
   %div.row
-    %div.col-1.mb-1
+    %div.col-1.mb-2
       背番号
     %div.col-2
       ポジション
@@ -12,7 +12,7 @@
     %div.col-1
       評価
     %div.col-6  
-      感想
+      コメント
     - side.each do |home|
       = form.fields_for :players do |f|
         = render 'field_form', {f: f, player: home, team_id: team["id"]}
