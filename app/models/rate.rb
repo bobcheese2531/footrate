@@ -8,4 +8,5 @@ class Rate < ApplicationRecord
   validates_uniqueness_of :game_id, scope: :user_id
   
   scope :get_rates, -> { includes(:user).includes(:players) } 
+  scope :paginate, -> (params, count) { page(params).per(count).order(id: "DESC") }
 end
