@@ -9,6 +9,7 @@ class User < ApplicationRecord
   
   #バリデーション
   validates :name, presence: true, uniqueness: true
+  validates :like_team, presence: true
   
   mount_uploader :image, ImageUploader
 end

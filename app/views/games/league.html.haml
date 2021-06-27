@@ -23,8 +23,5 @@
           = link_to "得点ランキング",  scorers_games_path(code: params[:code], year: params[:year]), class: "btn btn-outline-success"
 
 %div.container.mt-3
-  %div.row
-    %div.col-md-9
-      = render 'games', matches: @matches
-    %div.col-md-3
-      = render 'standings', standings: @standings
+  = render 'games', matches: @matches
+  = render 'standings', standings: @standings

@@ -1,9 +1,7 @@
 %div.container.mt-3
-  %div.row
-    %div.col-md-9
-      %h2.text-center ピックアップマッチ
-      = render 'game_card', { matches: @matches, result: @result}
-    %div.col-md-3
-      %h2.text-center
-        = link_to "投稿一覧", rates_path
-      = render 'rates/rate_card', rates: @rates
+  %h2.text-center.my-3 ピックアップマッチ
+  = render 'games', matches: @matches
+        
+  %h2.text-center.my-2
+    = link_to "投稿一覧", rates_path, class: "text-dark"
+  = render 'rates/rate_card', rates: @rates

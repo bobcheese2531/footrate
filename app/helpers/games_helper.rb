@@ -1,6 +1,12 @@
 module GamesHelper
   
-  def game_time(time)
-    time.slice(6) + '月' + time.slice(8..9) + '日' + time.slice(11..15)
+  def game_date(date)
+    date.slice(6) + '月' + date.slice(8..9) + '日'
   end
+  
+  def get_time(time)
+    time.slice(11..15)
+  end
+    
+  
 end
