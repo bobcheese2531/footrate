@@ -9,4 +9,9 @@ class Rate < ApplicationRecord
   
   scope :get_rates, -> { includes(:user).includes(:players) } 
   scope :paginate, -> (params, count) { page(params).per(count).order(id: "DESC") }
+  
+  def self.search(search)
+    search ? (where(['home_team LIKE ? OR away_team LIKE ?', "%#{search}%" ,"%#{search}%"])) : (all)
+  end
+  
 end

@@ -1,6 +1,15 @@
 %div.container.mt-3
-  %h1.text-center 投稿一覧
-  = render 'rate_card', rates: @rates
+  %div.row.d-flex.align-items-center.justify-content-between
+    %div
+      %h1.text-center 
+        = link_to "投稿一覧", rates_path, class: "text-dark"
+    %div
+      = form_with url: rates_path, method: :get, html: { class: "form-inline" }, local: true do |form|
+        = form.search_field :search, :placeholder => "チーム名を入力", class: "form-control mr-2"
+        = form.submit "search", class: "btn btn-outline-primary"
+      
+%div.container.mt-3  
+  = render 'rate_card', rates: @rates 
   
 %div.container.mt-3  
   = paginate @rates
