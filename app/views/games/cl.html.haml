@@ -1,13 +1,12 @@
 %div.container
-  %div.row
-    %div.col-md-8.my-2
+  %div.row.d-flex.align-items-center.justify-content-between
+    %div.mx-2
       %h1 
         = link_to @title, cl_games_path(code: params[:code], year: "", title: params[:title], day: 1)
-        
-    %div.container.col-md-4.my-2
+    %div.mx-2
       %div.row
         %div.dropdown.mx-1
-          %button#dropdownMenuButton.btn.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+          %button#dropdownMenuButton.btn.btn-outline-secondary.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
             シーズン一覧
           %div.dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
             = link_to "現在のシーズン", cl_games_path(code: params[:code], year: "", title: params[:title], day: 1), class: "dropdown-item" 

@@ -2,27 +2,27 @@
   = link_to '評価する', new_player_path(game_id: params[:id]), class: "btn btn-outline-primary btn-lg" 
 
 %div.card.border-dark.container.my-3
-  %div.row.d-flex.justify-content-center
-    %div.col-md-5.text-center
-      %h1
+  %div.row.d-flex.justify-content-between
+    %div.col-md-5.text-left
+      %h2
         = image_tag "https://crests.football-data.org/#{@match["homeTeam"]["id"]}.svg", size: "60x60"
         = @match["homeTeam"]["name"]
         = @match['score']['fullTime']['homeTeam']
       - @match["goals"].each do |g|
-        %p= "#{g["minute"]}分 #{g["scorer"]["name"]}" if g["team"]["name"] == @match["homeTeam"]["name"]
+        %p= "#{g["minute"]}' #{g["scorer"]["name"]}" if g["team"]["name"] == @match["homeTeam"]["name"]
     %div.col-md-2.text-center 
       %h1 :
       %p.text-muted 得点者
-    %div.col-md-5.text-center 
-      %h1
+    %div.col-md-5.text-right
+      %h2
         = @match['score']['fullTime']['awayTeam']
         = @match["awayTeam"]["name"]
         = image_tag "https://crests.football-data.org/#{@match["awayTeam"]["id"]}.svg", size: "60x60"
       - @match["goals"].each do |g|
-        %p= "#{g["minute"]}分 #{g["scorer"]["name"]}"  if g["team"]["name"] == @match["awayTeam"]["name"]
+        %p= "#{g["minute"]}' #{g["scorer"]["name"]}"  if g["team"]["name"] == @match["awayTeam"]["name"]
     
 
 %div.container.mt-2
-  %div.row.d-flex.justify-content-center
+  %div.row.d-flex.justify-content-between
     = render 'member_card', match: @match['homeTeam']
     = render 'member_card', match: @match['awayTeam']
