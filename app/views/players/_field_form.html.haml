@@ -1,18 +1,18 @@
-%div.col-1.mb-1
+%div.col-12.col-md-1.col-lg-1.mb-1
   %div.form_group
     = f.number_field :shirtnumber, value: player["shirtNumber"], class: "form-control"
-%div.col-2
+%div.col-xs-12.col-md-2.col-lg-2.mb-1
   %div.form_group
     = f.text_field :position, value: player["position"], class: "form-control"
-%div.col-2
+%div.col-12.col-md-2.col-lg-2.mb-1
   %div.form_group
     = f.text_field :name, value: player["name"], class: "form-control"
-%div.col-1
+%div.col-12.col-md-1.col-lg-1.mb-1
   %div.form_group
     = f.number_field :player_rate, value: 6, min: 1, max: 10, class: "form-control"
-%div.col-6
+%div.col-12.col-md-6.col-lg-6.mb-3
   %div.form_group
-    = f.text_field :rate_text, class: "form-control"
+    = f.text_field :rate_text, :placeholder => "コメントを入力", class: "form-control"
         
     = f.hidden_field :rate_id  
     

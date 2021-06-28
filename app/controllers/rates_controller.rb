@@ -1,7 +1,7 @@
 class RatesController < ApplicationController
     
   def index
-    @rates = Rate.get_rates.paginate(params[:page], 9).search(params[:search])
+    @rates = Rate.get_rates.paginate(params[:page], 12).search(params[:search])
   end
   
   def show

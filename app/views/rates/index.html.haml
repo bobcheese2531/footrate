@@ -8,8 +8,8 @@
         = form.search_field :search, :placeholder => "チーム名を入力", class: "form-control mr-2"
         = form.submit "search", class: "btn btn-outline-primary"
       
-
+%div.container.mt-3
   = render 'rate_card', rates: @rates 
   
-%div.container.mt-3  
+%div.d-flex.justify-content-center.mt-2
   = paginate @rates
