@@ -1,17 +1,19 @@
 %h1 得点ランキング
-
-%table.table
-  %thead
-    %tr
-      %th 順位
-      %th 選手
-      %th ゴール数
+%div.container-fluid
+  %div.row.d-flex.align-items-center.justify-content-center
+    %div.col-xs-12.col-md-10
+      %table.table
+        %thead
+          %tr
+            %th 順位
+            %th 選手
+            %th ゴール数
       
-  %tbody
-    - @scorers.each_with_index do |s, i|
-      %tr
-        %td= i + 1
-        %td
-          = image_tag "https://crests.football-data.org/#{s["team"]["id"]}.svg", size: "30x30"
-          = s["player"]["name"]
-        %td= s["numberOfGoals"]
+        %tbody
+          - @scorers.each_with_index do |s, i|
+            %tr
+              %td= i + 1
+              %td.text-left
+                = image_tag "https://crests.football-data.org/#{s["team"]["id"]}.svg", size: "30x30"
+                = s["player"]["name"]
+              %td= s["numberOfGoals"]

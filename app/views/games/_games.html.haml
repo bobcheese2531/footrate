@@ -1,22 +1,23 @@
-%div.row.d-flex.align-items-center.justify-content-center
-  - matches.each do |m|
-    %div.card.col-md-5.mx-1.my-1
-      = game_date(m['utcDate'])
-      %div.row.d-flex.align-items-center
-        %div.col-9
-          %p.pt-1
-            = image_tag "https://crests.football-data.org/#{m["homeTeam"]["id"]}.svg", size: "40x40"
-            = m['homeTeam']['name']
-            %strong= m['score']['fullTime']['homeTeam']
-          %p.pb-1
-            = image_tag "https://crests.football-data.org/#{m["awayTeam"]["id"]}.svg", size: "40x40"
-            = m['awayTeam']['name']
-            %strong= m['score']['fullTime']['awayTeam']
-        %div.col-3.text-right
-          - if m['status'] == "FINISHED"
-            = link_to "詳細", game_path(m["id"]), class: "btn btn-outline-success" 
-          - elsif m['status'] == "LIVE"
-            ライブ
-          - elsif m['status'] == "SCHEDULED"
-            %p.btn.btn-outline-secondary= get_time(m['utcDate']) 
+%div.container-fluid
+  %div.row.d-flex.align-items-center.justify-content-center
+    - matches.each do |m|
+      %div.card.col-md-5.mx-1.my-1
+        %p.border-bottom= game_date(m['utcDate'])
+        %div.row.d-flex.align-items-center
+          %div.col-9
+            %p.pt-1
+              = image_tag "https://crests.football-data.org/#{m["homeTeam"]["id"]}.svg", size: "40x40"
+              = m['homeTeam']['name']
+              %strong= m['score']['fullTime']['homeTeam']
+            %p.pb-1
+              = image_tag "https://crests.football-data.org/#{m["awayTeam"]["id"]}.svg", size: "40x40"
+              = m['awayTeam']['name']
+              %strong= m['score']['fullTime']['awayTeam']
+          %div.col-3.text-right
+            - if m['status'] == "FINISHED"
+              = link_to "詳細", game_path(m["id"]), class: "btn btn-outline-success" 
+            - elsif m['status'] == "LIVE"
+              ライブ
+            - elsif m['status'] == "SCHEDULED"
+              %p.btn.btn-outline-secondary= get_time(m['utcDate']) 
     

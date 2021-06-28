@@ -1,27 +1,26 @@
-%h2.text-center 順位表
-%div.container.mt-3
+%h2.text-center.my-2 順位表
+%div.container-fluid
   %div.row.d-flex.align-items-center.justify-content-center
     - standings.each do |s|
-      %div.card.col-5.mx-3.my-3
-        %div
-          %h5= s["group"]
-          %table.table
-            %thead.thead-light
+      %div.col-xs-12-md-5.mx-3.my-3
+        %h5= s["group"]
+        %table.table
+          %thead.thead-light
+            %tr.text-center
+              %th 順位
+              %th クラブ
+              %th 試合
+              %th 勝
+              %th 分
+              %th 負
+              %th Pts
+          %tbody
+            - s["table"].each do |t|
               %tr.text-center
-                %th 順位
-                %th クラブ
-                %th 試合
-                %th 勝
-                %th 分
-                %th 負
-                %th Pts
-            %tbody
-              - s["table"].each do |t|
-                %tr.text-center
-                  %td= t["position"]
-                  %td= image_tag "https://crests.football-data.org/#{t["team"]["id"]}.svg", size: "30x30"
-                  %td= t["playedGames"]
-                  %td= t["won"]
-                  %td= t["draw"]
-                  %td= t["lost"]
-                  %td= t["points"]
+                %td= t["position"]
+                %td= image_tag "https://crests.football-data.org/#{t["team"]["id"]}.svg", size: "30x30"
+                %td= t["playedGames"]
+                %td= t["won"]
+                %td= t["draw"]
+                %td= t["lost"]
+                %td= t["points"]
