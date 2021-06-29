@@ -13,7 +13,7 @@
             = m['awayTeam']['name']
             %strong= m['score']['fullTime']['awayTeam']
         %div.col-12.col-md-3.mb-2
-          - if m['status'] == "FINISHED"
+          - if match_finished?(m['status'])
             = link_to "詳細", game_path(m["id"]), class: "btn btn-outline-success" 
           - elsif m['status'] == "IN_PLAY"
             = link_to "ライブ", game_path(m["id"]), class: "btn btn-outline-danger" 

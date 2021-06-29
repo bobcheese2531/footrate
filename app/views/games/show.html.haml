@@ -1,5 +1,6 @@
-%div.mt-2.text-right
-  = link_to '評価する', new_player_path(game_id: params[:id]), class: "btn btn-outline-primary btn-lg" 
+- if match_finished?(@match["status"])
+  %div.mt-2.text-right
+    = link_to '評価する', new_player_path(game_id: params[:id]), class: "btn btn-outline-primary btn-lg" 
 
 // PC版
 %div.d-none.d-lg-block
