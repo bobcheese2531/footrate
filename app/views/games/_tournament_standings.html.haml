@@ -2,8 +2,8 @@
 %div.container-fluid
   %div.row.d-flex.align-items-center.justify-content-center
     - standings.each do |s|
-      %div.col-xs-12-md-5.mx-3.my-3
-        %h5= s["group"]
+      %div.col-xs-12.mx-3.my-3
+        %h5.text-center= s["group"]
         %table.table
           %thead.thead-light
             %tr.text-center

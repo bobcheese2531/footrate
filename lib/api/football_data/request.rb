@@ -3,8 +3,6 @@ module Api
     class Request
 
       def initialize
-        code = code
-        id = id
       end
       
       def self.get_scheduled_games

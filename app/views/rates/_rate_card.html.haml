@@ -5,10 +5,10 @@
         = link_to "#{r.user.name}の投稿", rate_path(r.id)    
       %div.card-body
         %p.card-text.text-center
-          = image_tag "https://crests.football-data.org/#{r.players.first.team_id}.svg", size: "30x30"
+          = image_tag "https://crests.football-data.org/#{r.players.first.team_id}.svg", size: "30x30" if r.players.present?
           = r.home_team 
           %br
           vs
           %br
-          = image_tag "https://crests.football-data.org/#{r.players.last.team_id}.svg", size: "30x30"
+          = image_tag "https://crests.football-data.org/#{r.players.last.team_id}.svg", size: "30x30" if r.players.present?
           = r.away_team

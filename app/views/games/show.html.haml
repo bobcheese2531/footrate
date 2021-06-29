@@ -5,17 +5,17 @@
 %div.d-none.d-lg-block
   %div.card.border-dark.container.my-3
     %div.row.d-flex.justify-content-between
-      %div.col-lg-5.text-left.pt-2
+      %div.col-5.text-left.pt-2
         %h2
           = image_tag "https://crests.football-data.org/#{@match["homeTeam"]["id"]}.svg", size: "60x60"
           = @match["homeTeam"]["name"]
           = @match['score']['fullTime']['homeTeam']
         - @match["goals"].each do |g|
           %p= goal_team?(g, @match["homeTeam"]["name"])
-      %div.col-lg-2.text-center.pt-2 
+      %div.col-2.text-center.pt-2 
         %h1 :
         %p.text-muted 得点者
-      %div.col-lg-5.text-right.pt-2
+      %div.col-5.text-right.pt-2
         %h2
           = @match['score']['fullTime']['awayTeam']
           = @match["awayTeam"]["name"]

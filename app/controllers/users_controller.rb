@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     end
     
     def user_params
-      params.require(:user).permit(:name, :image, :user_text, :like_team)
+      params.require(:user).permit(:name, :image, :like_team)
     end
     
     def same_user?(user)
