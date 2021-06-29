@@ -1,24 +1,24 @@
 %div.container
-  %div.row.d-flex.align-items-center.justify-content-between
-    %div.mx-2
+  %div.row.d-flex.align-items-center
+    %div.col-12.col-lg-8
       %h1 
         = link_to @title, euro_games_path(code: params[:code], year: "", title: params[:title], day: 1)
-    %div.mx-2
+    %div.col-12.col-lg-4
       %div.row
-        %div.dropdown.mx-1
+        %div.dropdown.mx-1.my-1
           %button#dropdownMenuButton.btn.btn-outline-primary.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
             節
           %div.dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
             - 3.times do |i|
-              = link_to "グループステージ第#{i + 1}節",  euro_games_path(code: params[:code], year: params[:year], title: params[:title], day: (i + 1)), class: "dropdown-item" 
+              = link_to "グループステージ第#{i + 1}節", euro_games_path(code: params[:code], year: params[:year], title: params[:title], day: (i + 1)), class: "dropdown-item" 
             = link_to "ラウンド16", euro_games_path(code: params[:code], year: params[:year], title: params[:title], stage: "LAST_16"), class: "dropdown-item"
             = link_to "準々決勝", euro_games_path(code: params[:code], year: params[:year], title: params[:title], stage: "QUARTER_FINAL"), class: "dropdown-item"
             = link_to "準決勝", euro_games_path(code: params[:code], year: params[:year], title: params[:title], stage: "SEMI_FINAL"), class: "dropdown-item"
             = link_to "決勝", euro_games_path(code: params[:code], year: params[:year], title: params[:title], stage: "FINAL"), class: "dropdown-item"
-        %div.mx-1
+        %div.mx-1.my-1
           = link_to "得点ランキング",  scorers_games_path(code: params[:code], year: params[:year]), class: "btn btn-outline-success"
 
-
-= render 'games', matches: @matches
-
-= render 'tournament_standings', standings: @standings
+  %div
+    = render 'games', matches: @matches
+  
+    = render 'tournament_standings', standings: @standings

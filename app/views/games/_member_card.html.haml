@@ -1,4 +1,4 @@
-%div.col-md-5
+%div.col-sm-12.col-md-6.col-lg-5
   %div.text-center
     %h3
       = image_tag "https://crests.football-data.org/#{match["id"]}.svg", size: "50x50"
@@ -8,14 +8,17 @@
     %div.card-header
       %h3.text-center スタメン
     %div.card-body
-      - match["lineup"].each do |s|
+      - match["lineup"].each do |l|
         %p
-          = s["shirtNumber"] 
-          = s["position"]
-          = s["name"]
+          = l["shirtNumber"] 
+          = l["position"]
+          = l["name"]
           &nbsp;
+          - @match["goals"].each do |g|
+            %strong.text-primary= scorer?(g["scorer"]["name"], l["name"])
           - @match["substitutions"].each do |sub|
-            %strong.text-danger= "#{sub["minute"]}' ↓" if s["name"] == sub["playerOut"]["name"]
+            %strong.text-danger= player_out?(sub, l)
+          
           
   %div.card.border-dark.mb-3
     %div.card-header
@@ -27,5 +30,7 @@
           = b["position"]
           = b["name"]
           &nbsp;
+          - @match["goals"].each do |g|
+            %strong.text-primary= scorer?(g["scorer"]["name"], b["name"])
           - @match["substitutions"].each do |sub|
-            %strong.text-success= "#{sub["minute"]}' ↑" if b["name"] == sub["playerIn"]["name"]
+            %strong.text-success= player_in?(sub, b)

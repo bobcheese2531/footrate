@@ -1,26 +1,24 @@
-%h2.text-center.mt-3 順位表
-%div.row.d-flex.justify-content-center
-  %div.col-xs-12.col-lg-10
-    %table.table
-      %thead.thead-dark
-        %tr
-          %th 順位
-          %th クラブ
-          %th 試合
-          %th 勝
-          %th 分
-          %th 負
-          %th Pts
+%h2.text-center 順位表
+%table.table
+  %thead.thead-dark
+    %tr
+      %th 順位
+      %th クラブ
+      %th 試合
+      %th 勝
+      %th 分
+      %th 負
+      %th Pts
       
-      %tbody
-        - standings.each do |s|
-          %tr
-            %td= s["position"]
-            %td
-              = image_tag "https://crests.football-data.org/#{s["team"]["id"]}.svg", size: "30x30"
-              =s["team"]["name"]
-            %td= s["playedGames"]
-            %td= s["won"]
-            %td= s["draw"]
-            %td= s["lost"]
-            %td= s["points"]
+  %tbody
+    - standings.each do |s|
+      %tr
+        %td= s["position"]
+        %td
+          = image_tag "https://crests.football-data.org/#{s["team"]["id"]}.svg", size: "30x30"
+          .d-none.d-md-block= s["team"]["name"]
+        %td= s["playedGames"]
+        %td= s["won"]
+        %td= s["draw"]
+        %td= s["lost"]
+        %td= s["points"]
