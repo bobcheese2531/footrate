@@ -6,9 +6,9 @@ class UsersController < ApplicationController
     
     # GET /users/id
     def show
-      @result = Api::FootballData::Request.get_team_matches(@user.like_team)
-      @matches = @result["matches"]
-      @rates = Rate.get_rates.where(user_id: @user.id).get_rates.paginate(params[:page], 5)
+      result = Api::FootballData::Request.get_team_matches(@user.like_team)
+      @matches = result["matches"]
+      @rates = Rate.get_rates.where(user_id: @user.id).paginate(params[:page], 5)
       same_user?(@user) ? (render :show) : (redirect_to root_path)
     end
     
@@ -26,7 +26,6 @@ class UsersController < ApplicationController
     end
     
     private
-    
     def set_user
       @user = User.find(params[:id])
     end
@@ -34,9 +33,9 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :image, :like_team)
     end
-    
+   
     def same_user?(user)
       user.id == current_user.id
-    end
+    end 
     
 end

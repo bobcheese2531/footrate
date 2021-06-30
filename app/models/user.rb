@@ -12,4 +12,5 @@ class User < ApplicationRecord
   validates :like_team, presence: true
   
   mount_uploader :image, ImageUploader
+  
 end

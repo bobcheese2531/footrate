@@ -13,7 +13,6 @@ class ApplicationController < ActionController::Base
   end
   
   def set_tournament_matches(code, year, stage, day)
-    
     result = Api::FootballData::Request.get_tournament_games(code, year, stage, day)
     @matches = result['matches']
   end

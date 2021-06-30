@@ -5,30 +5,23 @@
     %div.mx-2
       = link_to "削除", "/rates/#{@rate.id}", method: :delete, data: { confirm: "削除しますか？" } , class: "btn btn-outline-danger" if same_user?(@rate)
 
-
 %table.table.mt-3
   %thead
     %tr
-      %th チーム
-      %th 背番号
-      %th ポジション
-      %th 名前
-      %th 点数
-      %th コメント
+      %th{:width => "10%"}  チーム
+      %th{:width => "10%"}  背番号
+      %th{:width => "15%"}  ポジション
+      %th{:width => "15%"}  名前
+      %th{:width => "10%"}  点数
+      %th{:width => "40%"}  コメント
         
   %tbody
     - @players.each do |p|
       %tr
-        %td
-          = image_tag "https://crests.football-data.org/#{p.team_id}.svg", size: "30x30"
-        %td
-          = p.shirtnumber
-        %td
-          = p.position
-        %td
-          = p.name
-        %td
-          = p.player_rate
-        %td
-          = p.rate_text.present? ? (p.rate_text) : ("なし")
+        %td= image_tag "https://crests.football-data.org/#{p.team_id}.svg", size: "30x30"
+        %td= p.shirtnumber
+        %td= p.position
+        %td= p.name
+        %td= p.player_rate
+        %td= p.rate_text.present? ? (p.rate_text) : ("なし")
   
