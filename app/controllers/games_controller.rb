@@ -5,7 +5,7 @@ class GamesController < ApplicationController
   def index
     result = Api::FootballData::Request.get_scheduled_games
     @matches = result["matches"]
-    @rates = Rate.get_rates.limit(12)
+    @rates = Rate.get_rates.limit(9)
   end
   
   def show
