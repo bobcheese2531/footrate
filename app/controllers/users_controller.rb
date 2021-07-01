@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     def show
       result = Api::FootballData::Request.get_team_matches(@user.like_team)
       @matches = result["matches"]
-      @rates = Rate.get_rates.where(user_id: @user.id).paginate(params[:page], 5)
+      @rates = Rate.get_rates.where(user_id: @user.id).paginate(params[:page], 6)
       same_user?(@user) ? (render :show) : (redirect_to root_path)
     end
     

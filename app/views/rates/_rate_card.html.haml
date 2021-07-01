@@ -1,6 +1,6 @@
 %div.row.d-flex.align-items-center.justify-content-center
   - rates.each do |r|
-    %div.card.col-xs-12.border-dark.my-1.mx-1
+    %div.card.col-12.col-lg-3.border-dark.my-1.mx-1
       %div.card-header.text-center
         = link_to "#{r.user.name}の投稿", rate_path(r.id)    
       %div.card-body
