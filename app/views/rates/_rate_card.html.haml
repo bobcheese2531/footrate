@@ -1,6 +1,6 @@
 %div.row.d-flex.align-items-center.justify-content-center
   - rates.each do |r|
-    %div.card.col-12.col-lg-3.border-dark.my-1.mx-1
+    %div.card.col-12.col-lg-5.border-dark.my-1.mx-1
       %div.card-header.text-center
         = link_to "#{r.user.name}の投稿", rate_path(r.id)    
       %div.card-body
@@ -12,3 +12,4 @@
           %br
           = image_tag "https://crests.football-data.org/#{r.players.last.team_id}.svg", size: "30x30" if r.players.present?
           = r.away_team
+   

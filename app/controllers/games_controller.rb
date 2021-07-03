@@ -5,8 +5,8 @@ class GamesController < ApplicationController
   def index
     result = Api::FootballData::Request.get_scheduled_games
     @matches = result["matches"]
-    @rates = Rate.get_rates.limit(9)
-    @rankings = Player.group(:name).order('avg(player_rate) desc').limit(5)
+    @rates = Rate.get_rates.order(id: "DESC").limit(10)
+    @rankings = Player.rankings
   end
   
   def show

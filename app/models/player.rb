@@ -10,4 +10,6 @@ class Player < ApplicationRecord
   	validates :team_id
 	end
   
+  scope :rankings, -> { group(:name).order('avg(player_rate) desc', name: :desc).limit(10) }
+  
 end
