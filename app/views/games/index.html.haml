@@ -5,3 +5,9 @@
   %h2.text-center.my-3
     = link_to "投稿一覧", rates_path, class: "text-dark"
   = render 'rates/rate_card', rates: @rates
+  
+- @rankings.average(:player_rate).each_with_index do |r, i|
+  %p
+    = i + 1
+    = r[0]
+    = r[1]
