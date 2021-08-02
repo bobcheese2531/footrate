@@ -6,6 +6,10 @@ class Rate < ApplicationRecord
   has_many :players, dependent: :destroy
   
   validates_uniqueness_of :game_id, scope: :user_id
+  with_options presence: true do
+  	validates :home_team
+  	validates :away_team
+  end
   
   scope :get_rates, -> { includes(:user).includes(:players) } 
   scope :paginate, -> (params, count) { page(params).per(count).order(id: "DESC") }
