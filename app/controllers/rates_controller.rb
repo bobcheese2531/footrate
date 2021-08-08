@@ -1,5 +1,6 @@
 class RatesController < ApplicationController
-    
+  before_action :authenticate_user!, only: [:destroy]
+  
   def index
     @rates = Rate.get_rates.paginate(params[:page], 10).search(params[:search])
   end
@@ -11,8 +12,12 @@ class RatesController < ApplicationController
   
   def destroy
     rate = Rate.find(params[:id])
-    rate.destroy if rate.user_id == current_user.id
-    redirect_to controller: :rates, action: :index
+    if rate.user_id == current_user.id
+      rate.destroy 
+      redirect_to rates_path
+    else
+      redirect_to("/rates/#{rate.id}")
+    end
   end
 
 end
