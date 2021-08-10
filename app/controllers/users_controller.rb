@@ -21,8 +21,12 @@ class UsersController < ApplicationController
     
     # PATCH/PUT /users/id
     def update
-      @user.update(user_params) if same_user?(@user)
-      redirect_to user_path
+      if same_user?(@user)
+        @user.update(user_params)
+        redirect_to user_path
+      else
+        render :edit
+      end
     end
     
     private
