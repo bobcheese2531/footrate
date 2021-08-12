@@ -1,4 +1,4 @@
-- if match_finished?(@match["status"])
+- unless match_finished?(@match["status"]) && @rate.present?
   %div.mt-2.text-right
     = link_to '評価する', new_player_path(game_id: params[:id]), class: "btn btn-outline-primary btn-lg" 
 
@@ -37,7 +37,7 @@
       %p.h2
         = image_tag "https://crests.football-data.org/#{@match["homeTeam"]["id"]}.svg", size: "60x60"
         = score_home(@match)
-        %p 
+        %p.h5
           = "PENALTY" if penalties?(@match)
           = @match['score']['penalties']['homeTeam'] if penalties?(@match)
         - @match["goals"].each do |g|
@@ -46,7 +46,7 @@
       %p.h2
         = image_tag "https://crests.football-data.org/#{@match["awayTeam"]["id"]}.svg", size: "60x60"
         = score_away(@match)
-        %p
+        %p.h5
           = "PENALTY" if penalties?(@match)
           = @match['score']['penalties']['awayTeam'] if penalties?(@match)
         - @match["goals"].each do |g|
