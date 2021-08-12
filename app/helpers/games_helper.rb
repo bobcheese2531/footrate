@@ -27,6 +27,18 @@ module GamesHelper
   def match_finished?(status)
     status == "FINISHED"
   end
+  
+  def score_home(m)
+    m['score']['fullTime']['homeTeam'].to_i - m['score']['penalties']['homeTeam'].to_i
+  end
+  
+  def score_away(m)
+    m['score']['fullTime']['awayTeam'].to_i - m['score']['penalties']['awayTeam'].to_i
+  end
+  
+  def penalties?(m)
+    m['score']['duration'] == "PENALTY_SHOOTOUT"
+  end
     
   
 end

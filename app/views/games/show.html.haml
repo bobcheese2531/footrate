@@ -10,35 +10,45 @@
         %h2
           = image_tag "https://crests.football-data.org/#{@match["homeTeam"]["id"]}.svg", size: "60x60"
           = @match["homeTeam"]["name"]
-          = @match['score']['fullTime']['homeTeam']
+          = score_home(@match)
         - @match["goals"].each do |g|
           %p= goal_team?(g, @match["homeTeam"]["name"])
+        = @match['score']['penalties']['homeTeam'] if penalties?(@match)
       %div.col-2.text-center.pt-2 
         %h1 :
         %p.text-muted 得点者
+        %p.text-muted
+          ="PK" if penalties?(@match)
       %div.col-5.text-right.pt-2
         %h2
-          = @match['score']['fullTime']['awayTeam']
+          = score_away(@match)
           = @match["awayTeam"]["name"]
           = image_tag "https://crests.football-data.org/#{@match["awayTeam"]["id"]}.svg", size: "60x60"
         - @match["goals"].each do |g|
           %p= goal_team?(g, @match["awayTeam"]["name"])
+        %p= @match['score']['penalties']['awayTeam'] if penalties?(@match)
+
+
 
 // スマホ・タブレット版   
 %div.d-block.d-lg-none
   %div.card.border-dark.my-3
-    %div.px-3
+    %div.p-1
       %p.h2
         = image_tag "https://crests.football-data.org/#{@match["homeTeam"]["id"]}.svg", size: "60x60"
-        = @match["homeTeam"]["name"]
-        = @match['score']['fullTime']['homeTeam']
+        = score_home(@match)
+        %p 
+          = "PENALTY" if penalties?(@match)
+          = @match['score']['penalties']['homeTeam'] if penalties?(@match)
         - @match["goals"].each do |g|
           %p= goal_team?(g, @match["homeTeam"]["name"])
-    %div.px-3
+    %div.p-1
       %p.h2
         = image_tag "https://crests.football-data.org/#{@match["awayTeam"]["id"]}.svg", size: "60x60"
-        = @match["awayTeam"]["name"]
-        = @match['score']['fullTime']['awayTeam']
+        = score_away(@match)
+        %p
+          = "PENALTY" if penalties?(@match)
+          = @match['score']['penalties']['awayTeam'] if penalties?(@match)
         - @match["goals"].each do |g|
           %p= goal_team?(g, @match["awayTeam"]["name"])
       

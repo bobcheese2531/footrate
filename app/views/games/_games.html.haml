@@ -7,11 +7,11 @@
           %p.pt-1
             = image_tag "https://crests.football-data.org/#{m["homeTeam"]["id"]}.svg", size: "40x40"
             = m['homeTeam']['name']
-            %strong= m['score']['fullTime']['homeTeam']
+            %strong= score_home(m) if match_finished?(m['status'])
           %p.pb-1
             = image_tag "https://crests.football-data.org/#{m["awayTeam"]["id"]}.svg", size: "40x40"
             = m['awayTeam']['name']
-            %strong= m['score']['fullTime']['awayTeam']
+            %strong= score_away(m) if match_finished?(m['status'])
         %div.col-12.col-md-3.mb-2
           - if match_finished?(m['status'])
             = link_to "詳細", game_path(m["id"]), class: "btn btn-outline-success" 
