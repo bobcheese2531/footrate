@@ -1,6 +1,7 @@
 class PlayersController < ApplicationController
 
   before_action :authenticate_user! 
+  before_action :rate_exists?
   
   def new
     set_match(params[:game_id])
@@ -28,6 +29,11 @@ class PlayersController < ApplicationController
       team['lineup'] << { "name" => s["playerIn"]["name"], "position" => "SUB", "shirtNumber" => 0 }
     end
     team['lineup']
+  end
+  
+  def rate_exists?
+    @rate = Rate.where(user_id: current_user.id, game_id: params[:game_id])
+    redirect_to game_path(id: params[:game_id]) if @rate.present?
   end
   
 end
