@@ -38,5 +38,4 @@ class ApplicationController < ActionController::Base
     @scorers = result["scorers"]
   end
   
-  
 end

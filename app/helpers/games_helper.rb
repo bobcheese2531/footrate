@@ -12,6 +12,10 @@ module GamesHelper
     "G" if scorer == player
   end
   
+  def assist?(assist, player)
+    "A" if assist == player 
+  end
+  
   def player_in?(sub, b)
     "#{sub["minute"]}' ↑" if b["name"] == sub["playerIn"]["name"]
   end

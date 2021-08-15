@@ -16,6 +16,7 @@
           &nbsp;
           - @match["goals"].each do |g|
             %strong.text-primary= scorer?(g["scorer"]["name"], l["name"])
+            %strong.text-success= assist?(g["assist"]["name"], l["name"]) if g["assist"].present?
           - @match["substitutions"].each do |sub|
             %strong.text-danger= player_out?(sub, l)
           
