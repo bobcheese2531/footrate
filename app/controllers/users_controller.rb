@@ -1,32 +1,28 @@
 class UsersController < ApplicationController
     
   #before_action
-    before_action :set_user, only: %i[ show edit update ]
-    before_action :authenticate_user!
+    before_action -> { 
+      authenticate_user!
+      set_user
+      same_user?(@user) 
+    }
     
     # GET /users/id
     def show
       result = Api::FootballData::Request.get_team_matches(@user.like_team)
       @matches = result["matches"]
       @rates = Rate.get_rates.where(user_id: @user.id).paginate(params[:page], 6)
-      same_user?(@user) ? (render :show) : (redirect_to root_path)
     end
     
     # GET /users/id/edit
     def edit
       result = Api::FootballData::Request.get_teams
       @teams = result["teams"].sort_by { |team| team["name"] }
-      same_user?(@user) ? (render :edit) : (redirect_to root_path)
     end
     
     # PATCH/PUT /users/id
     def update
-      if same_user?(@user)
-        @user.update(user_params)
-        redirect_to user_path
-      else
-        render :edit
-      end
+      @user.update(user_params) ? (redirect_to user_path) : (render :edit)
     end
     
     private
@@ -39,7 +35,7 @@ class UsersController < ApplicationController
     end
    
     def same_user?(user)
-      user.id == current_user.id
-    end 
+      redirect_to root_path unless user.id == current_user.id
+    end
     
 end

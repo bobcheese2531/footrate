@@ -40,7 +40,7 @@ module Api
       end
       
       def self.get_team_matches(id)
-        url = "#{@url}/teams/#{id}/matches?limit=5"
+        url = "#{@url}/teams/#{id}/matches"
         fetch_data(url)
       end
       

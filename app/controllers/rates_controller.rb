@@ -19,5 +19,10 @@ class RatesController < ApplicationController
       redirect_to rate_path(rate.id)
     end
   end
+  
+  private
+  def set_rate
+    @rate = Rate.find(params[:id])
+  end
 
 end

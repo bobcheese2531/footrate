@@ -21,12 +21,7 @@ class PlayersController < ApplicationController
     params.require(:form_player_collection)
     .permit(players_attributes: [:name, :player_rate, :rate_text, :position, :shirtnumber, :rate_id, :team_id])
   end
-  
-  def players_params
-    params.require(:player)
-    .permit(:name, :player_rate, :rate_text, :position, :shirtnumber, :rate_id, :team_id)[:players]
-  end
-  
+
   def set_members(team)
     sub = @match['substitutions'].select {|s| s['team']['name'] == team['name'] } 
     sub.each do |s|
