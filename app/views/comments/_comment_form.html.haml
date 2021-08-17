@@ -1,3 +1,7 @@
-= form_with(model: [@game, @comment], local: true) do |form|
-  = form.text_area :content, placeholder: "コメントする", rows: "2"
-  = form.submit "SEND"
+= form_with(model: [@game, @comment], html: { class: "form-inline" }, local: true) do |form|
+  %div.container
+    %div.row
+      %div.col.form_group
+        = form.text_field :content, placeholder: "コメントする", size: "50", class: "form-control"
+      %div.col.form_group
+        = form.submit "コメントする", class: "btn btn-primary"
