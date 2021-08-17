@@ -6,7 +6,7 @@ class User < ApplicationRecord
          
   #アソシエーション
   has_many :rates, dependent: :destroy
-  
+  has_many :comments, dependent: :destroy
   #バリデーション
   validates :name, presence: true, uniqueness: true
   validates :like_team, presence: true
