@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     collection do
       get :league, :cl, :euro, :scorers
     end
+    resources :comments, only: %i(create destroy)
   end
   
   resources :rates, only: %i(index show destroy)
