@@ -56,3 +56,11 @@
   %div.row.d-flex.justify-content-between
     = render 'member_card', match: @match['homeTeam']
     = render 'member_card', match: @match['awayTeam']
+
+
+= render 'comments/comment_form'
+- @comments.each do |c|
+  %p
+    = c.user.name
+    = c.content
+    = link_to "削除", "game/comments/#{c.id}", method: :delete, data: { confirm: "削除しますか？" }

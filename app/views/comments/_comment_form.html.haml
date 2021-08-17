@@ -1,0 +1,3 @@
+= form_with(model: [@game, @comment], local: true) do |form|
+  = form.text_area :content, placeholder: "コメントする", rows: "2"
+  = form.submit "SEND"
