@@ -1,4 +1,4 @@
-= form_with(model: [@game, @comment], html: { class: "form-inline" }, local: true) do |form|
+= form_with(model: [game, game.comments.build], html: { class: "form-inline" }, local: true) do |form|
   %div.container
     %div.row
       %div.col.form_group
