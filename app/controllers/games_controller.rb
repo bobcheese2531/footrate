@@ -35,7 +35,6 @@ class GamesController < ApplicationController
     set_tournament_standings(params[:code])
   end
     
-  
   def scorers
     set_scorers(params[:code], params[:year])
   end

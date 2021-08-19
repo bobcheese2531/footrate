@@ -16,7 +16,7 @@ class RatesController < ApplicationController
       rate.destroy 
       redirect_to rates_path
     else
-      redirect_to rate_path(rate.id)
+      redirect_to rate
     end
   end
   

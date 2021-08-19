@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     
     # PATCH/PUT /users/id
     def update
-      @user.update(user_params) ? (redirect_to user_path) : (render :edit)
+      @user.update(user_params) ? (redirect_to @user) : (render :edit)
     end
     
     private

@@ -3,16 +3,16 @@ class CommentsController < ApplicationController
   
   def create
     @comment = Comment.create(comment_params)
-    redirect_back(fallback_location: root_path)
+    redirect_to game_path(@comment.game_id)
   end
   
   def destroy
     comment = Comment.find(params[:id])
     if comment.user_id == current_user.id
       comment.destroy 
-      redirect_back(fallback_location: root_path)
+      redirect_to game_path(comment.game_id)
     else
-      redirect_back(fallback_location: root_path)
+      redirect_to game_path(comment.game_id)
     end
   end
   
