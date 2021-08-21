@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     :registrations => 'users/registrations'
   }
   
+  root "games#index"
+  
   resources :games, only: %i(index show) do
     collection do
       get :league, :cl, :euro, :scorers
@@ -10,11 +12,10 @@ Rails.application.routes.draw do
     resources :comments, only: %i(create destroy)
   end
   
-  resources :rates, only: %i(index show destroy)
+  resources :rates
   
   resources :players, only: %i(new create edit update)
   
   resources :users, only: %i(show edit update)
-  
-  root "games#index"
+
 end

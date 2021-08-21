@@ -5,7 +5,7 @@ class Form::PlayerCollection < Form::Base
 
   def initialize(attributes = {})
     super attributes
-    self.players = PLAYER_COUNT.times.map { Player.new(rate_id: rate_id) } unless self.players.present?
+    self.players ||= PLAYER_COUNT.times.map { Player.new(rate_id: rate_id) }
   end
   
   def players_attributes=(attributes)

@@ -12,7 +12,6 @@ class GamesController < ApplicationController
   def show
     set_match(params[:id])
     @game = Game.find_or_create_by(id: params[:id])
-    @rate = Rate.where(user_id: current_user.id, game_id: params[:id]) if user_signed_in?
     @comments = @game.comments.includes(:user)
   end
   

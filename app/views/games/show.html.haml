@@ -1,6 +1,6 @@
 - unless match_finished?(@match["status"]) && @rate.present?
   %div.mt-2.text-right
-    = link_to '評価する', new_player_path(game_id: params[:id]), class: "btn btn-outline-primary btn-lg" 
+    = link_to '評価する', new_rate_path(game_id: params[:id]), class: "btn btn-outline-primary btn-lg" 
 
 // PC版
 %div.d-none.d-lg-block
@@ -56,15 +56,6 @@
   %div.row.d-flex.justify-content-between
     = render 'member_card', match: @match['homeTeam']
     = render 'member_card', match: @match['awayTeam']
-%div.container
-  %h2 コメント
-  - @comments.each do |c|
-    %p
-      %u.h5.text-info= c.user.name
-      %br
-      &emsp;
-      = c.content
-      &emsp;
-      %small= link_to "削除", "game/comments/#{c.id}", method: :delete, data: { confirm: "削除しますか？" }, class: "text-danger" if same_user?(c)
 
-= render 'comments/comment_form', game: @game
+= render 'comments/comments', comments: @comments
+= render 'comments/form', game: @game

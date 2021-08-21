@@ -88,6 +88,8 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem 'dotenv-rails'
 
+gem 'virtus'
+
 group :production do
   gem 'rails_12factor'
 end
