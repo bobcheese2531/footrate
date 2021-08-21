@@ -11,10 +11,8 @@ Rails.application.routes.draw do
     end
     resources :comments, only: %i(create destroy)
   end
-  
+
   resources :rates
-  
-  resources :players, only: %i(new create edit update)
   
   resources :users, only: %i(show edit update)
 

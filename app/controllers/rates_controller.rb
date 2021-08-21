@@ -1,5 +1,5 @@
 class RatesController < ApplicationController
-  before_action :authenticate_user!, only: [:destroy]
+  before_action :authenticate_user!, except: [:show, :index]
   
   def index
     @rates = Rate.get_rates.paginate(params[:page], 10).search(params[:search])
@@ -21,7 +21,7 @@ class RatesController < ApplicationController
     @rate = RateForm.new
     @rate.assign_attributes(rate_form_params)
     if @rate.save
-      redirect_to root_path
+      redirect_to rates_path
     else
       redirect_to root_path
     end
@@ -38,9 +38,6 @@ class RatesController < ApplicationController
   end
   
   private
-  def set_rate
-    @rate = Rate.find(params[:id])
-  end
   
   def rate_form_params
     params.require(:rate_form).permit(:home_team, :away_team, :game_id,
