@@ -22,7 +22,7 @@ class RatesController < ApplicationController
     if @rate.save
       redirect_to rates_path
     else
-      redirect_to root_path
+      redirect_to new_rate_path(game_id: @rate.game_id)
     end
   end
   

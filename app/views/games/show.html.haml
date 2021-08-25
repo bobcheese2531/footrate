@@ -1,6 +1,5 @@
-- unless match_finished?(@match["status"]) && @rate.present?
-  %div.mt-2.text-right
-    = link_to '評価する', new_rate_path(game_id: params[:id]), class: "btn btn-outline-primary btn-lg" 
+%div.mt-2.text-right
+  = link_to '評価する', new_rate_path(game_id: params[:id]), class: "btn btn-outline-primary btn-lg" 
 
 // PC版
 %div.d-none.d-lg-block
@@ -59,3 +58,7 @@
 
 = render 'comments/comments', comments: @comments
 = render 'comments/form', game: @game
+
+%div.container.mt-3  
+  %h2 この試合の投稿
+  = render 'rates/rate_card', rates: @game.rates

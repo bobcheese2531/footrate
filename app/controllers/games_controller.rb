@@ -3,7 +3,7 @@ class GamesController < ApplicationController
   require 'httpclient'
   
   def index
-    set_league_matches("PL", "", 3)
+    set_league_matches("PL", "", @matchday)
     @rates = Rate.get_rates.order(id: "DESC").limit(10)
     @rankings = Player.rankings
   end
