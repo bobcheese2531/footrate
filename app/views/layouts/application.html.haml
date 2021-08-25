@@ -21,7 +21,7 @@
                 %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
                   コンペティション一覧
                 %div.dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}
-                  = link_to "プレミアリーグ", league_games_path(code: "PL", year: "", title: "プレミアリーグ", day: 1), class: "dropdown-item" 
+                  = link_to "プレミアリーグ", league_games_path(code: "PL", year: "", title: "プレミアリーグ", day: @matchday), class: "dropdown-item" 
                   = link_to "ラ・リーガ", league_games_path(code: "PD", year: "", title: "ラ・リーガ", day: 1), class: "dropdown-item" 
                   = link_to "ブンデスリーガ", league_games_path(code: "BL1", year: "", title: "ブンデスリーガ", day: 1), class: "dropdown-item" 
                   = link_to "セリエＡ", league_games_path(code: "SA", year: "", title: "セリエＡ", day: 1), class: "dropdown-item" 

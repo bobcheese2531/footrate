@@ -48,4 +48,3 @@ class RateForm
   end
   
 end
-    

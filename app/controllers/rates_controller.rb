@@ -1,5 +1,5 @@
 class RatesController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_user!, except: %i(index, show)
   
   def index
     @rates = Rate.get_rates.paginate(params[:page], 10).search(params[:search])
@@ -7,7 +7,6 @@ class RatesController < ApplicationController
   
   def show
     @rate = Rate.find(params[:id])
-    @players = @rate.players.all
   end
   
   def new 

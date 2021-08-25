@@ -33,9 +33,4 @@ class ApplicationController < ActionController::Base
     
   end
   
-  def set_scorers(code, year)
-    result = Api::FootballData::Request.get_scorers(code, year)
-    @scorers = result["scorers"]
-  end
-  
 end

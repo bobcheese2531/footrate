@@ -3,15 +3,14 @@ class GamesController < ApplicationController
   require 'httpclient'
   
   def index
-    result = Api::FootballData::Request.get_scheduled_games
-    @matches = result["matches"]
+    set_league_matches("PL", "", 3)
     @rates = Rate.get_rates.order(id: "DESC").limit(10)
     @rankings = Player.rankings
   end
   
   def show
-    set_match(params[:id])
     @game = Game.find_or_create_by(id: params[:id])
+    set_match(@game.id)
     @comments = @game.comments.includes(:user)
   end
   
@@ -34,7 +33,8 @@ class GamesController < ApplicationController
   end
     
   def scorers
-    set_scorers(params[:code], params[:year])
+    result = Api::FootballData::Request.get_scorers(params[:code], params[:year])
+    @scorers = result["scorers"]
   end
   
 end

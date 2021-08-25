@@ -16,7 +16,7 @@
       %th{:width => "40%"}  コメント
         
   %tbody
-    - @players.each do |p|
+    - @rate.players.each do |p|
       %tr
         %td= image_tag "https://crests.football-data.org/#{p.team_id}.svg", size: "30x30"
         %td= p.shirtnumber

@@ -1,8 +1,8 @@
 %h1 新規投稿
 
 = form_with model: @rate, url: rates_path, local: true do |form|
-  =form.hidden_field :away_team, value: @match["homeTeam"]["name"]
-  =form.hidden_field :home_team, value: @match["awayTeam"]["name"]
+  =form.hidden_field :home_team, value: @match['homeTeam']['name']
+  =form.hidden_field :away_team, value: @match['awayTeam']['name']
   =form.hidden_field :game_id, value: params[:game_id]
   
   = render 'form', {form: form, team: @match['homeTeam'], side: @home}

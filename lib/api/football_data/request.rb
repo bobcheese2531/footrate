@@ -3,12 +3,7 @@ module Api
     class Request
       
       @url = "https://api.football-data.org/v2"
-      
-      def self.get_scheduled_games
-        url = "#{@url}/competitions/PL/matches?matchday=2"
-        fetch_data(url)
-      end
-  
+
       def self.get_league_games(code, year, day)
         url = "#{@url}/competitions/#{code}/matches?season=#{year}&matchday=#{day}"
         fetch_data(url)
@@ -40,7 +35,7 @@ module Api
       end
       
       def self.get_team_matches(id)
-        url = "#{@url}/teams/#{id}/matches?limit=5"
+        url = "#{@url}/teams/#{id}/matches"
         fetch_data(url)
       end
       
