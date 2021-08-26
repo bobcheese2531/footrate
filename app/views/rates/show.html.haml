@@ -19,7 +19,7 @@
   %tbody
     - @rate.players.each do |p|
       %tr
-        %td= image_tag "https://crests.football-data.org/#{p.team_id}.svg", size: "30x30"
+        %td= image_tag team_logo(p.team_id), size: "30x30"
         %td= p.shirtnumber
         %td= p.position
         %td= p.name

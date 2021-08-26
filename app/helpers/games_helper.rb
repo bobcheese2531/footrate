@@ -43,6 +43,10 @@ module GamesHelper
   def penalties?(m)
     m['score']['duration'] == "PENALTY_SHOOTOUT"
   end
+  
+  def team_logo(team)
+    "https://crests.football-data.org/#{team}.svg"
+  end
     
   
 end

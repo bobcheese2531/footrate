@@ -5,11 +5,11 @@
       %div.row.d-flex.align-items-center
         %div.col-12.col-md-9
           %p.pt-1
-            = image_tag "https://crests.football-data.org/#{m["homeTeam"]["id"]}.svg", size: "40x40"
+            = image_tag team_logo(m["homeTeam"]["id"]), size: "40x40"
             = m['homeTeam']['name']
             %strong= score_home(m) if match_finished?(m['status'])
           %p.pb-1
-            = image_tag "https://crests.football-data.org/#{m["awayTeam"]["id"]}.svg", size: "40x40"
+            = image_tag team_logo(m["awayTeam"]["id"]), size: "40x40"
             = m['awayTeam']['name']
             %strong= score_away(m) if match_finished?(m['status'])
         %div.col-12.col-md-3.mb-2

@@ -14,6 +14,6 @@
             %tr
               %td= i + 1
               %td.text-left
-                = image_tag "https://crests.football-data.org/#{s["team"]["id"]}.svg", size: "30x30"
+                = image_tag team_logo(s["team"]["id"]), size: "30x30"
                 = s["player"]["name"]
               %td= s["numberOfGoals"]

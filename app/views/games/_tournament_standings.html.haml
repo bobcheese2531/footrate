@@ -18,7 +18,7 @@
             - s["table"].each do |t|
               %tr.text-center
                 %td= t["position"]
-                %td= image_tag "https://crests.football-data.org/#{t["team"]["id"]}.svg", size: "30x30"
+                %td= image_tag team_logo(t["team"]["id"]), size: "30x30"
                 %td= t["playedGames"]
                 %td= t["won"]
                 %td= t["draw"]

@@ -15,7 +15,7 @@
       %tr
         %td= s["position"]
         %td
-          = image_tag "https://crests.football-data.org/#{s["team"]["id"]}.svg", size: "30x30"
+          = image_tag team_logo(s["team"]["id"]), size: "30x30"
           .d-none.d-md-block= s["team"]["name"]
         %td= s["playedGames"]
         %td= s["won"]

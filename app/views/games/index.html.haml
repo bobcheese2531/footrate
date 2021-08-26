@@ -1,5 +1,5 @@
 %div.container.mt-3
-  %h2.text-center.my-3 注目の試合
+  %h2.text-center.my-3 
   = render 'games', matches: @matches
  
 %div.container 
@@ -23,7 +23,7 @@
             %tr
               %td= i + 1
               %td.text-left
-                = image_tag "https://crests.football-data.org/#{@rankings[i].team_id}.svg", size: "30x30"
+                = image_tag team_logo(@rankings[i].team_id), size: "30x30"
                 = r[0]
               %td= r[1].round(1)
           
