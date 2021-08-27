@@ -4,26 +4,22 @@
       %h1= "#{@rate.user.name}の投稿"
     %div.mx-2
       = link_to "試合の詳細", game_path(@rate.game_id), class: "btn btn-outline-success mx-1"
-      = link_to "削除", "/rates/#{@rate.id}", method: :delete, data: { confirm: "削除しますか？" } , class: "btn btn-outline-danger" if same_user?(@rate)
-      
-%table.table.mt-3
-  %thead
-    %tr
-      %th{:width => "10%"}  チーム
-      %th{:width => "10%"}  背番号
-      %th{:width => "15%"}  ポジション
-      %th{:width => "15%"}  名前
-      %th{:width => "10%"}  点数
-      %th{:width => "40%"}  コメント
+      = link_to "削除", "/rates/#{@rate.id}", method: :delete, data: { confirm: "削除しますか？" } , class: "btn btn-outline-danger" if same_user?(@rate.user)
+
+%div#carouselExampleIndicators.carousel.col-lg-6.slide.mt-2
+  %div.carousel-inner.px-3  
+    %div.carousel-item.active.card.alert.alert-secondary.pl-5
+      - @rate.players.first(1).each do |p|
+        =render 'player_info', p: p
+    - @rate.players.drop(1).each do |p|
+      %div.carousel-item.card.alert.alert-secondary.pl-5
+        =render 'player_info', p: p
         
-  %tbody
-    - @rate.players.each do |p|
-      %tr
-        %td= image_tag team_logo(p.team_id), size: "30x30"
-        %td= p.shirtnumber
-        %td= p.position
-        %td= p.name
-        %td= p.player_rate
-        %td= p.rate_text.present? ? (p.rate_text) : ("なし")
+  %a.carousel-control-prev{"data-slide" => "prev", :href => "#carouselExampleIndicators", :role => "button"}
+    %span.carousel-control-prev-icon{"aria-hidden" => "true"}
+    %span.sr-only Previous  
+  %a.carousel-control-next{"data-slide" => "next", :href => "#carouselExampleIndicators", :role => "button"}
+    %span.carousel-control-next-icon{"aria-hidden" => "true"}
+    %span.sr-only Next
 
 %p.text-right= "投稿日: #{@rate.created_at.strftime('%Y/%m/%d')}"
