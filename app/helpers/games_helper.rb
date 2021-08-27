@@ -1,11 +1,11 @@
 module GamesHelper
   
   def game_date(date)
-    date.slice(5..6) + '/' + date.slice(8..9)
+    date.in_time_zone.strftime('%Y/%m/%d')
   end
   
   def get_time(time)
-    time.slice(11..15)
+    time.in_time_zone.strftime('%H:%M')
   end
   
   def scorer?(scorer, player)
@@ -46,6 +46,10 @@ module GamesHelper
   
   def team_logo(team)
     "https://crests.football-data.org/#{team}.svg"
+  end
+  
+  def ht_score(match)
+    "#{match['score']['halfTime']['homeTeam']} - #{match['score']['halfTime']['awayTeam']}" 
   end
     
   

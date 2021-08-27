@@ -15,7 +15,9 @@
       
     %div.col-2.text-center.pt-2 
       %h1 :
-        
+      %small= "試合日：#{game_date(@match['utcDate'])}"
+      .small HTスコア
+      =ht_score(@match) if match_finished?(@match['status'])
     %div.col-5.text-right.pt-2
       %h2
         = score_away(@match)

@@ -5,7 +5,7 @@
       %div.row.d-flex.align-items-center
         %div.col-12.col-md-9
           %p.pt-1
-            = image_tag team_logo(m["homeTeam"]["id"]), size: "40x40"
+            = image_tag team_logo(m['homeTeam']['id']), size: "40x40"
             = m['homeTeam']['name']
             &nbsp;
             %strong= score_home(m) if match_finished?(m['status'])
