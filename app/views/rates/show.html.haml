@@ -6,20 +6,20 @@
       = link_to "試合の詳細", game_path(@rate.game_id), class: "btn btn-outline-success mx-1"
       = link_to "削除", "/rates/#{@rate.id}", method: :delete, data: { confirm: "削除しますか？" } , class: "btn btn-outline-danger" if same_user?(@rate.user)
 
-%div#carouselExampleIndicators.carousel.col-lg-6.slide.mt-2
-  %div.carousel-inner.px-3  
-    %div.carousel-item.active.card.alert.alert-secondary.pl-5
+%div#carouselExampleIndicators.carousel.slide.mt-2
+  %div.carousel-inner
+    %div.carousel-item.active.alert.alert-secondary.text-center  
       - @rate.players.first(1).each do |p|
         =render 'player_info', p: p
     - @rate.players.drop(1).each do |p|
-      %div.carousel-item.card.alert.alert-secondary.pl-5
+      %div.carousel-item.alert.alert-secondary.text-center
         =render 'player_info', p: p
         
-  %a.carousel-control-prev{"data-slide" => "prev", :href => "#carouselExampleIndicators", :role => "button"}
-    %span.carousel-control-prev-icon{"aria-hidden" => "true"}
-    %span.sr-only Previous  
-  %a.carousel-control-next{"data-slide" => "next", :href => "#carouselExampleIndicators", :role => "button"}
-    %span.carousel-control-next-icon{"aria-hidden" => "true"}
-    %span.sr-only Next
+    %a.text-left.carousel-control-prev{"data-slide" => "prev", :href => "#carouselExampleIndicators", :role => "button"}
+      %span.carousel-control-prev-icon{"aria-hidden" => "true"}
+      %span.sr-only Previous  
+    %a.carousel-control-next{"data-slide" => "next", :href => "#carouselExampleIndicators", :role => "button"}
+      %span.carousel-control-next-icon{"aria-hidden" => "true"}
+      %span.sr-only Next
 
 %p.text-right= "投稿日: #{@rate.created_at.strftime('%Y/%m/%d')}"

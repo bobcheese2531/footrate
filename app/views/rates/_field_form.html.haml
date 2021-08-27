@@ -12,6 +12,6 @@
     = f.number_field :player_rate, value: 6, min: 1, max: 10, name: "rate_form[players_attributes][][player_rate]", class: "form-control"
 %div.col-12.col-md-4.col-lg-6.mb-3
   %div.form_group
-    = f.text_field :rate_text, :placeholder => "コメントを入力", name: "rate_form[players_attributes][][rate_text]", class: "form-control"
+    = f.text_area :rate_text, :placeholder => "コメントを入力", name: "rate_form[players_attributes][][rate_text]", class: "form-control"
 
     = f.hidden_field :team_id, value: team_id, name: "rate_form[players_attributes][][team_id]"

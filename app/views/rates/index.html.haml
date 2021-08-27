@@ -5,8 +5,10 @@
         = link_to "投稿一覧", rates_path, class: "text-dark"
     %div
       = form_with url: rates_path, method: :get, html: { class: "form-inline" }, local: true do |form|
-        = form.search_field :search, :placeholder => "チーム名を入力", class: "form-control mr-2"
-        .d-none.d-md-block= form.submit "search", class: "btn btn-outline-primary"
+        %div.col-xs-5.mr-2
+          = form.search_field :search, :placeholder => "チーム名を入力", class: "form-control"
+        %div.col-xs-3
+          = form.submit "search", class: "btn btn-outline-primary"
       
 %div.container.mt-3  
   = render 'rate_card', rates: @rates 
