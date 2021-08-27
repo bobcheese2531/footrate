@@ -3,7 +3,7 @@
     %div.mx-2
       %h1 マイページ
     %div.mx-2
-      = link_to "編集", edit_user_path(@user), class: "btn btn-outline-secondary" if @user == current_user
+      = link_to "編集", edit_user_path(@user), class: "btn btn-outline-secondary" if same_user?(@user)
 
 %div.container.mt-3
   %div.row

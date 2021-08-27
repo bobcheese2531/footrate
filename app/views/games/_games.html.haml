@@ -7,10 +7,12 @@
           %p.pt-1
             = image_tag team_logo(m["homeTeam"]["id"]), size: "40x40"
             = m['homeTeam']['name']
+            &nbsp;
             %strong= score_home(m) if match_finished?(m['status'])
           %p.pb-1
             = image_tag team_logo(m["awayTeam"]["id"]), size: "40x40"
             = m['awayTeam']['name']
+            &nbsp;
             %strong= score_away(m) if match_finished?(m['status'])
         %div.col-12.col-md-3.mb-2
           - if match_finished?(m['status'])

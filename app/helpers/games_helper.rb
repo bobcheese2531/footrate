@@ -16,12 +16,12 @@ module GamesHelper
     "A" if assist == player 
   end
   
-  def player_in?(sub, b)
-    "#{sub["minute"]}' ↑" if b["name"] == sub["playerIn"]["name"]
+  def player_in?(sub, bench)
+    "#{sub["minute"]}' ↑" if bench["name"] == sub["playerIn"]["name"]
   end
   
-  def player_out?(sub, l)
-    "#{sub["minute"]}' ↓" if l["name"] == sub["playerOut"]["name"]
+  def player_out?(sub, start)
+    "#{sub["minute"]}' ↓" if start["name"] == sub["playerOut"]["name"]
   end
   
   def goal_team?(goal, team)

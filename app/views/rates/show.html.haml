@@ -3,9 +3,9 @@
     %div.mx-2
       %h1= "#{@rate.user.name}の投稿"
     %div.mx-2
-      = "投稿日: #{@rate.created_at.strftime('%Y/%m/%d')}"
+      = link_to "試合の詳細", game_path(@rate.game_id), class: "btn btn-outline-success mx-1"
       = link_to "削除", "/rates/#{@rate.id}", method: :delete, data: { confirm: "削除しますか？" } , class: "btn btn-outline-danger" if same_user?(@rate)
-
+      
 %table.table.mt-3
   %thead
     %tr
@@ -25,4 +25,5 @@
         %td= p.name
         %td= p.player_rate
         %td= p.rate_text.present? ? (p.rate_text) : ("なし")
-  
+
+%p.text-right= "投稿日: #{@rate.created_at.strftime('%Y/%m/%d')}"

@@ -1,37 +1,9 @@
 %div.col-sm-12.col-md-6
   %div.text-center
     %h3
-      = image_tag "https://crests.football-data.org/#{match["id"]}.svg", size: "50x50"
-      = match["name"]
+      = image_tag team_logo(match['id']), size: "50x50"
+      = match['name']
   
-  %div.card.border-dark.mb-3
-    %div.card-header
-      %h3.text-center スタメン
-    %div.card-body
-      - match["lineup"].each do |l|
-        %p
-          = l["shirtNumber"] 
-          = l["position"]
-          = l["name"]
-          &nbsp;
-          - @match["goals"].each do |g|
-            %strong.text-primary= scorer?(g["scorer"]["name"], l["name"])
-            %strong.text-success= assist?(g["assist"]["name"], l["name"]) if g["assist"].present?
-          - @match["substitutions"].each do |sub|
-            %strong.text-danger= player_out?(sub, l)
+  = render 'members', {header: "スタメン", members: match['lineup'], match: @match}
+  = render 'members', {header: "ベンチ", members: match['bench'], match: @match}
           
-          
-  %div.card.border-dark.mb-3
-    %div.card-header
-      %h3.text-center ベンチ
-    %div.card-body
-      - match["bench"].each do |b|
-        %p
-          = b["shirtNumber"] 
-          = b["position"]
-          = b["name"]
-          &nbsp;
-          - @match["goals"].each do |g|
-            %strong.text-primary= scorer?(g["scorer"]["name"], b["name"])
-          - @match["substitutions"].each do |sub|
-            %strong.text-success= player_in?(sub, b)

@@ -1,5 +1,5 @@
 class RatesController < ApplicationController
-  before_action :authenticate_user!, except: %i(index, show)
+  before_action :authenticate_user!, except: %i(index show)
   
   def index
     @rates = Rate.get_rates.paginate(params[:page], 10).search(params[:search])

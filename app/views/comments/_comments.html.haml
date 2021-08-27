@@ -7,4 +7,4 @@
       &emsp;
       = c.content
       &emsp;
-      %small= link_to "削除", "game/comments/#{c.id}", method: :delete, data: { confirm: "削除しますか？" }, class: "text-danger" if same_user?(c)
+      %small= link_to "削除", "game/comments/#{c.id}", method: :delete, data: { confirm: "削除しますか？" }, class: "text-danger" if same_user?(c.user)

@@ -6,11 +6,7 @@
         .small.text-center= "投稿日: #{r.created_at.strftime('%Y/%m/%d')}"
       %div.card-body
         %p.card-text.text-center
-          = image_tag team_logo(r.players.first.team_id), size: "30x30" if r.players.present?
-          = r.home_team 
-          %br
-          vs
-          %br
-          = image_tag team_logo(r.players.last.team_id), size: "30x30" if r.players.present?
-          = r.away_team
+          = image_tag team_logo(r.players.first.team_id), size: "50x50" if r.players.present?
+          &emsp; vs &emsp;
+          = image_tag team_logo(r.players.last.team_id), size: "50x50" if r.players.present?
    
