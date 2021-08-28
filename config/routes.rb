@@ -12,7 +12,11 @@ Rails.application.routes.draw do
     resources :comments, only: %i(create destroy)
   end
 
-  resources :rates
+  resources :rates do
+    collection do
+      get :best_XI
+    end
+  end
   
   resources :users, only: %i(show edit update)
 

@@ -1,0 +1,32 @@
+%h1.text-center FootRateベストXI
+
+%div.container.bg-success
+  %div.row
+    - @fw.each do |fw|
+      %div.col-4.text-center.my-3
+        = render 'player', player: fw
+        
+  %div.row
+    - @mf.each do |mf|
+      %div.col-4.text-center.my-3
+        = render 'player', player: mf
+        
+  %div.row
+    - @df.each do |df|
+      %div.col-3.text-center.my-3
+        = render 'player', player: df
+        
+  %div.text-center.my-3
+    - @gk.each do |gk|
+      = render 'player', player: gk
+    
+    
+
+
+
+
+
+
+  
+
+  

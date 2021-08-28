@@ -1,5 +1,5 @@
 class RatesController < ApplicationController
-  before_action :authenticate_user!, except: %i(index show)
+  before_action :authenticate_user!, except: %i(index show best_XI)
   
   def index
     @rates = Rate.get_rates.paginate(params[:page], 10).search(params[:search])
@@ -36,8 +36,15 @@ class RatesController < ApplicationController
     end
   end
   
-  private
+  def best_XI
+    player = Player.group_best
+    @gk = player.best("Goalkeeper", 1)
+    @df = player.best("Defender", 4)
+    @mf = player.best("Midfielder", 3)
+    @fw = player.best("Attacker", 3)
+  end
   
+  private
   def rate_form_params
     params.require(:rate_form).permit(:home_team, :away_team, :game_id,
     players_attributes: [:name, :player_rate, :rate_text, :position, :shirtnumber, :team_id])
