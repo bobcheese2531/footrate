@@ -1,7 +1,7 @@
+%div.container-fluid.mt-5
 = form_with(model: [game, game.comments.build], html: { class: "form-inline" }, local: true) do |form|
-  %div.container
-    %div.row
-      %div.col.form_group
-        = form.text_field :content, placeholder: "コメントする", size: "50", class: "form-control"
-      %div.col.form_group
-        = form.submit "コメントする", class: "btn btn-primary"
+  %div.row.justify-content-between
+    %div.form-group.col-9.col-md-10
+      = form.text_field :content, placeholder: "コメントする", size:50, class: "form-control"
+    %div.form-group.col-3.col-md-2
+      = form.submit "送信", class: "btn btn-primary"

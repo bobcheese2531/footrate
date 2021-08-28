@@ -1,10 +1,9 @@
-%div.container
-  %h2 コメント
-  - comments.each do |c|
-    %p
-      %u.h5.text-info= c.user.name
-      %br
-      &emsp;
-      = c.content
-      &emsp;
-      %small= link_to "削除", "game/comments/#{c.id}", method: :delete, data: { confirm: "削除しますか？" }, class: "text-danger" if same_user?(c.user)
+%h2 コメント
+- comments.each do |c|
+  
+  .h5.text-info.my-2= c.user.name
+  &emsp;
+  = c.content
+  &emsp;
+  %small= link_to "削除", "game/comments/#{c.id}", method: :delete, data: { confirm: "削除しますか？" }, class: "text-danger" if same_user?(c.user)
+  
