@@ -29,6 +29,7 @@
                   = link_to "リーグ・アン", league_games_path(code: "FL1", year: "", title: "リーグ・アン", day: @matchday), class: "dropdown-item" 
                   = link_to "チャンピオンズリーグ", cl_games_path(code: "CL", year: "", title: "チャンピオンズリーグ", stage: "GROUP_STAGE", day: 1), class: "dropdown-item" 
                   = link_to "ユーロ", euro_games_path(code: "EC", year: "", title: "ユーロ2020", stage: "GROUP_STAGE", day: 1), class: "dropdown-item" 
+  
               - if user_signed_in?
                 %li.nav-item
                   = link_to "マイページ", "/users/#{current_user.id}", class: "nav-link"
@@ -39,6 +40,8 @@
                   = link_to "ログイン", new_user_session_path, class: "nav-link"
                 %li.nav-item
                   = link_to "新規作成", new_user_registration_path, class: "nav-link"
+                  
+              %li= link_to "ベスト11", best_XI_rates_path, class: "nav-link"
         
     / ナビゲーションバー終了
     / メインコンテンツ
