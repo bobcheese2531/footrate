@@ -8,17 +8,19 @@
             = image_tag team_logo(m['homeTeam']['id']), size: "40x40"
             = m['homeTeam']['name']
             &nbsp;
-            %strong= score_home(m) if match_finished?(m['status'])
+            %strong= score_home(m) unless match_scheduled?(m['status'])
           %p.pb-1
             = image_tag team_logo(m["awayTeam"]["id"]), size: "40x40"
             = m['awayTeam']['name']
             &nbsp;
-            %strong= score_away(m) if match_finished?(m['status'])
+            %strong= score_away(m) unless match_scheduled?(m['status'])
         %div.col-3.mb-2
           - if match_finished?(m['status'])
-            = link_to "詳細", game_path(m["id"]), class: "btn btn-outline-success" 
+            = link_to "詳細", game_path(m["id"]), class: "btn btn-outline-primary" 
           - elsif m['status'] == "IN_PLAY"
-            = link_to "ライブ", game_path(m["id"]), class: "btn btn-outline-danger" 
-          - elsif m['status'] == "SCHEDULED"
+            = link_to "#{m["minute"]}'", game_path(m["id"]), class: "btn btn-outline-success" 
+          - elsif m['status'] == "PAUSED"
+            = link_to "HT", game_path(m["id"]), class: "btn btn-outline-secondary" 
+          - elsif match_scheduled?(m['status'])
             .btn.btn-outline-secondary= get_time(m['utcDate']) 
     

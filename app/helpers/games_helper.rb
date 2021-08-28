@@ -28,6 +28,10 @@ module GamesHelper
     "#{goal["minute"]}' #{goal["scorer"]["name"]}" if goal["team"]["name"] == team
   end
   
+  def match_scheduled?(status)
+    status == "SCHEDULED"
+  end
+  
   def match_finished?(status)
     status == "FINISHED"
   end
