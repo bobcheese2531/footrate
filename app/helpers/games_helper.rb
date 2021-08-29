@@ -8,8 +8,12 @@ module GamesHelper
     time.in_time_zone.strftime('%H:%M')
   end
   
-  def scorer?(scorer, player)
-    "G" if scorer == player
+  def scorer?(goal, player)
+    if goal['scorer']['name'] == player && goal["type"] == "OWN"
+      "OG"
+    elsif goal['scorer']['name'] == player
+      "G"
+    end
   end
   
   def assist?(assist, player)
@@ -25,7 +29,13 @@ module GamesHelper
   end
   
   def goal_team?(goal, team)
-    "#{goal["minute"]}' #{goal["scorer"]["name"]}" if goal["team"]["name"] == team
+    if goal["type"] == "REGULAR" && goal["team"]["name"] == team
+      "#{goal["minute"]}' #{goal["scorer"]["name"]}"
+    elsif goal["type"] == "OWN" && goal["team"]["name"] == team
+      "#{goal["minute"]}' #{goal["scorer"]["name"]}(OG)"
+    elsif goal["type"] == "PENALTY" && goal["team"]["name"] == team
+      "#{goal["minute"]}' #{goal["scorer"]["name"]}(PK)"
+    end
   end
   
   def match_scheduled?(status)

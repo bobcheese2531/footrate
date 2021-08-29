@@ -37,5 +37,4 @@ class GamesController < ApplicationController
     @scorers = result["scorers"]
   end
   
-  
 end

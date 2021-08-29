@@ -15,7 +15,8 @@
       
     %div.col-2.text-center.pt-2 
       %h1 :
-      %small= game_date(@match['utcDate'])
+      .small= game_date(@match['utcDate'])
+      .small= "@#{@match["venue"]}"
       .small HTスコア
       =ht_score(@match) if match_finished?(@match['status'])
     %div.col-5.text-right.pt-2
@@ -34,7 +35,7 @@
     = render 'member_card', match: @match['awayTeam']
 
 // コメント欄
-%div.container
+%div.container.my-3
   = render 'comments/comments', comments: @comments
   = render 'comments/form', game: @game
 
