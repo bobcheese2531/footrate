@@ -4,5 +4,9 @@ FactoryBot.define do
     association :game
     home_team {"Manchester City"}
     away_team {"FC Barcelona"}
+    
+    trait :invalid do
+      home_team {nil}
+    end
   end
 end

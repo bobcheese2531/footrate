@@ -115,30 +115,30 @@ RSpec.describe "Users", type: :request do
     end
     
     context "パラメータが妥当な場合" do
-      it 'リクエストが成功すること' do
+      it "リクエストが成功すること" do
         put user_url @user, params: { user: FactoryBot.attributes_for(:steve) }
         expect(response.status).to eq 302
       end
       
-      it 'ユーザー名が更新されること' do
+      it "ユーザー名が更新されること" do
         expect do
           put user_url @user, params: { user: FactoryBot.attributes_for(:steve) }
         end.to change { User.find(@user.id).name }.from('Bob').to('Steve')
       end
       
-      it 'リダイレクトすること' do
+      it "リダイレクトすること" do
         put user_url @user, params: { user: FactoryBot.attributes_for(:steve) }
         expect(response).to redirect_to User.last
       end
     end
     
     context "パラメータが不当な場合" do
-      it 'リダイレクトされること' do
+      it "リダイレクトされること" do
         put user_url @user, params: { user: FactoryBot.attributes_for(:user, :invalid) }
         expect(response.status).to eq 302
       end
       
-      it 'ユーザー名が更新されないこと' do
+      it "ユーザー名が更新されないこと" do
         expect do
           put user_url @user, params: { user: FactoryBot.attributes_for(:user, :invalid) }
         end.to_not change(User.find(@user.id), :name)
