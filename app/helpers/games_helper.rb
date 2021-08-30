@@ -8,10 +8,10 @@ module GamesHelper
     time.in_time_zone.strftime('%H:%M')
   end
   
-  def scorer?(goal, player)
-    if goal['scorer']['name'] == player && goal["type"] == "OWN"
+  def scorer?(scorer, player, type)
+    if scorer == player && type == "OWN"
       "OG"
-    elsif goal['scorer']['name'] == player
+    elsif scorer == player
       "G"
     end
   end

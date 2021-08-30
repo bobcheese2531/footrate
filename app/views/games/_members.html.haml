@@ -9,7 +9,7 @@
         = m['name']
         &nbsp;
         - match['goals'].each do |g|
-          %strong.text-primary= scorer?(g, m['name'])
+          %strong.text-primary= scorer?(g['scorer']['name'], m['name'], g["type"])
           %strong.text-dark= assist?(g['assist']['name'], m['name']) if g['assist'].present?
         &nbsp;
         - match['substitutions'].each do |sub|
