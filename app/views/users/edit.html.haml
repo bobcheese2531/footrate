@@ -13,7 +13,7 @@
         
       %div.form-inline.my-3
         = f.label :like_team, "好きなチーム", class: "form-label mr-2"
-        = f.select :like_team, options_for_select(@teams.map{|t|[t["name"], t["id"]]}),class: "form-control"
+        = f.select :like_team, options_for_select(@teams.map{|t|[t['name'], t['id']]}),class: "form-control"
   
   = f.submit "編集する", class: "btn btn-primary"
   

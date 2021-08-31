@@ -21,17 +21,17 @@ class ApplicationController < ActionController::Base
   
   def set_match(id)
     result = Api::FootballData::Request.show_game(id)
-    @match = result["match"]
+    @match = result['match']
   end
   
   def set_standings(code)
     result = Api::FootballData::Request.get_standings(code)
-    @standings = result["standings"][0]["table"]
+    @standings = result['standings'][0]['table']
   end
   
   def set_tournament_standings(code)
     result = Api::FootballData::Request.get_standings(code)
-    @standings = result["standings"]
+    @standings = result['standings']
   end
   
   def set_matchday

@@ -10,14 +10,14 @@ class UsersController < ApplicationController
     # GET /users/id
     def show
       result = Api::FootballData::Request.get_team_matches(@user.like_team)
-      @matches = result["matches"]
+      @matches = result['matches']
       @rates = Rate.get_rates.where(user_id: @user.id).paginate(params[:page], 6)
     end
     
     # GET /users/id/edit
     def edit
       result = Api::FootballData::Request.get_teams
-      @teams = result["teams"].sort_by { |team| team["name"] }
+      @teams = result['teams'].sort_by { |team| team['name'] }
     end
     
     # PATCH/PUT /users/id
