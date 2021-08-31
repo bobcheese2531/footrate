@@ -3,7 +3,7 @@
   %div.row.d-flex.align-items-center.justify-content-center
     - standings.each do |s|
       %div.col-xs-12.mx-3.my-3
-        %h5.text-center= s["group"]
+        %h5.text-center= s['group']
         %table.table
           %thead.thead-light
             %tr.text-center
@@ -15,12 +15,12 @@
               %th 負
               %th Pts
           %tbody
-            - s["table"].each do |t|
+            - s['table'].each do |t|
               %tr.text-center
-                %td= t["position"]
-                %td= image_tag team_logo(t["team"]["id"]), size: "30x30"
-                %td= t["playedGames"]
-                %td= t["won"]
-                %td= t["draw"]
-                %td= t["lost"]
-                %td= t["points"]
+                %td= t['position']
+                %td= image_tag team_logo(t['team']['id']), size: "30x30"
+                %td= t['playedGames']
+                %td= t['won']
+                %td= t['draw']
+                %td= t['lost']
+                %td= t['points']

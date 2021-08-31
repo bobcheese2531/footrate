@@ -1,10 +1,28 @@
 module GamesHelper
   
-  def game_date(date)
+  def competiton_title(code)
+    if code == "PL"
+      "プレミアリーグ"
+    elsif code == "PD"
+      "ラ・リーガ"
+    elsif code == "BL1"
+      "ブンデスリーガ"
+    elsif code == "SA"
+      "セリエＡ"
+    elsif code == "FL1"
+      "リーグ・アン"
+    elsif code == "CL"
+      "チャンピオンズリーグ"
+    elsif code == "EC"
+      "ユーロ2020"
+    end
+  end
+  
+  def match_date(date)
     date.in_time_zone.strftime('%Y/%m/%d')
   end
   
-  def get_time(time)
+  def match_time(time)
     time.in_time_zone.strftime('%H:%M')
   end
   
@@ -21,20 +39,22 @@ module GamesHelper
   end
   
   def player_in?(sub, bench)
-    "#{sub["minute"]}' ↑" if bench["name"] == sub["playerIn"]["name"]
+    "#{sub['minute']}' ↑" if bench['name'] == sub['playerIn']['name']
   end
   
   def player_out?(sub, start)
-    "#{sub["minute"]}' ↓" if start["name"] == sub["playerOut"]["name"]
+    "#{sub['minute']}' ↓" if start['name'] == sub['playerOut']['name']
   end
   
   def goal_team?(goal, team)
-    if goal["type"] == "REGULAR" && goal["team"]["name"] == team
-      "#{goal["minute"]}' #{goal["scorer"]["name"]}"
-    elsif goal["type"] == "OWN" && goal["team"]["name"] == team
-      "#{goal["minute"]}' #{goal["scorer"]["name"]}(OG)"
-    elsif goal["type"] == "PENALTY" && goal["team"]["name"] == team
-      "#{goal["minute"]}' #{goal["scorer"]["name"]}(PK)"
+    if goal['team']['name'] == team
+      if goal['type'] == "REGULAR"
+        "#{goal['minute']}' #{goal['scorer']['name']}"
+      elsif goal['type'] == "OWN"
+        "#{goal['minute']}' #{goal['scorer']['name']}(OG)"
+      elsif goal['type'] == "PENALTY"
+        "#{goal['minute']}' #{goal['scorer']['name']}(PK)"
+      end
     end
   end
   
@@ -66,5 +86,4 @@ module GamesHelper
     "#{match['score']['halfTime']['homeTeam']} - #{match['score']['halfTime']['awayTeam']}" 
   end
     
-  
 end

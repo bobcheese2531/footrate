@@ -1,32 +1,33 @@
 %div.mt-2.text-right
-  = link_to '評価する', new_rate_path(game_id: params[:id]), class: "btn btn-outline-primary btn-lg" 
+  = link_to '評価する', new_rate_path(game_id: params[:id]), class: "btn btn-outline-primary btn-lg" if match_finished?(@match['status'])
   
 // スコアカード
 %div.card.border-dark.container.my-3
   %div.row.d-flex.justify-content-between
     %div.col-5.text-left.pt-2
       %h2
-        = image_tag team_logo(@match["homeTeam"]["id"]), size: "60x60"
+        = image_tag team_logo(@match['homeTeam']['id']), size: "60x60"
         &nbsp;
         = score_home(@match)
-      %h2.d-none.d-lg-block= @match["homeTeam"]["name"]
-      - @match["goals"].each do |g|
-        %p= goal_team?(g, @match["homeTeam"]["name"])
+      %h2.d-none.d-lg-block= @match['homeTeam']['name']
+      - @match['goals'].each do |g|
+        %p= goal_team?(g, @match['homeTeam']['name'])
       
-    %div.col-2.text-center.pt-2 
+    %div.col-2.text-center.pt-2
       %h1 :
-      .small= game_date(@match['utcDate'])
-      .small= "@#{@match["venue"]}"
+      .small= match_date(@match['utcDate'])
+      .small= "@#{@match['venue']}"
       .small HTスコア
       =ht_score(@match) if match_finished?(@match['status'])
+      
     %div.col-5.text-right.pt-2
       %h2
         = score_away(@match)
         &nbsp;
-        = image_tag team_logo(@match["awayTeam"]["id"]), size: "60x60"
-      %h2.d-none.d-lg-block= @match["awayTeam"]["name"]
-      - @match["goals"].each do |g|
-        %p= goal_team?(g, @match["awayTeam"]["name"])
+        = image_tag team_logo(@match['awayTeam']['id']), size: "60x60"
+      %h2.d-none.d-lg-block= @match['awayTeam']['name']
+      - @match['goals'].each do |g|
+        %p= goal_team?(g, @match['awayTeam']['name'])
 
 // メンバー一覧     
 %div.container.mt-2

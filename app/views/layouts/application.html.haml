@@ -22,14 +22,16 @@
                 %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
                   コンペティション一覧
                 %div.dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}
-                  = link_to "プレミアリーグ", league_games_path(code: "PL", year: "", title: "プレミアリーグ", day: @matchday), class: "dropdown-item" 
-                  = link_to "ラ・リーガ", league_games_path(code: "PD", year: "", title: "ラ・リーガ", day: @matchday), class: "dropdown-item" 
-                  = link_to "ブンデスリーガ", league_games_path(code: "BL1", year: "", title: "ブンデスリーガ", day: @matchday), class: "dropdown-item" 
-                  = link_to "セリエＡ", league_games_path(code: "SA", year: "", title: "セリエＡ", day: @matchday), class: "dropdown-item" 
-                  = link_to "リーグ・アン", league_games_path(code: "FL1", year: "", title: "リーグ・アン", day: @matchday), class: "dropdown-item" 
-                  = link_to "チャンピオンズリーグ", cl_games_path(code: "CL", year: "", title: "チャンピオンズリーグ", stage: "GROUP_STAGE", day: 1), class: "dropdown-item" 
-                  = link_to "ユーロ", euro_games_path(code: "EC", year: "", title: "ユーロ2020", stage: "GROUP_STAGE", day: 1), class: "dropdown-item" 
-  
+                  = link_to "プレミアリーグ", league_games_path(code: "PL", year: "", day: @matchday), class: "dropdown-item" 
+                  = link_to "ラ・リーガ", league_games_path(code: "PD", year: "", day: @matchday), class: "dropdown-item" 
+                  = link_to "ブンデスリーガ", league_games_path(code: "BL1", year: "", day: @matchday), class: "dropdown-item" 
+                  = link_to "セリエＡ", league_games_path(code: "SA", year: "", day: @matchday), class: "dropdown-item" 
+                  = link_to "リーグ・アン", league_games_path(code: "FL1", year: "", day: @matchday), class: "dropdown-item" 
+                  = link_to "チャンピオンズリーグ", cl_games_path(code: "CL", year: "", stage: "GROUP_STAGE", day: 1), class: "dropdown-item" 
+                  = link_to "ユーロ", euro_games_path(code: "EC", year: "", stage: "GROUP_STAGE", day: 1), class: "dropdown-item" 
+              
+              %li= link_to "ベスト11", best_XI_rates_path, class: "nav-link"
+              
               - if user_signed_in?
                 %li.nav-item
                   = link_to "マイページ", "/users/#{current_user.id}", class: "nav-link"
@@ -40,8 +42,6 @@
                   = link_to "ログイン", new_user_session_path, class: "nav-link"
                 %li.nav-item
                   = link_to "新規作成", new_user_registration_path, class: "nav-link"
-                  
-              %li= link_to "ベスト11", best_XI_rates_path, class: "nav-link"
         
     / ナビゲーションバー終了
     / メインコンテンツ

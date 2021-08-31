@@ -1,12 +1,42 @@
 require 'rails_helper'
 
 RSpec.describe GamesHelper, type: :helper do
-  it "game_date(date)" do
-    expect(helper.game_date("2021-08-21T11:30:00Z")).to eq("2021/08/21")
+  context "competiton_title(code)" do
+    it "プレミアリーグ" do
+      expect(helper.competiton_title("PL")).to eq("プレミアリーグ")
+    end
+    
+    it "ラ・リーガ" do
+      expect(helper.competiton_title("PD")).to eq("ラ・リーガ")
+    end
+    
+    it "ブンデスリーガ" do
+      expect(helper.competiton_title("BL1")).to eq("ブンデスリーガ")
+    end
+    
+    it "セリエＡ" do
+      expect(helper.competiton_title("SA")).to eq("セリエＡ")
+    end
+    
+    it "リーグ・アン" do
+      expect(helper.competiton_title("FL1")).to eq("リーグ・アン")
+    end
+    
+    it "チャンピオンズリーグ" do
+      expect(helper.competiton_title("CL")).to eq("チャンピオンズリーグ")
+    end
+    
+    it "ユーロ" do
+      expect(helper.competiton_title("EC")).to eq("ユーロ2020")
+    end
   end
   
   it "game_date(date)" do
-    expect(helper.get_time("2021-08-21T11:30:00Z")).to eq("20:30")
+    expect(helper.match_date("2021-08-21T11:30:00Z")).to eq("2021/08/21")
+  end
+  
+  it "game_date(date)" do
+    expect(helper.match_time("2021-08-21T11:30:00Z")).to eq("20:30")
   end
   
   context "scorer?(scorer, player, type)" do
