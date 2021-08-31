@@ -1,8 +1,8 @@
 %h2.border-bottom
   = image_tag team_logo(team['id']), size: "50x50"
-  = team["name"]
+  = team['name']
 %div.container
   %div.row
     - side.each do |s|
       = form.fields_for :players do |f|
-        = render 'field_form', {f: f, player: s, team_id: team["id"]}
+        = render 'field_form', {f: f, player: s, team_id: team['id']}

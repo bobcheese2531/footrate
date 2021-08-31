@@ -1,12 +1,12 @@
 %div.col-12.col-md-2.col-lg-1.mb-1
   %div.form_group
-    = f.number_field :shirtnumber, value: player["shirtNumber"], name: "rate_form[players_attributes][][shirtnumber]", class: "form-control"
+    = f.number_field :shirtnumber, value: player['shirtNumber'], name: "rate_form[players_attributes][][shirtnumber]", class: "form-control"
 %div.col-xs-12.col-md-2.mb-1
   %div.form_group
-    = f.text_field :position, value: player["position"], name: "rate_form[players_attributes][][position]", class: "form-control"
+    = f.text_field :position, value: player['position'], name: "rate_form[players_attributes][][position]", class: "form-control"
 %div.col-12.col-md-2.mb-1
   %div.form_group
-    = f.text_field :name, value: player["name"], name: "rate_form[players_attributes][][name]", class: "form-control"
+    = f.text_field :name, value: player['name'], name: "rate_form[players_attributes][][name]", class: "form-control"
 %div.col-12.col-md-2.col-lg-1.mb-1
   %div.form_group
     = f.number_field :player_rate, value: 6, min: 1, max: 10, name: "rate_form[players_attributes][][player_rate]", class: "form-control"

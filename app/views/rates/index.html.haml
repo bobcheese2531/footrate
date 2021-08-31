@@ -2,7 +2,7 @@
   %div.row.d-flex.align-items-center.justify-content-between
     %div
       %h1
-        = link_to "投稿一覧", rates_path, class: "text-dark"
+        = link_to "投稿一覧", rates_path
     %div
       = form_with url: rates_path, method: :get, html: { class: "form-inline" }, local: true do |form|
         %div.col-xs-5.mr-2
