@@ -5,16 +5,9 @@
     %div.mx-2
       = link_to "編集", edit_user_path(@user), class: "btn btn-outline-secondary" if same_user?(@user)
 
-%div.container.mt-3
-  %div.row
-    %div.col-12
-      %h2.text-center
-        = image_tag team_logo(@user.like_team), size: "50x50"
-        の試合
-      = render 'games/games', matches: @matches
-    %div.col-12
-      %h2.text-center
-        = link_to "投稿一覧", rates_path
-      = render 'rates/rate_card', rates: @rates
-      %div.mt-2
-        = paginate @rates
+  = render 'simple_calendar/game_calendar', {user: @user, matches: @matches}
+      
+  %h2.text-center 自分の投稿 
+  = render 'rates/rate_card', rates: @rates
+  %div.mt-2
+    = paginate @rates

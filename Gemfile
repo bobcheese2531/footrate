@@ -91,6 +91,8 @@ gem 'virtus'
 
 gem 'pry-rails'
 
+gem 'simple_calendar', '~> 2.0'
+
 group :production do
   gem 'rails_12factor'
 end

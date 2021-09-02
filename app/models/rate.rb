@@ -11,5 +11,5 @@ class Rate < ApplicationRecord
   def self.search(search)
     search ? (where(['home_team LIKE ? OR away_team LIKE ?', "%#{search}%" ,"%#{search}%"])) : (all)
   end
-  
+
 end

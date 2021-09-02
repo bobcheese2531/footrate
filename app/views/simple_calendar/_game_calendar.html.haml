@@ -1,0 +1,19 @@
+%h1.text-center
+  = image_tag team_logo(user.like_team), size: "60x60"
+  = "のカレンダー"
+  
+= month_calendar do |date|
+  = date.day
+
+  -matches.each do |match|
+    - if date.strftime('%Y/%m/%d') == match_date(match['utcDate'])
+      %div.container.text-center
+        %div.row.mt-2
+          %div.col-lg-6
+            %p= image_tag team_logo(match['homeTeam']['id']), size: "30x30"
+            %p.h6= score_home(match) if match_finished?(match['status'])
+          %div.col-lg-6
+            %p= image_tag team_logo(match['awayTeam']['id']), size: "30x30"
+            %p.h6= score_away(match) if match_finished?(match['status'])
+        %p.h6= "#{match_time(match['utcDate'])}" if match_scheduled?(match['status'])
+        %p.h6= link_to "詳細", game_path(match['id']) if match_finished?(match['status'])

@@ -54,7 +54,9 @@ class RatesController < ApplicationController
   def set_members(team)
     sub = @match['substitutions'].select {|s| s['team']['name'] == team['name'] } 
     sub.each do |s|
-      team['lineup'] << { "name" => s['playerIn']['name'], "position" => sub_position(team['bench'], s['playerIn']['name']), "shirtNumber" => sub_number(team['bench'], s['playerIn']['name']) }
+      team['lineup'] << { "name" => s['playerIn']['name'], 
+                          "position" => sub_position(team['bench'], s['playerIn']['name']), 
+                          "shirtNumber" => sub_number(team['bench'], s['playerIn']['name']) }
     end
     team['lineup']
   end
