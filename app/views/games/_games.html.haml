@@ -6,12 +6,13 @@
         %div.col-9
           %p.pt-1
             = image_tag team_logo(m['homeTeam']['id']), size: "40x40"
-            = m['homeTeam']['name']
+            = link_to m['homeTeam']['name'], team_games_path(team_id: m['homeTeam']['id']), class: "text-dark"
             &nbsp;
             %strong= score_home(m) unless match_scheduled?(m['status'])
           %p.pb-1
+            
             = image_tag team_logo(m['awayTeam']['id']), size: "40x40"
-            = m['awayTeam']['name']
+            = link_to m['awayTeam']['name'], team_games_path(team_id: m['awayTeam']['id']), class: "text-dark"
             &nbsp;
             %strong= score_away(m) unless match_scheduled?(m['status'])
         %div.col-3.mb-2

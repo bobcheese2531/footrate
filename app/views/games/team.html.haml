@@ -1,0 +1,5 @@
+%div.container.mt-3
+  %h2.text-center.my-3 
+    =image_tag team_logo(params[:team_id]), size: "50x50"
+    ="の試合一覧"
+  = render 'games', matches: @matches

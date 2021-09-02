@@ -34,4 +34,9 @@ class GamesController < ApplicationController
     @scorers = result["scorers"]
   end
   
+  def team
+    result = Api::FootballData::Request.get_team_matches(params[:team_id])
+    @matches = result['matches']
+  end
+  
 end
