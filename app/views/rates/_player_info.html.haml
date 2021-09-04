@@ -1,5 +1,0 @@
-= image_tag team_logo(p.team_id), size: "40x40"
-%strong= "#{p.shirtnumber}・#{p.position }・#{p.name}"
-%p.alert-link.mt-2= "点数：#{p.player_rate}"
-%p.alert-link コメント：
-= p.rate_text.present? ? (simple_format(p.rate_text)) : ("なし")
