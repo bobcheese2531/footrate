@@ -19,7 +19,7 @@
             節
           %div.dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
             - 6.times do |i|
-              = link_to "#{i + 1}節",  cl_games_path(code: params[:code], year: params[:year], day: (i + 1)), class: "dropdown-item" 
+              = link_to "#{i + 1}節",  cl_games_path(code: params[:code], year: params[:year], stage: "GROUP_STAGE", day: (i + 1)), class: "dropdown-item" 
             = link_to "ラウンド・オブ・16", cl_games_path(code: params[:code], year: params[:year], stage: "ROUND_OF_16"), class: "dropdown-item"
             = link_to "準々決勝", cl_games_path(code: params[:code], year: params[:year], stage: "QUARTER_FINALS"), class: "dropdown-item"
             = link_to "準決勝", cl_games_path(code: params[:code], year: params[:year], stage: "SEMI_FINALS"), class: "dropdown-item"
@@ -30,3 +30,5 @@
 
 %div.container
   = render 'games', matches: @matches
+  
+  = render 'tournament_standings', standings: @standings
