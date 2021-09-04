@@ -2,7 +2,7 @@
   = image_tag team_logo(user.like_team), size: "60x60"
   = "のカレンダー"
   
-= month_calendar do |date|
+= week_calendar do |date|
   = date.day
 
   -matches.each do |match|
