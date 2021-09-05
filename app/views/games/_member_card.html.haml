@@ -1,9 +1,9 @@
 %div.col-sm-12.col-md-6
   %div.text-center
     %h3
-      = image_tag team_logo(match['id']), size: "50x50"
-      = match['name']
+      = image_tag team_logo(team['id']), size: "50x50"
+      = team['name']
   
-  = render 'members', {header: "スタメン", members: match['lineup'], match: @match}
-  = render 'members', {header: "ベンチ", members: match['bench'], match: @match}
+  = render 'members', {header: "スタメン", members: team['lineup'], match: @match}
+  = render 'members', {header: "ベンチ", members: team['bench'], match: @match}
           

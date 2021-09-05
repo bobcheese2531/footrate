@@ -1,8 +1,9 @@
-%h2.border-bottom
+%h2.border-bottom.py-2
   = image_tag team_logo(team['id']), size: "50x50"
   = team['name']
+  
 %div.container
   %div.row
-    - side.each do |s|
+    - players.each do |p|
       = form.fields_for :players do |f|
-        = render 'field_form', {f: f, player: s, team_id: team['id']}
+        = render 'field_form', {f: f, player: p, team_id: team['id']}

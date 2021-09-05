@@ -2,19 +2,15 @@
   - matches.each do |m|
     %div.card.col-12.col-lg-5.mx-1.my-2
       %p.border-bottom= match_date(m['utcDate'])
+      
       %div.row.d-flex.align-items-center
         %div.col-9
-          %p.pt-1
-            = image_tag team_logo(m['homeTeam']['id']), size: "40x40"
-            = link_to m['homeTeam']['name'], team_games_path(team_id: m['homeTeam']['id']), class: "text-dark"
-            &nbsp;
-            %strong= score_home(m) unless match_scheduled?(m['status'])
-          %p.pb-1
-            
-            = image_tag team_logo(m['awayTeam']['id']), size: "40x40"
-            = link_to m['awayTeam']['name'], team_games_path(team_id: m['awayTeam']['id']), class: "text-dark"
-            &nbsp;
-            %strong= score_away(m) unless match_scheduled?(m['status'])
+          = render 'game_score', {status: m['status'], team: m['homeTeam'], 
+                                  ft: m['score']['fullTime']['homeTeam'], p: m['score']['penalties']['homeTeam'] }
+                                  
+          = render 'game_score', {status: m['status'], team: m['awayTeam'], 
+                                  ft: m['score']['fullTime']['awayTeam'], p: m['score']['penalties']['awayTeam'] }
+          
         %div.col-3.mb-2
           - if match_finished?(m['status'])
             = link_to "詳細", game_path(m['id']), class: "btn btn-outline-primary" 

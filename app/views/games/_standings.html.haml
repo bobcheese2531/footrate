@@ -16,7 +16,7 @@
         %td= s["position"]
         %td
           = image_tag team_logo(s["team"]["id"]), size: "30x30"
-          .d-none.d-md-block= s["team"]["name"]
+          %h6.d-none.d-md-block= s["team"]["name"]
         %td= s["playedGames"]
         %td= s["won"]
         %td= s["draw"]

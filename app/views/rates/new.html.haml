@@ -5,7 +5,7 @@
   =form.hidden_field :away_team, value: @match['awayTeam']['name']
   =form.hidden_field :game_id, value: params[:game_id]
   
-  = render 'form', {form: form, team: @match['homeTeam'], side: @home}
-  = render 'form', {form: form, team: @match['awayTeam'], side: @away}      
+  = render 'form', {form: form, team: @match['homeTeam'], players: @home}
+  = render 'form', {form: form, team: @match['awayTeam'], players: @away}      
  
   = form.submit "投稿する", class: "btn btn-primary"

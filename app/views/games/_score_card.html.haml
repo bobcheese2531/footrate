@@ -1,0 +1,23 @@
+%div.card.border-dark.container.my-3
+  %div.row.d-flex.justify-content-between
+    %div.col-5.text-left.pt-2
+      %h2
+        = image_tag team_logo(match['homeTeam']['id']), size: "60x60"
+        &nbsp;
+        = score(match['score']['fullTime']['homeTeam'], match['score']['penalties']['homeTeam'])
+      = render 'games/goal_scorer', {goals: match['goals'], team: match['homeTeam']['name']}
+      
+    %div.col-2.text-center.pt-2
+      %h1 :
+      .d-none.d-lg-block
+        %h6= match_date(match['utcDate'])
+        %h6= "@#{match['venue']}"
+        %h6 HTスコア
+        %h6= ht_score(match) if match_finished?(match['status'])
+      
+    %div.col-5.text-right.pt-2
+      %h2
+        = score(match['score']['fullTime']['awayTeam'], match['score']['penalties']['awayTeam'])
+        &nbsp;
+        = image_tag team_logo(match['awayTeam']['id']), size: "60x60"
+      = render 'games/goal_scorer', {goals: match['goals'], team: match['awayTeam']['name']}

@@ -66,12 +66,8 @@ module GamesHelper
     status == "FINISHED"
   end
   
-  def score_home(m)
-    m['score']['fullTime']['homeTeam'].to_i - m['score']['penalties']['homeTeam'].to_i
-  end
-  
-  def score_away(m)
-    m['score']['fullTime']['awayTeam'].to_i - m['score']['penalties']['awayTeam'].to_i
+  def score(ft, p) 
+    ft.to_i - p.to_i
   end
   
   def penalties?(m)

@@ -1,3 +1,7 @@
+// スコアカード
+= render 'games/score_card', match: @match
+
+// 基本情報
 %p.text-right= "投稿日: #{@rate.created_at.strftime('%Y/%m/%d')}"
 %div.container
   %div.row.d-flex.align-items-center.justify-content-between
@@ -7,6 +11,8 @@
       = link_to "試合の詳細", game_path(@rate.game_id), class: "btn btn-outline-success mx-1"
       = link_to "削除", "/rates/#{@rate.id}", method: :delete, data: { confirm: "削除しますか？" } , class: "btn btn-outline-danger" if same_user?(@rate.user)
 
+
+// 評価一覧
 - @rate.players.each do |p|
   %div.card.my-2
     %div.card-body

@@ -7,6 +7,7 @@ class RatesController < ApplicationController
   
   def show
     @rate = Rate.find(params[:id])
+    set_match(@rate.game_id)
   end
   
   def new 

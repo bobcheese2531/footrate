@@ -1,0 +1,7 @@
+%p.py-1
+  = image_tag team_logo(team['id']), size: "40x40"
+  = link_to team['name'], team_games_path(team_id: team['id']), class: "text-dark"
+  &nbsp;
+  %strong= score(ft, p) unless match_scheduled?(status)
+
+ 
