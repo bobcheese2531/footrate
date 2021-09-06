@@ -23,7 +23,7 @@ class RateForm
     @params = params
     players_attributes = params[:players_attributes]
     @players ||= []
-    players_attributes&.map do |player_attribute|
+    players_attributes.map do |player_attribute|
       player = Player.new(player_attribute)
       @players.push(player)
     end
