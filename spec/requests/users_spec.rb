@@ -132,19 +132,6 @@ RSpec.describe "Users", type: :request do
       end
     end
     
-    context "パラメータが不当な場合" do
-      it "リダイレクトされること" do
-        put user_url @user, params: { user: FactoryBot.attributes_for(:user, :invalid) }
-        expect(response.status).to eq 302
-      end
-      
-      it "ユーザー名が更新されないこと" do
-        expect do
-          put user_url @user, params: { user: FactoryBot.attributes_for(:user, :invalid) }
-        end.to_not change(User.find(@user.id), :name)
-      end
-    end
-    
   end
   
 end

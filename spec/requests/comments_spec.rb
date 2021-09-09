@@ -3,19 +3,16 @@ require 'rails_helper'
 RSpec.describe "Comments", type: :request do
   describe "POST /create" do
     context "サインインしているとき" do
-      before do
-        @comment = create(:comment)
-        sign_in @comment.user
-      end
+     let(:comment) { create(:comment) }
       
       it "リクエストが成功すること" do
-        post game_comments_url(game_id: @comment.game_id), params: { comment: FactoryBot.attributes_for(:comment) }
+        post game_comments_url(game_id: comment.game_id), params: { comment: FactoryBot.attributes_for(:comment) }
         expect(response.status).to eq 302
       end
 
       it "コメントが保存されること" do
         expect do
-           post game_comments_url(game_id: @comment.game_id), params: { comment: FactoryBot.attributes_for(:comment) }
+           post game_comments_url(game_id: comment.game_id), params: { comment: FactoryBot.attributes_for(:comment) }
         end.to change(Comment, :count).by(1)
       end
     end

@@ -1,23 +1,23 @@
-%div.row.d-flex.align-items-center.justify-content-center
+%div.row.justify-content-center
   - matches.each do |m|
     %div.card.col-12.col-lg-5.mx-1.my-2
-      %p.border-bottom= match_date(m['utcDate'])
-      
-      %div.row.d-flex.align-items-center
-        %div.col-9
-          = render 'game_score', {status: m['status'], team: m['homeTeam'], 
-                                  ft: m['score']['fullTime']['homeTeam'], p: m['score']['penalties']['homeTeam'] }
-                                  
-          = render 'game_score', {status: m['status'], team: m['awayTeam'], 
-                                  ft: m['score']['fullTime']['awayTeam'], p: m['score']['penalties']['awayTeam'] }
-          
-        %div.col-3.mb-2
-          - if match_finished?(m['status'])
-            = link_to "詳細", game_path(m['id']), class: "btn btn-outline-primary" 
-          - elsif m['status'] == "IN_PLAY"
-            = link_to "#{m["minute"]}'", game_path(m['id']), class: "btn btn-outline-success" 
-          - elsif m['status'] == "PAUSED"
-            = link_to "HT", game_path(m['id']), class: "btn btn-outline-secondary" 
-          - elsif match_scheduled?(m['status'])
-            .btn.btn-outline-secondary= match_time(m['utcDate']) 
-    
+      %p.text-muted
+        = match_date(m['utcDate'])
+        = "・"
+        = match_time(m['utcDate'])
+        
+      %div.row
+        = render 'score_info', {team: m['homeTeam'], goals: m['goals']}
+        
+        %div.col-4.text-center.pt-2.my-3
+          - unless match_scheduled?(m['status'])
+            %h1
+              = m['score']['fullTime']['homeTeam']
+              = "-"
+              = m['score']['fullTime']['awayTeam']
+            = link_to "詳細", game_path(m['id'])
+          - else
+            %h2 vs
+            %p= "@#{m['venue']}"
+
+        = render 'score_info', {team: m['awayTeam'], goals: m['goals']}

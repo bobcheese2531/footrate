@@ -1,0 +1,4 @@
+%div.col-4.pt-2.text-center.my-3
+  .mb-3= image_tag team_logo(team['id']), size: "80x80"
+  - goals.each do |g|
+    %p= goal_team?(g, team['name'])

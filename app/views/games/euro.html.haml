@@ -1,9 +1,8 @@
 %div.container
-  %div.row.d-flex.align-items-center
-    %div.col-12.col-lg-8
-      %h1 
-        = link_to competiton_title(params[:code]), euro_games_path(code: params[:code], year: "", day: 1)
-    %div.col-12.col-lg-4
+  %div.mb-2
+    %h1.text-center= link_to competiton_title(params[:code]), euro_games_path(code: params[:code], year: "", day: 1)
+    
+    %div.d-flex.justify-content-center
       %div.row
         %div.dropdown.mx-1.my-1
           %button#dropdownMenuButton.btn.btn-outline-primary.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
@@ -20,5 +19,5 @@
 
   %div
     = render 'games', matches: @matches
-  
+    
     = render 'tournament_standings', standings: @standings

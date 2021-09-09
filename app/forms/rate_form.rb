@@ -23,7 +23,7 @@ class RateForm
     @params = params
     players_attributes = params[:players_attributes]
     @players ||= []
-    players_attributes.map do |player_attribute|
+    players_attributes&.map do |player_attribute|
       player = Player.new(player_attribute)
       @players.push(player)
     end
@@ -36,7 +36,7 @@ class RateForm
     return false if invalid?
     if @rate.persisted?
       @rate.players = players if players.present?
-      @rate.save!
+      @rate.saveT!
     else
       rate = Rate.new(user_id: user_id,
                       home_team: home_team,

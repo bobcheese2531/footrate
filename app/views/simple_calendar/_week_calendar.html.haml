@@ -11,11 +11,9 @@
     = link_to t('simple_calendar.next', default: '→'), calendar.url_for_next_view, class: "h1"
     
   %table.table.table-striped
-    %thead
-      %tr
-        - date_range.slice(0, 7).each do |day|
-          %th= t('date.abbr_day_names')[day.wday]
-    %tbody
+    %tr
+      - date_range.slice(0, 7).each do |day|
+        %th= t('date.abbr_day_names')[day.wday]
       - date_range.each_slice(7) do |week|
         %tr
           - week.each do |day|

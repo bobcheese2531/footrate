@@ -1,23 +1,16 @@
-%div.card.border-dark.container.my-3
-  %div.row.d-flex.justify-content-between
-    %div.col-5.text-left.pt-2
-      %h2
-        = image_tag team_logo(match['homeTeam']['id']), size: "60x60"
-        &nbsp;
-        = score(match['score']['fullTime']['homeTeam'], match['score']['penalties']['homeTeam'])
-      = render 'games/goal_scorer', {goals: match['goals'], team: match['homeTeam']['name']}
+%div.card.container.my-3
+  %div.row
+    = render 'games/score_info', {team: match['homeTeam'], goals: match['goals']}
       
-    %div.col-2.text-center.pt-2
-      %h1 :
-      .d-none.d-lg-block
-        %h6= match_date(match['utcDate'])
-        %h6= "@#{match['venue']}"
-        %h6 HTスコア
-        %h6= ht_score(match) if match_finished?(match['status'])
+    %div.col-4.text-center.pt-2.my-3
+      %h1
+        = match['score']['fullTime']['homeTeam']
+        = "-"
+        = match['score']['fullTime']['awayTeam']
+        .text-muted.mt-2
+          %h6= match_date(match['utcDate'])
+          %h6= "@#{match['venue']}"
+          %h6 HTスコア
+          %h6= ht_score(match) if match_finished?(match['status'])
       
-    %div.col-5.text-right.pt-2
-      %h2
-        = score(match['score']['fullTime']['awayTeam'], match['score']['penalties']['awayTeam'])
-        &nbsp;
-        = image_tag team_logo(match['awayTeam']['id']), size: "60x60"
-      = render 'games/goal_scorer', {goals: match['goals'], team: match['awayTeam']['name']}
+    = render 'games/score_info', {team: match['awayTeam'], goals: match['goals']}

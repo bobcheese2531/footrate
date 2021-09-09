@@ -1,13 +1,12 @@
 %div.container
-  %div.row.d-flex.align-items-center.justify-content-between
-    %div.col-12.col-lg-8
-      %h1 
-        = link_to competiton_title(params[:code]), cl_games_path(code: params[:code], year: "", day: 1)
-    %div.col-12.col-lg-4
+  %div.mb-2
+    %h1.text-center= link_to competiton_title(params[:code]), cl_games_path(code: params[:code], year: "", stage: "GROUP_STAGE", day: 1)
+    
+    %div.d-flex.justify-content-center
       %div.row
         %div.dropdown.mx-1.my-1
           %button#dropdownMenuButton.btn.btn-outline-secondary.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
-            シーズン一覧
+            シーズン
           %div.dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
             = link_to "現在のシーズン", cl_games_path(code: params[:code], year: "", day: 1), class: "dropdown-item" 
             = link_to "20-21シーズン", cl_games_path(code: params[:code], year: 2020, day: 1), class: "dropdown-item" 
@@ -20,15 +19,15 @@
           %div.dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
             - 6.times do |i|
               = link_to "#{i + 1}節",  cl_games_path(code: params[:code], year: params[:year], stage: "GROUP_STAGE", day: (i + 1)), class: "dropdown-item" 
-            = link_to "ラウンド・オブ・16", cl_games_path(code: params[:code], year: params[:year], stage: "ROUND_OF_16"), class: "dropdown-item"
-            = link_to "準々決勝", cl_games_path(code: params[:code], year: params[:year], stage: "QUARTER_FINALS"), class: "dropdown-item"
-            = link_to "準決勝", cl_games_path(code: params[:code], year: params[:year], stage: "SEMI_FINALS"), class: "dropdown-item"
-            = link_to "決勝", cl_games_path(code: params[:code], year: params[:year], stage: "FINAL"), class: "dropdown-item"
+              = link_to "ラウンド・オブ・16", cl_games_path(code: params[:code], year: params[:year], stage: "ROUND_OF_16"), class: "dropdown-item"
+              = link_to "準々決勝", cl_games_path(code: params[:code], year: params[:year], stage: "QUARTER_FINALS"), class: "dropdown-item"
+              = link_to "準決勝", cl_games_path(code: params[:code], year: params[:year], stage: "SEMI_FINALS"), class: "dropdown-item"
+              = link_to "決勝", cl_games_path(code: params[:code], year: params[:year], stage: "FINAL"), class: "dropdown-item"
         
         %div.mx-1.my-1
           = link_to "得点ランキング",  scorers_games_path(code: params[:code], year: params[:year]), class: "btn btn-outline-success"
 
-%div.container
+%div
   = render 'games', matches: @matches
   
   = render 'tournament_standings', standings: @standings

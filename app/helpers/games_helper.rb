@@ -66,10 +66,6 @@ module GamesHelper
     status == "FINISHED"
   end
   
-  def score(ft, p) 
-    ft.to_i - p.to_i
-  end
-  
   def penalties?(m)
     m['score']['duration'] == "PENALTY_SHOOTOUT"
   end

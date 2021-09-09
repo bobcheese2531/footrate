@@ -7,7 +7,6 @@ RSpec.describe "Rates", type: :request do
       get rates_url
       expect(response).to be_successful
     end
-    
     it "200レスポンスが返ってくる" do
       get rates_url
       expect(response.status).to eq 200
@@ -28,6 +27,7 @@ RSpec.describe "Rates", type: :request do
       get rate_url @rate.id
       expect(response.status).to eq 200
     end
+    
   end
   
   describe "GET #new" do
@@ -61,7 +61,7 @@ RSpec.describe "Rates", type: :request do
     end
     context "パラメーターが有効な場合" do
       before do
-        @params = { rate_form: FactoryBot.attributes_for(:rate).merge(game_id: @game.id) }
+        @params = { rate_form: FactoryBot.attributes_for(:rate_form).merge(game_id: @game.id) }
       end
       it "投稿一覧へリダイレクトすること" do
         post rates_url, params: @params
@@ -77,7 +77,7 @@ RSpec.describe "Rates", type: :request do
     
     context "パラメーターが不正な場合" do
       before do
-        @params = { rate_form: FactoryBot.attributes_for(:rate, :invalid).merge(game_id: @game.id) }
+        @params = { rate_form: FactoryBot.attributes_for(:rate_form, :invalid).merge(game_id: @game.id) }
       end
       it "投稿が保存されないこと" do
         expect do

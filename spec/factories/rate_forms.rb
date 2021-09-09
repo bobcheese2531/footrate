@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :rate do
+  factory :rate_form do
     association :user, factory: :bob
     association :game
     home_team {"Manchester City"}
