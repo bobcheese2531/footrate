@@ -11,6 +11,4 @@ class User < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :like_team, presence: true
   
-  mount_uploader :image, ImageUploader
-  
 end

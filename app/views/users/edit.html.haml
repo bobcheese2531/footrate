@@ -6,9 +6,6 @@
       = f.label :name, "名前(必須)"
       = f.text_field :name
     %div.form-item
-      = f.label :image, "プロフィール画像"
-      = f.file_field :image
-    %div.form-item
       = f.label :like_team, "好きなチーム（必須）", class: "form-label mr-2"
       = f.select :like_team, options_for_select(@teams.map{|t|[t["name"], t["id"]]}), class: "form-control"
     %div.button-panel

@@ -188,3 +188,34 @@ thead {
   background: #4682b4;
   color: #e9e9e9;
 }
+
+.page-link {
+  color: #4682b4;
+}
+
+.pagination>li>a {          
+  border: none;     /*枠線をなくす*/
+}
+
+.page-item.bg>a{ 
+  background: #4682b4;
+  color: #e9e9e9;
+  }
+  
+.page-item>a:hover{ 
+  background: #4682b4;
+  color: #e9e9e9;
+  }
+
+.comment {
+  border-bottom: solid;
+  border-color: 	#99CCFF;
+  margin-top: 10px;
+}
+
+.nav-link.bg {
+  background: #4682b4;
+  color: white;
+  border-radius: 20px;
+}
+
