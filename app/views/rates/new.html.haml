@@ -1,4 +1,4 @@
-%h1 新規投稿
+%h1.midasi 新規投稿
 
 = form_with model: @rate, url: rates_path, local: true do |form|
   =form.hidden_field :home_team, value: @match['homeTeam']['name']
@@ -8,4 +8,4 @@
   = render 'form', {form: form, team: @match['homeTeam'], players: @home}
   = render 'form', {form: form, team: @match['awayTeam'], players: @away}      
  
-  = form.submit "投稿する", class: "btn btn-primary"
+  .text-right= form.submit "投稿する", class: "btn"

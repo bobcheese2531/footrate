@@ -1,13 +1,10 @@
-%div.container
-  %div.row.d-flex.align-items-center
-    %div.mx-2
-      %h1 マイページ
-    %div.mx-2
-      = link_to "編集", edit_user_path(@user), class: "btn btn-outline-secondary" if same_user?(@user)
+.text-right.my-2= link_to "編集", edit_user_path(@user), class: "btn" if same_user?(@user)
+%h1.midasi マイページ
 
-  = render 'simple_calendar/game_calendar', {user: @user, matches: @matches}
+
+= render 'simple_calendar/game_calendar', {user: @user, matches: @matches}
       
-  %h2.text-center 自分の投稿 
-  = render 'rates/rate_card', rates: @rates
-  %div.mt-2
-    = paginate @rates
+%h1.midasi 自分の投稿 
+= render 'rates/rate_card', rates: @rates
+%div.mt-2
+  = paginate @rates

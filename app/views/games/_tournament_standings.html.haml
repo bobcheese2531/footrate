@@ -1,11 +1,11 @@
-%h2.text-center.my-2 順位表
+%h1.midasi 順位表
 %div.container-fluid
   %div.row.d-flex.align-items-center.justify-content-center
     - standings.each do |s|
       %div.col-xs-12.mx-3.my-3
-        %h5.text-center= s['group']
+        %h5.text-center.midasi= s['group']
         %table.table
-          %thead.thead-light
+          %thead
             %tr.text-center
               %th 順位
               %th クラブ

@@ -15,7 +15,15 @@
               = m['score']['fullTime']['homeTeam']
               = "-"
               = m['score']['fullTime']['awayTeam']
-            = link_to "詳細", game_path(m['id'])
+              
+            - if match_finished?(m['status'])
+              = link_to "詳細", game_path(m['id']), class: "midasi"
+            - elsif m['status'] == "IN_PLAY"
+              = link_to "ライブ", game_path(m['id']), class: "danger"
+            - elsif m['status'] == "PAUSED"
+              = link_to "HT", game_path(m['id']), class: "text-muted"
+              
+
           - else
             %h2 -
             %p= "@#{m['venue']}"

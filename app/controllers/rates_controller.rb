@@ -2,7 +2,7 @@ class RatesController < ApplicationController
   before_action :authenticate_user!, except: %i(index show best_XI)
   
   def index
-    @rates = Rate.get_rates.paginate(params[:page], 9).search(params[:search])
+    @rates = Rate.get_rates.paginate(params[:page], 15).search(params[:search])
   end
   
   def show

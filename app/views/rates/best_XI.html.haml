@@ -1,4 +1,4 @@
-%h1.text-center FootRateベストXI
+%h1.midasi FootRateベストXI
 
 %div.container.bg-success
   %div.row
@@ -14,7 +14,7 @@
   %div.row
     - @df.each do |df|
       %div.col-3.text-center.my-3
-        = render 'rate/player', player: df
+        = render 'rates/player', player: df
         
   %div.text-center.my-3
     - @gk.each do |gk|

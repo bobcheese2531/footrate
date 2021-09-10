@@ -1,16 +1,16 @@
 %div.container.mt-3
-  %h2.text-center.my-3 今週のピックアップマッチ 
+  %h1.midasi 今週のピックアップマッチ 
   = render 'games', matches: @matches
  
 %div.container 
   %div.row.d-flex.justify-content-center
     %div.col-12     
-      %h2.text-center.my-3　最新の投稿
+      %h1.midasi 最新の投稿
       = render 'rates/rate_card', rates: @rates
-      .text-center= link_to "投稿一覧へ", rates_path
+      .text-center= link_to "投稿一覧へ", rates_path, class: "midasi"
     
     %div.col-12.col-lg-4
-      %h2.my-3.text-center 選手ランキング
+      %h1.midasi 選手ランキング
       %table.table
         %thead
           %tr

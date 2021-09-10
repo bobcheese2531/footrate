@@ -1,14 +1,14 @@
 .simple-calendar
   .calendar-heading.my-2.text-center
-    = link_to t('simple_calendar.previous', default: '←'), calendar.url_for_previous_view, class: "h1"
+    = link_to t('simple_calendar.previous', default: '←'), calendar.url_for_previous_view, class: "h1 midasi"
     - if calendar.number_of_weeks == 1
-      %span.calendar-title.h1
+      %span.calendar-title.h1.midasi
         = t('date.month_names')[start_date.month]
     - else
-      %span.calendar-title.h1
+      %span.calendar-title
         = t('date.month_names')[start_date.month]
         \- #{calendar.end_week}
-    = link_to t('simple_calendar.next', default: '→'), calendar.url_for_next_view, class: "h1"
+    = link_to t('simple_calendar.next', default: '→'), calendar.url_for_next_view, class: "h1 midasi"
     
   %table.table.table-striped
     %tr

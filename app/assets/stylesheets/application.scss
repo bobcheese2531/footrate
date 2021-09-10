@@ -37,10 +37,11 @@
 }
 
 .user-name {
-  background-color: #eee;
+  color: #4682b4;
+  background-color: #e9e9e9;
   padding: 0px 10px;
   border-radius: 10px;
-  border: solid #ccc;;
+  border: solid #4682b4;;
   font-weight: 500;
 }
 
@@ -73,7 +74,7 @@ body {
 
 h1 {
   text-align: center;
-  padding: 1em 0;
+  padding: 0.75em 0;
 }
 
 form {
@@ -108,7 +109,7 @@ form {
 }
 
 .button-panel .button {
-  background: #f16272;
+  background: #4682b4;
   border: none;
   color: #fff;
   cursor: pointer;
@@ -123,7 +124,7 @@ form {
 }
 
 .button:hover {
-  background: #ee3e52;
+  background: #87cefa;
 }
 
 .form-footer {
@@ -157,4 +158,33 @@ form {
   80%, 100% {
     opacity: 1;
   }
+}
+
+.midasi{
+  color: #4682b4;
+}
+
+.btn {
+  color: #4682b4;
+  border-color: #4682b4;
+}
+
+.btn:hover {
+  background: #4682b4;
+  color: #e9e9e9;
+}
+
+.btn.danger {
+  color: #cd5c5c;
+  border-color: #cd5c5c;
+}
+
+.btn.danger:hover {
+  color: #e9e9e9;
+  background: #cd5c5c;
+}
+
+thead {
+  background: #4682b4;
+  color: #e9e9e9;
 }

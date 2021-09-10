@@ -4,7 +4,7 @@ class GamesController < ApplicationController
   
   def index
     set_league_matches("PL", "", @matchday)
-    @rates = Rate.get_rates.limit(9)
+    @rates = Rate.get_rates.order(id: "DESC").limit(9)
     @rankings = Player.rankings
   end
   

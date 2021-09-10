@@ -1,9 +1,8 @@
-%div.justify-content-end.mt-3
-  %h1.text-center= link_to "投稿一覧", rates_path
-  %div.d-flex.justify-content-center
-    = form_with url: rates_path, method: :get, html: { class: "form-inline mt-2" }, local: true do |form|
-      = form.search_field :search, :placeholder => "チーム名を入力", class: "form-control mr-2"
-      = form.submit "search", class: "btn btn-outline-primary d-none d-lg-block"
+%h1.text-center= link_to "投稿一覧", rates_path, class: "midasi"
+%div.d-flex.justify-content-center
+  = form_with url: rates_path, method: :get, html: { class: "form-inline mt-2" }, local: true do |form|
+    = form.search_field :search, :placeholder => "チーム名を入力", class: "form-control mr-2"
+    = form.submit "search", class: "btn d-none d-lg-block"
       
 %div.container.mt-3  
   = render 'rate_card', rates: @rates 
