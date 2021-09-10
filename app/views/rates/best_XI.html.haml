@@ -14,18 +14,8 @@
   %div.row
     - @df.each do |df|
       %div.col-3.text-center.my-3
-        = render 'rate,player', player: df
+        = render 'rate/player', player: df
         
   %div.text-center.my-3
     - @gk.each do |gk|
       = render 'rates/player', player: gk
-    
-
-
-
-
-
-
-  
-
-  
