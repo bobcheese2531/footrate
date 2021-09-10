@@ -1,33 +1,30 @@
-%h1 新規登録
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field.my-1
-    = f.label :name, "名前(必須)"
-    %br/
-    = f.text_field :name
-  .field.my-1
-    = f.label :email, "メールアドレス（必須）"
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field.my-1
-    = f.label :password, "パスワード（必須）"
-    - if @minimum_password_length
-      %em
-        (最低#{@minimum_password_length}文字)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field.my-1
-    = f.label :password_confirmation, "確認用パスワード（必須）"
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field.my-1
-    = f.label :image, "プロフィール画像"
-    %br/
-    = f.file_field :image
-    
-    .field.my-3
+%div.form-wrapper
+  %h1 新規登録
+  
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    %div.form-item
+      = f.label :name, "名前(必須)"
+      = f.text_field :name
+    %div.form-item
+      = f.label :email, "メールアドレス（必須）"
+      = f.email_field :email, autofocus: true, autocomplete: "email"
+    %div.form-item
+      = f.label :password, "パスワード（必須）"
+      - if @minimum_password_length
+        %em
+          (最低#{@minimum_password_length}文字)
+      = f.password_field :password, autocomplete: "new-password"
+    %div.form-item
+      = f.label :password_confirmation, "確認用パスワード（必須）"
+      = f.password_field :password_confirmation, autocomplete: "new-password"
+    %div.form-item
+      = f.label :image, "プロフィール画像"
+      = f.file_field :image
+    %div.form-item
       = f.label :like_team, "好きなチーム（必須）", class: "form-label mr-2"
       = f.select :like_team, options_for_select(@teams.map{|t|[t["name"], t["id"]]}), class: "form-control"
-  .actions.my-1
-    = f.submit "登録", class: "btn btn-primary"
-= render "devise/shared/links"
+    %div.button-panel
+      = f.submit "登録", class: "button"
+      
+    %div.form-footer
+      = render "devise/shared/links"

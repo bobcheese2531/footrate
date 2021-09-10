@@ -1,6 +1,6 @@
 %div.container
   %div.mb-2
-    %h1.text-center= link_to competiton_title(params[:code]), cl_games_path(code: params[:code], year: "", stage: "GROUP_STAGE", day: 1)
+    %h1= link_to competiton_title(params[:code]), cl_games_path(code: params[:code], year: "", stage: "GROUP_STAGE", day: 1)
     
     %div.d-flex.justify-content-center
       %div.row
@@ -19,15 +19,15 @@
           %div.dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
             - 6.times do |i|
               = link_to "#{i + 1}節",  cl_games_path(code: params[:code], year: params[:year], stage: "GROUP_STAGE", day: (i + 1)), class: "dropdown-item" 
-              = link_to "ラウンド・オブ・16", cl_games_path(code: params[:code], year: params[:year], stage: "ROUND_OF_16"), class: "dropdown-item"
-              = link_to "準々決勝", cl_games_path(code: params[:code], year: params[:year], stage: "QUARTER_FINALS"), class: "dropdown-item"
-              = link_to "準決勝", cl_games_path(code: params[:code], year: params[:year], stage: "SEMI_FINALS"), class: "dropdown-item"
-              = link_to "決勝", cl_games_path(code: params[:code], year: params[:year], stage: "FINAL"), class: "dropdown-item"
+            = link_to "ラウンド・オブ・16", cl_games_path(code: params[:code], year: params[:year], stage: "ROUND_OF_16"), class: "dropdown-item"
+            = link_to "準々決勝", cl_games_path(code: params[:code], year: params[:year], stage: "QUARTER_FINALS"), class: "dropdown-item"
+            = link_to "準決勝", cl_games_path(code: params[:code], year: params[:year], stage: "SEMI_FINALS"), class: "dropdown-item"
+            = link_to "決勝", cl_games_path(code: params[:code], year: params[:year], stage: "FINAL"), class: "dropdown-item"
         
         %div.mx-1.my-1
           = link_to "得点ランキング",  scorers_games_path(code: params[:code], year: params[:year]), class: "btn btn-outline-success"
 
-%div
-  = render 'games', matches: @matches
+  %div
+    = render 'games', matches: @matches
   
-  = render 'tournament_standings', standings: @standings
+    = render 'tournament_standings', standings: @standings

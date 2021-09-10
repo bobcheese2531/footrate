@@ -5,7 +5,7 @@ class Rate < ApplicationRecord
   
   has_many :players, dependent: :destroy
 
-  scope :get_rates, -> { includes(:user).includes(:players) } 
+  scope :get_rates, -> { includes(:user).includes(:players).order(id: "DESC") } 
   scope :paginate, -> (params, count) { page(params).per(count).order(id: "DESC") }
   
   def self.search(search)

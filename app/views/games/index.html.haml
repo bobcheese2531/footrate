@@ -5,10 +5,10 @@
 %div.container 
   %div.row.d-flex.justify-content-center
     %div.col-12     
-      %h2.text-center.my-3
-        = link_to "投稿一覧", rates_path
+      %h2.text-center.my-3　最新の投稿
       = render 'rates/rate_card', rates: @rates
- 
+      .text-center= link_to "投稿一覧へ", rates_path
+    
     %div.col-12.col-lg-4
       %h2.my-3.text-center 選手ランキング
       %table.table

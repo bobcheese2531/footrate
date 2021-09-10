@@ -1,19 +1,15 @@
-%h1 プロフィール編集
+%div.form-wrapper
+  %h1 編集
 
-= form_for(@user) do |f|
-  %div.container
-    %div
-      %div.form-inline.my-3
-        = f.label :name, "名前", class: "form-label mr-2"
-        = f.text_field :name, class: "form-control"
-        
-      %div.form-group.my-3
-        = f.label :image, "プロフィール画像", class: "form-label mr-2"
-        = f.file_field :image, class: "form-control-file"
-        
-      %div.form-inline.my-3
-        = f.label :like_team, "好きなチーム", class: "form-label mr-2"
-        = f.select :like_team, options_for_select(@teams.map{|t|[t['name'], t['id']]}),class: "form-control"
-  
-  = f.submit "編集する", class: "btn btn-primary"
-  
+  = form_for(@user) do |f|
+    %div.form-item
+      = f.label :name, "名前(必須)"
+      = f.text_field :name
+    %div.form-item
+      = f.label :image, "プロフィール画像"
+      = f.file_field :image
+    %div.form-item
+      = f.label :like_team, "好きなチーム（必須）", class: "form-label mr-2"
+      = f.select :like_team, options_for_select(@teams.map{|t|[t["name"], t["id"]]}), class: "form-control"
+    %div.button-panel
+      = f.submit "編集", class: "button"

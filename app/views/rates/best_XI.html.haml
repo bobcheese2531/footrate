@@ -4,21 +4,21 @@
   %div.row
     - @fw.each do |fw|
       %div.col-4.text-center.my-3
-        = render 'player', player: fw
+        = render 'rates/player', player: fw
         
   %div.row
     - @mf.each do |mf|
       %div.col-4.text-center.my-3
-        = render 'player', player: mf
+        = render 'rates/player', player: mf
         
   %div.row
     - @df.each do |df|
       %div.col-3.text-center.my-3
-        = render 'player', player: df
+        = render 'rate,player', player: df
         
   %div.text-center.my-3
     - @gk.each do |gk|
-      = render 'player', player: gk
+      = render 'rates/player', player: gk
     
 
 
