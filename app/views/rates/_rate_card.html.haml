@@ -1,12 +1,17 @@
 %div.row.d-flex.align-items-center.justify-content-center
   - rates.each do |r|
-    %div.card.col-12.col-lg-5.my-1.mx-1
-      %div.card-header.text-center
-        = link_to "#{r.user.name}の投稿", rate_path(r.id)    
-        .small.text-center= "投稿日: #{r.created_at.strftime('%Y/%m/%d')}"
-      %div.card-body
-        %p.card-text.text-center
-          = image_tag team_logo(r.players.first.team_id), size: "40x40" if r.players.present?
-          &emsp; vs &emsp;
-          = image_tag team_logo(r.players.last.team_id), size: "40x40" if r.players.present?
+    %div.card.col-12.col-lg-3.my-2.mx-1
+      %div.mt-2
+        %span.user-name= r.user.name
+      = link_to rate_path(r.id) do
+        %div.card-body.row.d-flex.align-items-center
+          %div.col-4
+            = image_tag team_logo(r.players.first.team_id), size: "60x60" if r.players.present?
+          %div.col-4
+            .text-center.text-dark vs
+          %div.col-4
+            = image_tag team_logo(r.players.last.team_id), size: "60x60" if r.players.present?
+        
+      %small.text-muted.text-right.pb-2= r.created_at.strftime('%Y/%m/%d')
+          
    

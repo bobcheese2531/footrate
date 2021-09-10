@@ -17,7 +17,7 @@
               = m['score']['fullTime']['awayTeam']
             = link_to "詳細", game_path(m['id'])
           - else
-            %h2 vs
+            %h2 -
             %p= "@#{m['venue']}"
 
         = render 'score_info', {team: m['awayTeam'], goals: m['goals']}
