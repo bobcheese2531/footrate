@@ -1,6 +1,6 @@
 %h1.midasi
   = image_tag team_logo(user.like_team), size: "60x60"
-  = "'s 週間スケジュール"
+  = "'s 試合"
   
 = week_calendar do |date|
   = date.day
@@ -11,9 +11,9 @@
         %div.row.mt-2
           %div.col-lg-6
             %p= image_tag team_logo(match['homeTeam']['id']), size: "30x30"
-            %p.h6= score(match['score']['fullTime']['homeTeam'], match['score']['penalties']['homeTeam']) if match_finished?(match['status'])
+            %p.h6= match['score']['fullTime']['homeTeam'] if match_finished?(match['status'])
           %div.col-lg-6
             %p= image_tag team_logo(match['awayTeam']['id']), size: "30x30"
-            %p.h6= score(match['score']['fullTime']['awayTeam'], match['score']['penalties']['awayTeam']) if match_finished?(match['status'])
+            %p.h6= match['score']['fullTime']['awayTeam'] if match_finished?(match['status'])
         %p.h6= "#{match_time(match['utcDate'])}" if match_scheduled?(match['status'])
-        %p.h6= link_to "詳細", game_path(match['id']) if match_finished?(match['status'])
+        %p.h6= link_to "詳細", game_path(match['id']), class: "midasi" if match_finished?(match['status'])

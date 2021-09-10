@@ -3,8 +3,9 @@
 
 
 = render 'simple_calendar/game_calendar', {user: @user, matches: @matches}
-      
-%h1.midasi 自分の投稿 
-= render 'rates/rate_card', rates: @rates
-%div.mt-2
-  = paginate @rates
+
+%div.container       
+  %h1.midasi 自分の投稿 
+  = render 'rates/rate_card', rates: @rates
+  %div.mt-2
+    = paginate @rates
