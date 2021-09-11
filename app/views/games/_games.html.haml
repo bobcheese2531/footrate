@@ -19,7 +19,7 @@
             - if match_finished?(m['status'])
               = link_to "詳細", game_path(m['id']), class: "midasi"
             - elsif m['status'] == "IN_PLAY"
-              = link_to "ライブ", game_path(m['id']), class: "danger"
+              = link_to "ライブ", game_path(m['id']), class: "btn danger"
             - elsif m['status'] == "PAUSED"
               = link_to "HT", game_path(m['id']), class: "text-muted"
               
