@@ -229,10 +229,11 @@ thead {
 	opacity : 0.1;
 	transform : translate(0, 10px);
 	transition : all 500ms;
-	}
+}
 
 /* 画面内に入った状態 */
 .fadein.scrollin {
 	opacity : 1;
 	transform : translate(0, 0);
-	}
+}
+
