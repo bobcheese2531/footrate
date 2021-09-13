@@ -14,6 +14,20 @@
 //= require activestorage
 //= require jquery
 //= require turbolinks
-//= require_tree .
 // = require popper
 // = require bootstrap-sprockets
+//= require_tree .
+
+/* global $ */
+$(function(){
+	$(window).scroll(function (){
+		$('.fadein').each(function(){
+			var elemPos = $(this).offset().top;
+			var scroll = $(window).scrollTop();
+			var windowHeight = $(window).height();
+			if (scroll > elemPos - windowHeight + 200){
+				$(this).addClass('scrollin');
+			}
+		});
+	});
+});

@@ -5,5 +5,16 @@
 %div.container
   %div.row
     - players.each do |p|
+      :javascript
+        var elem = document.getElementById('range');
+        var target = document.getElementById('value');
+        var rangeValue = function (elem, target) {
+          return function(evt){
+            target.innerHTML = elem.value;
+          }
+        }
+        elem.addEventListener('input', rangeValue(elem, target));
+        
       = form.fields_for :players do |f|
         = render 'field_form', {f: f, player: p, team_id: team['id']}
+        

@@ -1,6 +1,6 @@
 %div.row.d-flex.align-items-center.justify-content-center
   - rates.each do |r|
-    %div.card.col-12.col-lg-3.my-2.mx-1
+    %div.card.col-12.col-lg-3.my-2.mx-1.fadein
       %div.mt-2
         %span.user-name= r.user.name
       = link_to rate_path(r.id) do

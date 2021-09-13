@@ -28,5 +28,6 @@
 
   %div.mt-3
     = render 'games', matches: @matches
-
-    = render 'tournament_standings', standings: @standings
+    
+    %div.fadein
+      = render 'tournament_standings', standings: @standings

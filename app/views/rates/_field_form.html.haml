@@ -1,17 +1,20 @@
 %div.col-12.col-md-2.col-lg-1.mb-1
   %div.form_group
-    = f.number_field :shirtnumber, value: player['shirtNumber'], name: "rate_form[players_attributes][][shirtnumber]", class: "form-control"
+    = f.number_field :shirtnumber, value: player['shirtNumber'], name: "rate_form[players_attributes][][shirtnumber]", :readonly => true, class: "form-control"
 %div.col-xs-12.col-md-2.mb-1
   %div.form_group
-    = f.text_field :position, value: player['position'], name: "rate_form[players_attributes][][position]", class: "form-control"
+    = f.text_field :position, value: player['position'], name: "rate_form[players_attributes][][position]", :readonly => true, class: "form-control"
 %div.col-12.col-md-2.mb-1
   %div.form_group
-    = f.text_field :name, value: player['name'], name: "rate_form[players_attributes][][name]", class: "form-control"
-%div.col-12.col-md-2.col-lg-1.mb-1
+    = f.text_field :name, value: player['name'], name: "rate_form[players_attributes][][name]", :readonly => true , class: "form-control"
+%div.col-12.col-md-2.col-lg-3.mb-1
   %div.form_group
-    = f.number_field :player_rate, value: 6, min: 1, max: 10, name: "rate_form[players_attributes][][player_rate]", class: "form-control"
-%div.col-12.col-md-4.col-lg-6.mb-3
+    = f.range_field :player_rate, :in => 1..10, :step => 1, :value => 6, name: "rate_form[players_attributes][][player_rate]", :id=>"slider1"
+    %span#W1 6
+   
+%div.col-12.col-md-4.col-lg-4.mb-3
   %div.form_group
     = f.text_area :rate_text, :placeholder => "コメントを入力", name: "rate_form[players_attributes][][rate_text]", class: "form-control"
 
     = f.hidden_field :team_id, value: team_id, name: "rate_form[players_attributes][][team_id]"
+

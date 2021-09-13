@@ -2,14 +2,14 @@
   %h1.midasi 今週のピックアップマッチ 
   = render 'games', matches: @matches
  
-%div.container 
+%div.container.fadein
   %div.row.d-flex.justify-content-center
     %div.col-12     
       %h1.midasi 最新の投稿
       = render 'rates/rate_card', rates: @rates
       .text-center= link_to "投稿一覧へ", rates_path, class: "midasi"
     
-    %div.col-12.col-lg-4
+    %div.col-12.col-lg-4.fadein
       %h1.midasi 選手ランキング
       %table.table
         %thead
