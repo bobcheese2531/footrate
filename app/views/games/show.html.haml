@@ -1,21 +1,16 @@
 %div.mt-2.text-right
   = link_to '評価する', new_rate_path(game_id: params[:id]), class: "btn" if match_finished?(@match['status'])
   
-// スコアカード
+// score card
 = render 'score_card', match: @match
 
-// メンバー一覧     
+// members   
 %div.container.mt-2
   %div.row.d-flex.justify-content-between
     = render 'member_card', team: @match['homeTeam']
     = render 'member_card', team: @match['awayTeam']
 
-// コメント欄
+// comment
 %div.container.my-3
   = render 'comments/comments', comments: @comments
   = render 'comments/form', game: @game
-
-// 投稿一覧
-%div.container.mt-3  
-  %h1.midasi この試合の投稿
-  = render 'rates/rate_card', rates: @game.rates

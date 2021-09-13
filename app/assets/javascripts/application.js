@@ -31,11 +31,3 @@ $(function(){
 		});
 	});
 });
-
-$(function () {
-  $('.score').html($('.bar').val());
-  $('.bar').on('input change', function() {
-    $('.score').html($(this).val());
-  });
-});
-

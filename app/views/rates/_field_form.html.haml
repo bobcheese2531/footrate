@@ -8,10 +8,9 @@
   %div.form_group
     = f.text_field :name, value: player['name'], name: "rate_form[players_attributes][][name]", :readonly => true , class: "form-control"
 %div.col-12.col-md-2.col-lg-3.mb-1
-  %div.form_group
-    = f.label :player_rate, "評価:"
-    = f.range_field :player_rate, :in => 1..10, :step => 1, :value => 6, name: "rate_form[players_attributes][][player_rate]", :class=>"bar"
-    %span.score 5 
+  %div.range
+    = f.range_field :player_rate, :in => 1..10, :step => 1, :value => 6, name: "rate_form[players_attributes][][player_rate]"
+    %span.score 6
    
 %div.col-12.col-md-4.col-lg-4.mb-3
   %div.form_group
@@ -19,3 +18,19 @@
 
     = f.hidden_field :team_id, value: team_id, name: "rate_form[players_attributes][][team_id]"
 
+
+
+
+:javascript
+  var elem = document.getElementsByClassName('range');
+  var rangeValue = function (elem, target) {
+    return function(evt){
+      target.innerHTML = elem.value;
+    }
+  }
+  for(var i = 0, max = elem.length; i < max; i++){
+    bar = elem[i].getElementsByTagName('input')[0];
+    target = elem[i].getElementsByTagName('span')[0];
+    bar.addEventListener('input', rangeValue(bar, target));
+  }
+    
