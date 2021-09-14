@@ -5,11 +5,9 @@
         %span.user-name= r.user.name
       = link_to rate_path(r.id) do
         %div.card-body.row.d-flex.align-items-center
-          %div.col-4
+          %div.col-6.text-center
             = image_tag team_logo(r.players.first.team_id), size: "60x60" if r.players.present?
-          %div.col-4
-            .text-center.text-dark vs
-          %div.col-4
+          %div.col-6.text-center
             = image_tag team_logo(r.players.last.team_id), size: "60x60" if r.players.present?
         
       %small.text-muted.text-right.pb-2= r.created_at.strftime('%Y/%m/%d')
