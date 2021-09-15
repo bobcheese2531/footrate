@@ -1,6 +1,6 @@
 class Game < ApplicationRecord
   
-  #アソシエーション
+  #association
   has_many :rates, dependent: :destroy
   has_many :comments, dependent: :destroy
   

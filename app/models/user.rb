@@ -4,10 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
-  #アソシエーション
+  #association
   has_many :rates, dependent: :destroy
   has_many :comments, dependent: :destroy
-  #バリデーション
+  
+  #validation
   validates :name, presence: true, uniqueness: true
   validates :like_team, presence: true
   
