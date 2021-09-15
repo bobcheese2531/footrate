@@ -1,8 +1,11 @@
+// title
 %h1= link_to competiton_title(params[:code]), cl_games_path(code: params[:code], year: "", stage: "GROUP_STAGE", day: 1), class: "midasi"
 
 %div.container 
   %div.d-flex.justify-content-center
     %div.row
+    
+      // season button
       %div.dropdown.mx-1.my-1
         %button#dropdownMenuButton.btn.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
           シーズン
@@ -12,6 +15,7 @@
           = link_to "19-20シーズン", cl_games_path(code: params[:code], year: 2019, day: 1), class: "dropdown-item" 
           = link_to "18-19シーズン", cl_games_path(code: params[:code], year: 2018, day: 1), class: "dropdown-item" 
       
+      // matchday button
       %div.dropdown.mx-1.my-1
         %button#dropdownMenuButton.btn.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
           節
@@ -22,12 +26,15 @@
           = link_to "準々決勝", cl_games_path(code: params[:code], year: params[:year], stage: "QUARTER_FINALS"), class: "dropdown-item"
           = link_to "準決勝", cl_games_path(code: params[:code], year: params[:year], stage: "SEMI_FINALS"), class: "dropdown-item"
           = link_to "決勝", cl_games_path(code: params[:code], year: params[:year], stage: "FINAL"), class: "dropdown-item"
-        
+       
+      // score ranking button 
       %div.mx-1.my-1
         = link_to "得点ランキング",  scorers_games_path(code: params[:code], year: params[:year]), class: "btn"
-
+  
+  // matches
   %div.mt-3
     = render 'games', matches: @matches
     
+    standings
     %div.fadein
       = render 'tournament_standings', standings: @standings

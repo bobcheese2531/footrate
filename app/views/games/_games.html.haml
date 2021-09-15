@@ -1,14 +1,19 @@
 %div.row.justify-content-center
   - matches.each do |m|
     %div.card.col-12.col-lg-5.mx-1.my-2.fadein
+    
+      // date/time
       %p.text-muted.pt-2.pl-2
         = match_date(m['utcDate'])
         = "・"
         = match_time(m['utcDate'])
-        
+      
+      // match info
       %div.row
+        // home team
         = render 'score_info', {team: m['homeTeam'], goals: m['goals']}
         
+        // score
         %div.col-4.text-center.pt-2.my-3
           - unless match_scheduled?(m['status'])
             %h1
@@ -22,10 +27,9 @@
               = link_to "ライブ", game_path(m['id']), class: "btn danger"
             - elsif m['status'] == "PAUSED"
               = link_to "HT", game_path(m['id']), class: "text-muted"
-              
-
           - else
             %h2 -
             %p= "@#{m['venue']}"
-
+      
+        // away team
         = render 'score_info', {team: m['awayTeam'], goals: m['goals']}

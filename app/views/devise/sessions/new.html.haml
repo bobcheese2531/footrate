@@ -1,15 +1,24 @@
 %div.form-wrapper
+
+  // title
   %h1.midasi ログイン
   
+  // form
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    
+    // email
     %div.form-item
       = f.label :email, "メールアドレス"
       = f.email_field :email, autofocus: true, autocomplete: "email"
+      
+    // password
     %div.form-item
       = f.label :password, "パスワード"
       = f.password_field :password, autocomplete: "current-password"
+      
+    // button
     %div.button-panel
       = f.submit "ログイン", class: "button"
-      
+    
     %div.form-footer
       = render "devise/shared/links"

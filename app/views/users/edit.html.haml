@@ -1,12 +1,20 @@
 %div.form-wrapper
+  // title
   %h1.midasi 編集
 
+  // form
   = form_for(@user) do |f|
+    
+    // name
     %div.form-item
       = f.label :name, "名前(必須)"
       = f.text_field :name
+    
+    // like team
     %div.form-item
       = f.label :like_team, "好きなチーム（必須）", class: "form-label mr-2"
       = f.select :like_team, options_for_select(@teams.map{|t|[t["name"], t["id"]]}), class: "form-control"
+      
+    // button
     %div.button-panel
       = f.submit "編集", class: "button"

@@ -3,15 +3,21 @@
     %h3.text-center= header
   %div.card-body
     - members.each do |m|
+    
+      // player info 
       %p
         = m['shirtNumber'] 
         = m['position']
         = m['name']
         &nbsp;
+        
+        // Goal/Assist
         - match['goals'].each do |g|
           %strong.text-primary= scorer?(g['scorer']['name'], m['name'], g['type'])
           %strong.text-dark= assist?(g['assist']['name'], m['name']) if g['assist'].present?
         &nbsp;
+        
+        // sub
         - match['substitutions'].each do |sub|
           %strong.text-danger= player_out?(sub, m)
           %strong.text-success= player_in?(sub, m)

@@ -1,7 +1,9 @@
 %div.card.container.my-3
   %div.row
+    // home team
     = render 'games/score_info', {team: match['homeTeam'], goals: match['goals']}
-      
+    
+    // score
     %div.col-4.text-center.pt-2.my-3
       %h1
         = match['score']['fullTime']['homeTeam']
@@ -12,5 +14,6 @@
           %h6= "@#{match['venue']}"
           %h6 HTスコア
           %h6= ht_score(match) if match_finished?(match['status'])
-      
+          
+    // away team
     = render 'games/score_info', {team: match['awayTeam'], goals: match['goals']}

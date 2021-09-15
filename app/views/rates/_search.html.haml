@@ -1,0 +1,5 @@
+// form
+%div.d-flex.justify-content-center
+  = form_with url: rates_path, method: :get, html: { class: "form-inline mt-2" }, local: true do |form|
+    = form.search_field :search, :placeholder => "チーム名を入力", class: "form-control mr-2"
+    = form.submit "search", class: "btn d-none d-lg-block"

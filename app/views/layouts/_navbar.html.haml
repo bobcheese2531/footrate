@@ -1,9 +1,13 @@
 %nav.navbar.navbar-light.bg-light
+  // title
   %a.moji{:href => "/"} FootRate
   
+  // hamburger menu
   %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse", :type => "button"}
     %span.navbar-toggler-icon
   %div#navbarNav.collapse.navbar-collapse
+  
+    // links
     %ul.navbar-nav.text-center
       %li= link_to "投稿一覧", rates_path, class: "nav-link"
       %li= link_to "ベスト11", best_XI_rates_path, class: "nav-link"
@@ -15,7 +19,7 @@
         %li.nav-item= link_to "ログイン", new_user_session_path, class: "nav-link midasi"
         %li.nav-item= link_to "新規作成", new_user_registration_path, class: "nav-link"
 
-
+// league button
 %div.my-3.text-center
   %a#navbarDropdownMenuLink.dropdown-toggle.btn.league{"aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
     リーグを選択する

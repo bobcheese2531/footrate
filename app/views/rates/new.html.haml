@@ -1,11 +1,19 @@
+// title
 %h1.midasi 新規投稿
 
+// form
 = form_with model: @rate, url: rates_path, local: true do |form|
+  
+  // game info
   =form.hidden_field :home_team, value: @match['homeTeam']['name']
   =form.hidden_field :away_team, value: @match['awayTeam']['name']
   =form.hidden_field :game_id, value: params[:game_id]
   
+  // home team form
   = render 'form', {form: form, team: @match['homeTeam'], players: @home}
+  
+  // away team form
   = render 'form', {form: form, team: @match['awayTeam'], players: @away}      
- 
+  
+  // submit button
   .text-right= form.submit "投稿する", class: "btn"

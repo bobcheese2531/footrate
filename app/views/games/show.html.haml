@@ -1,3 +1,4 @@
+// new rate button
 %div.mt-2.text-right
   = link_to '評価する', new_rate_path(game_id: params[:id]), class: "btn" if match_finished?(@match['status'])
   

@@ -1,12 +1,14 @@
+// title
 %h1.text-center= link_to "投稿一覧", rates_path, class: "midasi"
-%div.d-flex.justify-content-center
-  = form_with url: rates_path, method: :get, html: { class: "form-inline mt-2" }, local: true do |form|
-    = form.search_field :search, :placeholder => "チーム名を入力", class: "form-control mr-2"
-    = form.submit "search", class: "btn d-none d-lg-block"
-      
+
+// search form
+= render 'search'
+
+// rates      
 %div.container.mt-3  
   = render 'rate_card', rates: @rates 
-  
+
+// pagination  
 %div.mt-3  
   = paginate @rates
   

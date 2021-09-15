@@ -1,15 +1,16 @@
+// gmes/show button
 .text-right= link_to "試合の詳細", game_path(@rate.game_id), class: "btn my-2"
 
-// スコアカード
+// score card
 = render 'games/score_card', match: @match
 
-// 基本情報
+// info 
 %p.text-right= "投稿日: #{@rate.created_at.strftime('%Y/%m/%d')}"
 %h1.midasi= "#{@rate.user.name}の投稿"
 .text-right= link_to "削除", "/rates/#{@rate.id}", method: :delete, data: { confirm: "削除しますか？" } , class: "btn danger" if same_user?(@rate.user)
 
 
-// 評価一覧
+// rates
 - @rate.players.each do |p|
   %div.card.my-2.fadein
     %div.card-body

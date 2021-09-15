@@ -13,13 +13,15 @@
   %body
     %div.container
       %header
+      
+        // navbar 
         =render 'layouts/navbar', matchday: @matchday
         
         
-    / メインコンテンツ
+    // main content
     %div.container.mx-auto
       = yield
 
-    / フッター
+    // footer
     %footer.footer
       %p.text-muted.text-center ©2021 Ryota Nakamura

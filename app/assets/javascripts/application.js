@@ -19,6 +19,7 @@
 //= require_tree .
 
 /* global $ */
+
 $(function(){
 	$(window).scroll(function (){
 		$('.fadein').each(function(){

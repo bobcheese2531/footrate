@@ -1,8 +1,12 @@
+// title
 %h1= link_to competiton_title(params[:code]), euro_games_path(code: params[:code], year: "", day: 1), class: "midasi"
+ 
  
 %div.container
   %div.d-flex.justify-content-center
     %div.row
+    
+      // matchday button
       %div.dropdown.mx-1.my-1
         %button#dropdownMenuButton.btn.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
           節
@@ -13,11 +17,15 @@
           = link_to "準々決勝", euro_games_path(code: params[:code], year: params[:year], stage: "QUARTER_FINAL"), class: "dropdown-item"
           = link_to "準決勝", euro_games_path(code: params[:code], year: params[:year], stage: "SEMI_FINAL"), class: "dropdown-item"
           = link_to "決勝", euro_games_path(code: params[:code], year: params[:year], stage: "FINAL"), class: "dropdown-item"
+          
+      // score ranking button    
       %div.mx-1.my-1
         = link_to "得点ランキング",  scorers_games_path(code: params[:code], year: params[:year]), class: "btn"
-
+  
+  // match info
   %div.mt-3
     = render 'games', matches: @matches
     
+    // standings
     %div.fadein
       = render 'tournament_standings', standings: @standings

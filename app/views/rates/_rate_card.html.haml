@@ -1,15 +1,22 @@
+// rate info 
 %div.row.d-flex.align-items-center.justify-content-center
   - rates.each do |r|
     %div.card.col-12.col-lg-3.my-2.mx-1.fadein
+    
+      // user name
       %div.mt-2
         %span.user-name= r.user.name
+        
       = link_to rate_path(r.id) do
         %div.card-body.row.d-flex.align-items-center
+        
+          // home team
           %div.col-6.text-center
             = image_tag team_logo(r.players.first.team_id), size: "60x60" if r.players.present?
+            
+          // away team
           %div.col-6.text-center
             = image_tag team_logo(r.players.last.team_id), size: "60x60" if r.players.present?
-        
+       
+      // date created 
       %small.text-muted.text-right.pb-2= r.created_at.strftime('%Y/%m/%d')
-          
-   

@@ -1,7 +1,9 @@
+// title
 %h1
   = image_tag team_logo(team['id']), size: "50x50"
   = team['name']
-  
+
+// player info  
 %div.container
   %div.row
     - players.each do |p|

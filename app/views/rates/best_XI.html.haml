@@ -1,21 +1,27 @@
+// title
 %h1.midasi FootRateベストXI
 
 %div.container.bg-success
+
+  // attacker
   %div.row
     - @fw.each do |fw|
       %div.col-4.text-center.my-3
         = render 'rates/player', player: fw
         
+  // midfieder       
   %div.row
     - @mf.each do |mf|
       %div.col-4.text-center.my-3
         = render 'rates/player', player: mf
-        
+  
+  // defender      
   %div.row
     - @df.each do |df|
       %div.col-3.text-center.my-3
         = render 'rates/player', player: df
         
+  // goalkeeper     
   %div.text-center.my-3
     - @gk.each do |gk|
       = render 'rates/player', player: gk

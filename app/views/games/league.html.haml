@@ -1,8 +1,11 @@
+// title
 %h1= link_to competiton_title(params[:code]), league_games_path(code: params[:code], year: "", day: 1), class:"midasi"
 
 %div.container
   %div.d-flex.justify-content-center
     %div.row
+      
+      // season button
       %div.dropdown.mx-1.my-1
         %button#dropdownMenuButton.btn.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
           シーズン
@@ -11,19 +14,23 @@
           = link_to "20-21シーズン", league_games_path(code: params[:code], year: 2020, day: 1), class: "dropdown-item" 
           = link_to "19-20シーズン", league_games_path(code: params[:code], year: 2019, day: 1), class: "dropdown-item" 
           = link_to "18-19シーズン", league_games_path(code: params[:code], year: 2018, day: 1), class: "dropdown-item" 
-            
+      
+      // matchday button      
       %div.dropdown.mx-1.my-1
         %button#dropdownMenuButton.btn.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
           節
         %div.dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
           - 38.times do |i|
             = link_to "#{i + 1}節",  league_games_path(code: params[:code], year: params[:year], day: (i + 1)), class: "dropdown-item"
-              
+      
+      // score ranking button        
       %div.mx-1.my-1
         = link_to "得点ランキング",  scorers_games_path(code: params[:code], year: params[:year]), class: "btn"
-        
+  
+  // matches      
   %div.mt-3
     = render 'games', matches: @matches
     
+    // standings
     %div.fadein
       = render 'standings', standings: @standings

@@ -86,7 +86,7 @@ thead {
   color: #e9e9e9;
 }
 
-// ドロップダウン
+// dropdown
 .dropdown-item{
   color: #4682b4;
 }
@@ -126,17 +126,6 @@ thead {
   color: #4682b4;
 }
 
-.l-wrapper_06 {
-  margin: 1rem auto;
-  width: 100%;
-}
-
-.l-wrapper_06:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 7px 34px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
-  transition: all .5s;
-}
-
 // kaminari
 .pagination {
   justify-content: center;
@@ -158,4 +147,16 @@ thead {
 .page-item>a:hover{ 
   background: #4682b4;
   color: #e9e9e9;
+}
+
+// wrapper
+.l-wrapper_06 {
+  margin: 1rem auto;
+  width: 100%;
+}
+
+.l-wrapper_06:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 7px 34px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
+  transition: all .5s;
 }
