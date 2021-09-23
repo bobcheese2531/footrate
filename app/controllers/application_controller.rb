@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
   end
   
   def set_matchday
-    @matchday = 4
+    @matchday = 6
   end
   
 end
