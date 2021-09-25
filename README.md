@@ -38,16 +38,16 @@
  週や月ごとにランキングやベスト11の表示を変更  
  リマインダー機能
 
- # 画像
+# デモ画像
  ## ユーザー関連
-  「devise」を用いてログイン機能を実装
+  deviseを用いてログイン機能を実装
   ### 新規登録
   <img width="278" alt="new_user" src="https://user-images.githubusercontent.com/78723740/134754018-4e44343e-b5bf-46ca-83af-9c7ebe95caac.png">
   ### ログイン
   <img width="278" alt="login" src="https://user-images.githubusercontent.com/78723740/134753998-a1450c0d-77f0-41ed-a228-286bff2cebd8.png">
   ### マイページ
-   自分の投稿に加え、  
-  「simple_calender」というgemを使用して、お気に入りのチームの試合の情報をカレンダーに表示
+  自分の投稿に加え、  
+  simple_calenderというgemを使用して、お気に入りのチームの試合の情報をカレンダーに表示
   ### 編集
 
  ## トップページ
@@ -55,38 +55,39 @@
  ![toppage](https://user-images.githubusercontent.com/78723740/134754012-89fef79f-1078-40c3-afb2-a49252ee8ed0.gif)
 
  ## コンペティション詳細
-  欧州5大リーグ、チャンピオンズリーグに加えて、ユーロの7コンペティションを扱っている
+ 欧州5大リーグ、チャンピオンズリーグに加えて、ユーロの7コンペティションを扱っている
   ![league](https://user-images.githubusercontent.com/78723740/134753994-a6add64b-7eac-4e40-8d32-a9eb78421419.gif)
   ### 選択
-   シーズン、節、得点ランキングなどを選択
-   ![select](https://user-images.githubusercontent.com/78723740/134754004-7134a2d1-a84f-4062-b63b-474fecefc88c.gif)
+  シーズン、節、得点ランキングなどを選択
+  ![select](https://user-images.githubusercontent.com/78723740/134754004-7134a2d1-a84f-4062-b63b-474fecefc88c.gif)
    
-## 試合詳細
+ ## 試合詳細
  出場選手、得点者、交代選手、コメントなどを表示
  ![show](https://user-images.githubusercontent.com/78723740/134754009-293955dc-1459-436b-8c96-3aec99ecc2ae.gif)
 
-## 投稿フォーム
+ ## 投稿フォーム
  スタメンの選手と控えの選手の情報を自動的に取得し、セット
  ![new](https://user-images.githubusercontent.com/78723740/134754002-204f547f-fefa-4c08-9252-55e38163f196.gif)
 
-## 評価関連
-### 評価一覧
-
-### 評価検索
-検索したいチーム名を入力
-
-### 評価詳細
-
-### 評価削除
-
+ ## 評価関連
+  ### 評価一覧
+  ![rate_index](https://user-images.githubusercontent.com/78723740/134754336-a102d0cd-2d01-41a8-9e78-d17076006241.gif)
+  ### 評価検索
+  検索したいチーム名を入力
+  ![rate_search](https://user-images.githubusercontent.com/78723740/134754341-93de22a3-a2fb-4fb8-86e9-521de7e78f46.gif)
+  ### 評価詳細
+  ![rate_show](https://user-images.githubusercontent.com/78723740/134754335-d6d8741c-d8f9-4782-b1a8-a86418cd4b24.gif)
+  ### 評価削除
+  ![rate_delete](https://user-images.githubusercontent.com/78723740/134754339-d8a0de0b-36c7-4577-891c-53f4586740f4.gif)
 
 # 開発環境
-## バックエンド
- Ruby 2.5.1  
- Ruby on Rails 5.2.5
-## フロントエンド
- HTML  
- CSS  
- JavaSCript
-## データベース
- MySQL
+ ## バックエンド
+  Ruby 2.5.1  
+  Ruby on Rails 5.2.5
+ ## フロントエンド
+  HTML  
+  CSS  
+  JavaSCript  
+  Bootstrap
+ ## データベース
+  MySQL
