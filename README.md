@@ -43,11 +43,14 @@
   deviseを用いてログイン機能を実装
   ### 新規登録
   <img width="278" alt="new_user" src="https://user-images.githubusercontent.com/78723740/134754018-4e44343e-b5bf-46ca-83af-9c7ebe95caac.png">
+  
   ### ログイン
   <img width="278" alt="login" src="https://user-images.githubusercontent.com/78723740/134753998-a1450c0d-77f0-41ed-a228-286bff2cebd8.png">
+  
   ### マイページ
   自分の投稿に加え、simple_calenderというgemを使用して、お気に入りのチームの試合の情報をカレンダーに表示
   ![mypage](https://user-images.githubusercontent.com/78723740/134754549-79d8b4ec-8b26-4651-a160-248e09889150.gif)
+  
   ### 編集
   <img width="277" alt="user_edit" src="https://user-images.githubusercontent.com/78723740/134754543-7b6a6b36-a01c-4c1c-a2f8-2342e13b5fb7.png">
 
