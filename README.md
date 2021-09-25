@@ -28,7 +28,7 @@
  試合のスタメン、得点者表示  
  投稿機能   
  評価検索機能  
- ベスト11機能  
+ ベストXI機能  
  ランキング機能  
  カレンダー機能  
  ログイン機能  
@@ -83,6 +83,9 @@
   ![rate_show](https://user-images.githubusercontent.com/78723740/134754335-d6d8741c-d8f9-4782-b1a8-a86418cd4b24.gif)
   ### 評価削除
   ![rate_delete](https://user-images.githubusercontent.com/78723740/134754339-d8a0de0b-36c7-4577-891c-53f4586740f4.gif)
+  ### ベストXI
+  <img width="839" alt="best11" src="https://user-images.githubusercontent.com/78723740/134754846-855e0e0a-f32d-4d01-9623-3484220d0165.png">
+
 
 # 開発環境
  ## バックエンド
