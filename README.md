@@ -39,24 +39,28 @@
  リマインダー機能
 
  # 画像
- ## ログイン
-
+ ## 新規登録・ログイン
+ <img width="278" alt="new_user" src="https://user-images.githubusercontent.com/78723740/134754018-4e44343e-b5bf-46ca-83af-9c7ebe95caac.png">
+.com/78723740/134754010-218499e4-cd73-4523-8dfc-594ab1fbc057.gif)
+<img width="278" alt="login" src="https://user-images.githubusercontent.com/78723740/134753998-a1450c0d-77f0-41ed-a228-286bff2cebd8.png">
 
  ## トップページ
- トップページには注目の試合と最大9つの投稿を表示
-
+ トップページには注目の試合・最大9つの投稿・選手のランキングを表示
+ ![toppage](https://user-images.githubusercontent.com/78723740/134754012-89fef79f-1078-40c3-afb2-a49252ee8ed0.gif)
 
 ## コンペティション詳細
  欧州5大リーグ、チャンピオンズリーグに加えて、ユーロの7コンペティションを扱っている
-
+ ![league](https://user-images.githubusercontent.com/78723740/134753994-a6add64b-7eac-4e40-8d32-a9eb78421419.gif)
 ### 選択
-
+ シーズン、節、得点ランキングなどを選択
+ ![select](https://user-images.githubusercontent.com/78723740/134754004-7134a2d1-a84f-4062-b63b-474fecefc88c.gif)
 ## 試合詳細
-
+ 出場選手、得点者、交代選手、コメントなどを表示
+ ![show](https://user-images.githubusercontent.com/78723740/134754009-293955dc-1459-436b-8c96-3aec99ecc2ae.gif)
 
 ## 投稿フォーム
 スタメンの選手と控えの選手の情報を自動的に取得し、セット
-
+![new](https://user-images.githubusercontent.com/78723740/134754002-204f547f-fefa-4c08-9252-55e38163f196.gif)
 
 ## 評価関連
 ### 評価一覧
