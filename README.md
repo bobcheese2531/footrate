@@ -48,7 +48,9 @@
   ### マイページ
   自分の投稿に加え、  
   simple_calenderというgemを使用して、お気に入りのチームの試合の情報をカレンダーに表示
+  ![mypage](https://user-images.githubusercontent.com/78723740/134754549-79d8b4ec-8b26-4651-a160-248e09889150.gif)
   ### 編集
+  <img width="277" alt="user_edit" src="https://user-images.githubusercontent.com/78723740/134754543-7b6a6b36-a01c-4c1c-a2f8-2342e13b5fb7.png">
 
  ## トップページ
  トップページには注目の試合・最大9つの投稿・選手のランキングを表示
