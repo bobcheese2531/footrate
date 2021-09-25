@@ -1,7 +1,7 @@
 # README
 
 # アプリケーション名:「FootRate」
- サッカー「football」の試合を観て出場した選手を評価「rate」して、他の人と意見を交換するアプリケーション。  
+ サッカー(football)の試合を観て出場した選手を評価(rate)して、他の人と意見を交換するアプリケーション。  
  
 # アプリケーション概要
  世の中にいる全欧州サッカーファンを対象にしたアプリケーションです。  
@@ -19,73 +19,82 @@
  *Herokuの都合上立ち上げに時間がかかってしまう可能性があります  
  https://footrate.herokuapp.com/  
  Eメール: a@a    
- パスワード: aaaaaa   
+ パスワード: aaaaaa  
+ ※ユーザー認証機能を実装しようと思いましたが、  
+ 　多くの人に気軽に使ってもらいたいと思ったため実在しないメールでも登録できるようにしています
 
 # 実装した機能
- 大量の試合データ表示
- 試合のスタメン、得点者表示
- 投稿機能  
+ 大量の試合データ表示  
+ 試合のスタメン、得点者表示  
+ 投稿機能   
  評価検索機能  
+ ベストXI機能  
+ ランキング機能  
+ カレンダー機能  
+ ログイン機能  
  
 # 実装予定の機能
- ユーザー認証機能  
- コメント機能
- 選手ランキング機能
- その他
+ サッカー関連のニュースを取得して表示  
+ 週や月ごとにランキングやベスト11の表示を変更  
+ リマインダー機能
 
- # 画像
- ## ログイン
-![login](https://user-images.githubusercontent.com/78723740/124237979-179f0c80-db53-11eb-8d1b-149fa0f8e4b0.gif)
+# デモ画像
+ ## ユーザー関連
+  deviseを用いてログイン機能を実装
+  ### 新規登録
+  <img width="278" alt="new_user" src="https://user-images.githubusercontent.com/78723740/134754018-4e44343e-b5bf-46ca-83af-9c7ebe95caac.png">
+  
+  ### ログイン
+  <img width="278" alt="login" src="https://user-images.githubusercontent.com/78723740/134753998-a1450c0d-77f0-41ed-a228-286bff2cebd8.png">
+  
+  ### マイページ
+  自分の投稿に加え、simple_calenderというgemを使用して、お気に入りのチームの試合の情報をカレンダーに表示
+  ![mypage](https://user-images.githubusercontent.com/78723740/134754549-79d8b4ec-8b26-4651-a160-248e09889150.gif)
+  
+  ### 編集
+  <img width="277" alt="user_edit" src="https://user-images.githubusercontent.com/78723740/134754543-7b6a6b36-a01c-4c1c-a2f8-2342e13b5fb7.png">
 
  ## トップページ
- トップページには注目の試合と最大9つの投稿を表示
-![game_index](https://user-images.githubusercontent.com/78723740/124237927-07872d00-db53-11eb-90f4-1722ded08051.gif)
+ トップページには注目の試合・最大9つの投稿・選手のランキングを表示
+ ![toppage](https://user-images.githubusercontent.com/78723740/134754012-89fef79f-1078-40c3-afb2-a49252ee8ed0.gif)
 
-## コンペティション詳細
+ ## コンペティション詳細
  欧州5大リーグ、チャンピオンズリーグに加えて、ユーロの7コンペティションを扱っている
-![games_league](https://user-images.githubusercontent.com/78723740/124237953-0f46d180-db53-11eb-8b0b-0bbb42a97de9.gif)
-### シーズンの選択
-過去3シーズンのデータを取得できる  
-順位表はAPIの都合上、直近のシーズンのみ表示
-![year_select](https://user-images.githubusercontent.com/78723740/124238070-2b4a7300-db53-11eb-8346-ee6ee2a09d36.gif)
-### 節の選択
-節ごとに試合の情報を分けて見やすくするだけでなく、API取得の速度を上げた
-![matchday_select](https://user-images.githubusercontent.com/78723740/124238023-21c10b00-db53-11eb-85f8-e557697ba842.gif)
-### 得点ランキング
-![score_ranking](https://user-images.githubusercontent.com/78723740/124238088-2c7ba000-db53-11eb-8241-ad33e7796ad1.gif)
+  ![league](https://user-images.githubusercontent.com/78723740/134753994-a6add64b-7eac-4e40-8d32-a9eb78421419.gif)
+  ### 選択
+  シーズン、節、得点ランキングなどを選択
+  ![select](https://user-images.githubusercontent.com/78723740/134754004-7134a2d1-a84f-4062-b63b-474fecefc88c.gif)
+   
+ ## 試合詳細
+ 出場選手、得点者、交代選手、コメントなどを表示
+ ![show](https://user-images.githubusercontent.com/78723740/134754009-293955dc-1459-436b-8c96-3aec99ecc2ae.gif)
 
-## 試合詳細
-ベンチに下がった選手には"↓"、控えとして出た選手には"↑"、得点した選手には"G"を横に表示
-![games_show](https://user-images.githubusercontent.com/78723740/124237962-11a92b80-db53-11eb-8373-9e2a7b86aced.gif)
+ ## 投稿フォーム
+ スタメンの選手と控えの選手の情報を自動的に取得し、セット
+ ![new](https://user-images.githubusercontent.com/78723740/134754002-204f547f-fefa-4c08-9252-55e38163f196.gif)
 
-## 投稿フォーム
-スタメンの選手と控えの選手の情報を自動的に取得し、セット
-![form](https://user-images.githubusercontent.com/78723740/124237921-0524d300-db53-11eb-8b82-c564efb8ad41.gif)
+ ## 評価関連
+  ### 評価一覧
+  ![rate_index](https://user-images.githubusercontent.com/78723740/134754336-a102d0cd-2d01-41a8-9e78-d17076006241.gif)
+  ### 評価検索
+  検索したいチーム名を入力
+  ![rate_search](https://user-images.githubusercontent.com/78723740/134754341-93de22a3-a2fb-4fb8-86e9-521de7e78f46.gif)
+  ### 評価詳細
+  ![rate_show](https://user-images.githubusercontent.com/78723740/134754335-d6d8741c-d8f9-4782-b1a8-a86418cd4b24.gif)
+  ### 評価削除
+  ![rate_delete](https://user-images.githubusercontent.com/78723740/134754339-d8a0de0b-36c7-4577-891c-53f4586740f4.gif)
+  ### ベストXI
+  <img width="839" alt="best11" src="https://user-images.githubusercontent.com/78723740/134754846-855e0e0a-f32d-4d01-9623-3484220d0165.png">
 
-## 評価関連
-### 評価一覧
-![rate_index](https://user-images.githubusercontent.com/78723740/124238056-2980af80-db53-11eb-8e99-52271ca6444e.gif)
-### 評価検索
-検索したいチーム名を入力
-![rate_search](https://user-images.githubusercontent.com/78723740/124238065-2ab1dc80-db53-11eb-8deb-e5ddc39d7f07.gif)
-### 評価詳細
-![rate_show](https://user-images.githubusercontent.com/78723740/124238072-2b4a7300-db53-11eb-9c66-41a9916987dc.gif)
-### 評価削除
-![rate_delete](https://user-images.githubusercontent.com/78723740/124238037-24bbfb80-db53-11eb-909a-74643586d04c.gif)
-
-## マイページ
-自分の好きなチームの情報と自分の投稿を表示
-![mypage](https://user-images.githubusercontent.com/78723740/124238030-238ace80-db53-11eb-8769-a17b66e7a585.gif)
-### 編集
-![user_edit](https://user-images.githubusercontent.com/78723740/124238067-2ab1dc80-db53-11eb-89cb-26cc0a2c35f6.gif)
 
 # 開発環境
-## バックエンド
- Ruby 2.5.1  
- Ruby on Rails 5.2.5
-## フロントエンド
- HTML  
- CSS  
- JavaSCript
-## データベース
- MySQL
+ ## バックエンド
+  Ruby 2.5.1  
+  Ruby on Rails 5.2.5
+ ## フロントエンド
+  HTML  
+  CSS  
+  JavaSCript  
+  Bootstrap
+ ## データベース
+  MySQL
