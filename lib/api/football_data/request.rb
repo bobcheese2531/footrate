@@ -43,6 +43,10 @@ module Api
       def self.fetch_data(url)
         @header = { 'X-Auth-Token': ENV['FOOTBALL_DATA_API_KEY'] }
         @client = HTTPClient.new
+        
+        # 一時的な対処
+        @client.ssl_config.verify_mode = OpenSSL::SSL::VERIFY_NONE
+        
         response = @client.get(url, header: @header)
         JSON.parse(response.body)
       end

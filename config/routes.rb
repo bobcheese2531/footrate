@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   
   resources :games, only: %i(index show) do
     collection do
-      get :league, :cl, :euro, :scorers, :team
+      get :league, :cl, :euro, :scorers
     end
     resources :comments, only: %i(create destroy)
   end
